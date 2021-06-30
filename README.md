@@ -1,16 +1,19 @@
-# it_megacom_hackthon
+Git
+Как работать с ветками и тикетами:
 
-A new Flutter project.
+Перед тем как начать делать тикет нужно спулить последние изменения из ветки main находясь на ветке main.
 
-## Getting Started
+git checkout main
+git pull origin main
 
-This project is a starting point for a Flutter application.
+После того как в вашей локальной ветке main появились последние изменения с удаленной ветки main, вам нужно создать свою ветку и работать уже в ней
+git checkout -b feature/1_add_readme
+Это создаст ветку feature/1_add_readme и переместит вас на неё
+Как хорошо называть ветки: если это фича то ветка начинается с префикса feature, затем идёт номер тикета и короткий заголовок ветки. Например если вы делаете тикет #14 (closed) то ветка будет называться feature/14_create_app_about_guests
+После того как вы поработали в вашей локальной ветке, насоздали комитов и считаете что закончили работу по тикету, перед тем как пушить свою ветку, нужно опять дополнительно СРЕБЕЙЗИТЬСЯ с ветки main находясь на вашей текущей рабочей ветке (например feature/1_add_readme)
 
-A few resources to get you started if this is your first Flutter project:
+git pull --rebase origin main
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Если при пересаживании изменений из ветки main в вашу ветку не произошло конфликтов, то можете смело пушить вашу ветку в репозиторий.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+git push origin feature/1_add_readme
