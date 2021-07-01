@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AcolorPalette {
-  static var white = Colors.white;
-  static var blue = Color(0xFF4BAFCF);
-  static var stormBackground = Color(0xFF2F4f71);
-  static var sunyBackground = Color(0xFFF6C17B);
+  static Color authback = Colors.white;
+  static Color textforgot = Colors.black;
+  static Color button = Colors.greenAccent[700];
+  static Color textfieldBorder = Colors.purple;
 }
