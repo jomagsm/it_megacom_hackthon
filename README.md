@@ -27,4 +27,3 @@ git push origin feature/1_add_readme
 Не забудьте галочку напротив Delete source branch. Не оставляйте в репозитории ветки которые уже слиты и более не нужны.
 
 
-test
