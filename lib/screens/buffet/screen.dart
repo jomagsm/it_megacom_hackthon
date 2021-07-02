@@ -73,7 +73,7 @@ class _BuffetPageState extends State<BuffetPage> {
                     color: Colors.black,
                   )),
               onTap: () {
-                print("Настройки");
+                print("Наи");
               },
             ),
           ],
