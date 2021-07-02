@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/theme/acolor_theme.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
@@ -10,6 +11,10 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  int _id;
+  String _password;
+  bool obsText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +33,12 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             SizedBox(height: 36),
             TextField(
+              keyboardType: TextInputType.number,
+              onChanged: (id) {
+                _id = int.parse(id);
+              },
               decoration: InputDecoration(
-                hintText: "ID student",
+                hintText: S.of(context).idStudent,
                 border: OutlineInputBorder(),
               ),
             ),
@@ -37,15 +46,23 @@ class _AuthScreenState extends State<AuthScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Text("Forgot password?"),
+                Text(S.of(context).forgotPassword),
               ],
             ),
             SizedBox(height: 5),
             TextField(
+              obscureText: obsText,
+              onChanged: (password) {
+                _password = password;
+              },
               decoration: InputDecoration(
-                hintText: "Пароль",
+                hintText: (S.of(context).password),
                 suffixIcon: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      obsText = !obsText;
+                    });
+                  },
                   icon: Icon(Icons.visibility_off_outlined,
                       color: AcolorPalette.textforgot),
                 ),
@@ -54,10 +71,11 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             SizedBox(height: 66),
             ElevatedButton(
-                onPressed: () {},
-                /* () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MainScreen())),*/
-                child: Text('Войти', style: AtextThemes.text),
+                onPressed: () {
+                  print(_id);
+                  print(_password);
+                },
+                child: Text(S.of(context).enterButton, style: AtextThemes.text),
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all<Size>(Size(190, 50)),
                   padding: MaterialStateProperty.all(

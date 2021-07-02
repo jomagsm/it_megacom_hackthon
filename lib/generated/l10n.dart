@@ -44,6 +44,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Забыл пароль?`
+  String get forgotPassword {
+    return Intl.message(
+      'Забыл пароль?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пароль`
+  String get password {
+    return Intl.message(
+      'Пароль',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Войти`
+  String get enterButton {
+    return Intl.message(
+      'Войти',
+      name: 'enterButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID студента`
+  String get idStudent {
+    return Intl.message(
+      'ID студента',
+      name: 'idStudent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
