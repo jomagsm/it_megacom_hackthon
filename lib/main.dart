@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:it_megacom_hackthon/screens/buffet/screen.dart';
+import 'package:it_megacom_hackthon/screens/buffet/widgets/model_payment_window.dart';
 import 'package:it_megacom_hackthon/screens/main_screen/screen.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BuffetPage(),
+      home: ModelPaymentWindow(),
     );
   }
 }
