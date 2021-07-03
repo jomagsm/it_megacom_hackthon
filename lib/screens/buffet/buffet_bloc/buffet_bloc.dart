@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
-import 'package:it_megacom_hackthon/generated/intl/messages_en.dart';
 
 part 'buffet_state.dart';
 part 'buffet_event.dart';
