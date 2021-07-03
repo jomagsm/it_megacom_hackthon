@@ -42,7 +42,15 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       _SelectedProductBuffetEvent event) async* {
     yield BuffetState.loading();
     var product = getProduct(event.productId);
-    buyingProduct.add(BuyingProduct(product: product, qnt: 1));
+    if (buyingProduct.length != 0) {
+      for (var i in buyingProduct) {
+        if (i.product.id == product.id) {
+          i.qnt += 1;
+        }
+      }
+    } else {
+      buyingProduct.add(BuyingProduct(product: product, qnt: 1));
+    }
     selectedProductsList.add(product);
     basketValue += product.price.round();
     yield BuffetState.data(
