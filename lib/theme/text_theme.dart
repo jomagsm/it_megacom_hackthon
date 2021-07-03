@@ -18,6 +18,12 @@ class TextThemes {
         height: getTextHeight(8, 25),
         color: ColorPalette.white),
   );
+  static var selectedProductprice = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 28,
+        height: getTextHeight(10, 20),
+        color: ColorPalette.productsCardSelectedBasket),
+  );
 }
 
 getTextHeight(double size, double height) {
