@@ -8,6 +8,16 @@ class Product {
   Product({this.id, this.name, this.price, this.qnt, this.avatar});
 }
 
+Product getProduct(productId) {
+  List<Product> products = getAllProduct();
+  for (var product in products) {
+    if (product.id == productId) {
+      return product;
+    }
+  }
+  return null;
+}
+
 List<Product> getAllProduct() {
   List<Product> products = [];
   products.add(Product(
