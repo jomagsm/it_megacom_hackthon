@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
+import 'package:it_megacom_hackthon/screens/buffet/widgets/products_list_grid.dart';
 
 import 'widgets/custom_app_bar.dart';
 
@@ -15,9 +16,7 @@ class _BuffetPageState extends State<BuffetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        height: 280,
-      ),
+      body: ProductsListGrid(),
     );
   }
 }
