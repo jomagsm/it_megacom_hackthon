@@ -15,6 +15,16 @@ class UserApp {
       this.avatar});
 }
 
+checkUser(int id, String password) {
+  List<UserApp> users = getAllUser();
+  for (var user in users) {
+    if (user.id == id && user.password == password) {
+      return true;
+    }
+  }
+  return false;
+}
+
 List<UserApp> getAllUser() {
   List<UserApp> usersList = [];
 

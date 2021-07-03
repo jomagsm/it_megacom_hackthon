@@ -84,6 +84,16 @@ class S {
       args: [],
     );
   }
+
+  /// `/шт`
+  String get qnt {
+    return Intl.message(
+      '/шт',
+      name: 'qnt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

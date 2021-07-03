@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ColorPalette {
   static var white = Colors.white;
   static var blue = Color(0xFF4BAFCF);
-  static var stormBackground = Color(0xFF2F4f71);
-  static var sunyBackground = Color(0xFFF6C17B);
+  static var productsCardName = Color.fromRGBO(0, 0, 0, 0.5);
+  static var productsCardCirculeAvatar = Color.fromRGBO(30, 30, 30, 0.85);
+  static var purple = Color(0xFF592A7E);
 }

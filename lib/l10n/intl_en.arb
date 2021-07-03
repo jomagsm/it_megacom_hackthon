@@ -3,5 +3,6 @@
 "forgotPassword": "Забыл пароль?",
 "password": "Пароль",
 "enterButton":"Войти",
-"idStudent": "ID студента"
+"idStudent": "ID студента",
+"qnt":"/шт"
 }
