@@ -37,4 +37,20 @@ class AtextThemes {
         fontWeight: FontWeight.normal,
         color: AcolorPalette.textforgot),
   );
+  static TextStyle passwordRequired = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 12, color: AcolorPalette.titleTf),
+  );
+  static TextStyle sumfDebt = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: AcolorPalette.textforgot));
+  static TextStyle listDebt = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: AcolorPalette.textforgot));
+  static TextStyle password = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 11, color: AcolorPalette.textforgot),
+  );
 }
