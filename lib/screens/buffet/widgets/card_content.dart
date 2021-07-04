@@ -19,7 +19,6 @@ class CardContent extends StatelessWidget {
             ? Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  // padding: EdgeInsets.symmetric(vertical: 10.0.h),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: ColorPalette.productsCardName,

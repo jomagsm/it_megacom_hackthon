@@ -57,7 +57,6 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
     } else {
       _buyingProductList.add(BuyingProduct(product: product, qnt: 1));
     }
-    print(_buyingProductList.length);
     _selectedProductsList.add(product);
     _basketValue += product.price.round();
     yield BuffetState.data(

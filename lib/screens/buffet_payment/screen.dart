@@ -3,6 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/list_view.dart';
+import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/color_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class PaymentModalWindow extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;
@@ -11,21 +16,53 @@ class PaymentModalWindow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(S.of(context).payDetail),
-          IconButton(
-            icon: SvgPicture.asset(SvgIconCollect.close),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          )
-        ],
-      ),
-      content: Column(
-        children: [],
+    return Container(
+      height: 51.0.h,
+      child: AlertDialog(
+        title: SizedBox(
+          width: 75.0.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(S.of(context).payDetail, style: TextThemes.paymentTitle),
+              IconButton(
+                icon: SvgPicture.asset(SvgIconCollect.close),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        ),
+        content: Expanded(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(width: 55),
+                  Text(
+                    "Наименование",
+                    style: AtextThemes.hintTextField,
+                  ),
+                  SizedBox(width: 64),
+                  Text(
+                    "Кол-во",
+                    style: AtextThemes.hintTextField,
+                  ),
+                  SizedBox(width: 30),
+                  Text(
+                    "Цена",
+                    style: AtextThemes.hintTextField,
+                  ),
+                ],
+              ),
+              BuyingProductListView(
+                buyingProduct: buyingProduct,
+              ),
+            ],
+          ),
+        ),
       ),
     );
     // return Container(
@@ -46,25 +83,25 @@ class PaymentModalWindow extends StatelessWidget {
     //                   )
     //                 ],
     //               ),
-    //               Row(
-    //                 children: [
-    //                   SizedBox(width: 55),
-    //                   Text(
-    //                     "Наименование",
-    //                     style: AtextThemes.hintTextField,
-    //                   ),
-    //                   SizedBox(width: 64),
-    //                   Text(
-    //                     "Кол-во",
-    //                     style: AtextThemes.hintTextField,
-    //                   ),
-    //                   SizedBox(width: 30),
-    //                   Text(
-    //                     "Цена",
-    //                     style: AtextThemes.hintTextField,
-    //                   ),
-    //                 ],
-    //               ),
+    // Row(
+    //   children: [
+    //     SizedBox(width: 55),
+    //     Text(
+    //       "Наименование",
+    //       style: AtextThemes.hintTextField,
+    //     ),
+    //     SizedBox(width: 64),
+    //     Text(
+    //       "Кол-во",
+    //       style: AtextThemes.hintTextField,
+    //     ),
+    //     SizedBox(width: 30),
+    //     Text(
+    //       "Цена",
+    //       style: AtextThemes.hintTextField,
+    //     ),
+    //   ],
+    // ),
     //               //////
     //               Container(
     //                   width: 450,

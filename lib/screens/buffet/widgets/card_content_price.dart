@@ -29,14 +29,7 @@ class CardContentPrice extends StatelessWidget {
                         style: TextThemes.productsPrice,
                         children: const <TextSpan>[
                           TextSpan(
-                            text: 'C',
-                            style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontSize: 12,
-                                color: Colors.white),
-                          ),
-                          TextSpan(
-                            text: '/шт',
+                            text: 'c/шт',
                           ),
                         ],
                       ),

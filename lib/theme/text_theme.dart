@@ -33,6 +33,12 @@ class TextThemes {
         height: getTextHeight(10, 20),
         color: ColorPalette.productsCardSelectedBasket),
   );
+  static var paymentTitle = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 10.0.sp,
+        fontWeight: FontWeight.w600,
+        color: ColorPalette.productsCardName),
+  );
 }
 
 getTextHeight(double size, double height) {
