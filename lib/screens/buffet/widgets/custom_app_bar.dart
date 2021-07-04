@@ -15,11 +15,11 @@ class CustomAppBar extends PreferredSize {
         child: AppBar(
       flexibleSpace: Stack(children: [
         Container(
-            margin: EdgeInsets.only(top: 28, bottom: 1, left: 1, right: 1),
+            //margin: EdgeInsets.only(top: 0, bottom: 1, left: 1, right: 1),
             decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: PageMedia.backgroundImage, fit: BoxFit.cover),
-            )),
+          image: DecorationImage(
+              image: PageMedia.backgroundImage, fit: BoxFit.cover),
+        )),
         Container(
             width: 130,
             height: 135,
