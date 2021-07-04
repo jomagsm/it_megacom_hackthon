@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/utils.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class CardContent extends StatelessWidget {
   final int index;
@@ -12,20 +13,21 @@ class CardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned.fill(
+    return Positioned(
         child: checkSelectedProduct(
                 data.productsList[index].id, data.selectedProductsList)
             ? Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
+                  // padding: EdgeInsets.symmetric(vertical: 10.0.h),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: ColorPalette.productsCardName,
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 1.75.h, vertical: 1.75.h),
                     child: Text(
                       data.productsList[index].name,
                       textAlign: TextAlign.left,
@@ -35,22 +37,24 @@ class CardContent extends StatelessWidget {
                 ),
               )
             : Container(
+                height: 31.0.h,
+                width: 47.0.w,
                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
                     color: ColorPalette.productsCardSelectedBackground),
-                padding: EdgeInsets.all(32),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width / 4,
-                      height: MediaQuery.of(context).size.width / 4,
+                      width: 9.0.h,
+                      height: 9.0.h,
                       child: SvgPicture.asset(
                         'assets/icons/shopping-basket 2.svg',
                         color: ColorPalette.productsCardSelectedBasket,
                       ),
                     ),
-                    Text("+${data.productsList[index].price.round()}",
-                        style: TextThemes.productsName)
+                    Text("+${data.productsList[index].price.round()} c",
+                        style: TextThemes.selectedProductprice)
                   ],
                 ),
               ));

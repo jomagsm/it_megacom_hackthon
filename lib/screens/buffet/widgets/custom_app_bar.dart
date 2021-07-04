@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/resource/images.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends PreferredSize {
   final double height;
@@ -35,7 +36,8 @@ class CustomAppBar extends PreferredSize {
               image: DecorationImage(image: PageMedia.itLogo),
             )),
         Container(
-            margin: EdgeInsets.only(top: 39, left: 357, right: 0),
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.only(right: 5.0.w),
             child: InkWell(
                 onTap: () => print('Wallet'),
                 child: Image.asset(

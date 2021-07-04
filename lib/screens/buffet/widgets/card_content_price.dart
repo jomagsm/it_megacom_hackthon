@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/utils.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class CardContentPrice extends StatelessWidget {
   final int index;
@@ -17,9 +18,9 @@ class CardContentPrice extends StatelessWidget {
             ? Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 20, right: 10),
+                  margin: EdgeInsets.only(bottom: 7.0.w, right: 10),
                   child: CircleAvatar(
-                    radius: 20,
+                    radius: 2.40.h,
                     backgroundColor: ColorPalette.productsCardCirculeAvatar,
                     child: RichText(
                       textAlign: TextAlign.center,
@@ -31,7 +32,7 @@ class CardContentPrice extends StatelessWidget {
                             text: 'C',
                             style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                fontSize: 8,
+                                fontSize: 12,
                                 color: Colors.white),
                           ),
                           TextSpan(

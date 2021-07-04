@@ -21,14 +21,6 @@ class ProductsListData extends StatelessWidget {
       appBar: CustomAppBar(
         height: 20.5.h,
       ),
-
-      // body: data.openModal
-      // ? Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) =>
-      //           PaymentModalWindow(buyingProduct: data.buyingProduct),
-      //     ))
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.all(24),
@@ -40,14 +32,16 @@ class ProductsListData extends StatelessWidget {
                 crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8),
             itemBuilder: (_, index) {
               return InkWell(
-                  onDoubleTap: () {
+                  onTap: () {
                     context.read<BuffetBloc>().add(BuffetEvent.selectedProduct(
                         productId: data.productsList[index].id));
                   },
                   child: Stack(
+                    alignment: Alignment.bottomCenter,
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width / 2,
+                        height: 31.0.h,
+                        width: 47.0.w,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                             image: DecorationImage(
