@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:sizer/sizer.dart';
 import 'color_theme.dart';
 
 class TextThemes {
   static var productsName = GoogleFonts.lato(
     textStyle: TextStyle(
-        fontSize: 10, height: getTextHeight(10, 20), color: ColorPalette.white),
+        fontSize: 7.0.sp,
+        height: getTextHeight(10, 20),
+        color: ColorPalette.white),
   );
+
   static var productsPrice = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 10, color: ColorPalette.white),
+    textStyle: TextStyle(fontSize: 6.0.sp, color: ColorPalette.white),
   );
+
+  static var productsPiceUnderline = TextStyle(
+      decoration: TextDecoration.underline,
+      fontSize: 6.0.sp,
+      color: ColorPalette.white);
+
   static var productsPriceSom = GoogleFonts.lato(
     textStyle: TextStyle(
         decoration: TextDecoration.underline,
@@ -20,7 +29,7 @@ class TextThemes {
   );
   static var selectedProductprice = GoogleFonts.lato(
     textStyle: TextStyle(
-        fontSize: 28,
+        fontSize: 15.0.sp,
         height: getTextHeight(10, 20),
         color: ColorPalette.productsCardSelectedBasket),
   );
