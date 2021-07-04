@@ -34,34 +34,32 @@ class PaymentModalWindow extends StatelessWidget {
             ],
           ),
         ),
-        content: Expanded(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(width: 55),
-                  Text(
-                    "Наименование",
-                    style: AtextThemes.hintTextField,
-                  ),
-                  SizedBox(width: 64),
-                  Text(
-                    "Кол-во",
-                    style: AtextThemes.hintTextField,
-                  ),
-                  SizedBox(width: 30),
-                  Text(
-                    "Цена",
-                    style: AtextThemes.hintTextField,
-                  ),
-                ],
-              ),
-              BuyingProductListView(
-                buyingProduct: buyingProduct,
-              ),
-            ],
-          ),
+        content: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(width: 55),
+                Text(
+                  "Наименование",
+                  style: AtextThemes.hintTextField,
+                ),
+                SizedBox(width: 64),
+                Text(
+                  "Кол-во",
+                  style: AtextThemes.hintTextField,
+                ),
+                SizedBox(width: 30),
+                Text(
+                  "Цена",
+                  style: AtextThemes.hintTextField,
+                ),
+              ],
+            ),
+            // BuyingProductListView(
+            //   buyingProduct: buyingProduct,
+            // ),
+          ],
         ),
       ),
     );

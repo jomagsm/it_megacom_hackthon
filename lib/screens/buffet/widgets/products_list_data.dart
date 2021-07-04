@@ -28,35 +28,40 @@ class ProductsListData extends StatelessWidget {
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: data.productsList.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8),
+            gridDelegate: SizerUtil.orientation == Orientation.portrait
+                ? SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8)
+                : SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, crossAxisSpacing: 8, mainAxisSpacing: 8),
             itemBuilder: (_, index) {
-              return InkWell(
-                  onTap: () {
-                    context.read<BuffetBloc>().add(BuffetEvent.selectedProduct(
-                        productId: data.productsList[index].id));
-                  },
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Container(
-                        height: 31.0.h,
-                        width: 47.0.w,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            image: DecorationImage(
-                              image:
-                                  NetworkImage(data.productsList[index].avatar),
-                              fit: BoxFit.cover,
-                            )),
-                      ),
-                      CardContent(data: data, index: index),
-                      CardContentPrice(
-                        data: data,
-                        index: index,
-                      ),
-                    ],
-                  ));
+              return Container(
+                child: InkWell(
+                    onTap: () {
+                      context.read<BuffetBloc>().add(
+                          BuffetEvent.selectedProduct(
+                              productId: data.productsList[index].id));
+                    },
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    data.productsList[index].avatar),
+                                fit: BoxFit.fill,
+                              )),
+                        ),
+                        CardContent(data: data, index: index),
+                        CardContentPrice(
+                          data: data,
+                          index: index,
+                        ),
+                      ],
+                    )),
+              );
             },
           ),
         ),

@@ -36,8 +36,6 @@ class CardContent extends StatelessWidget {
                 ),
               )
             : Container(
-                height: 31.0.h,
-                width: 47.0.w,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     color: ColorPalette.productsCardSelectedBackground),
@@ -45,7 +43,7 @@ class CardContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 9.0.h,
+                      width: double.infinity,
                       height: 9.0.h,
                       child: SvgPicture.asset(
                         'assets/icons/shopping-basket 2.svg',

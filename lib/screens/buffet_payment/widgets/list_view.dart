@@ -9,7 +9,7 @@ class BuyingProductListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Expanded(
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
