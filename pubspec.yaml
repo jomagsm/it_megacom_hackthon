@@ -36,6 +36,8 @@ dependencies:
   dio: ^3.0.10
   google_fonts: ^1.1.2
   badges: ^1.2.0
+  rflutter_alert: ^1.1.0
+  sizer: ^1.1.8
 
 dev_dependencies:
   flutter_test:

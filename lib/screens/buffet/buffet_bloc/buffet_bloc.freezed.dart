@@ -27,11 +27,15 @@ class _$BuffetStateTearOff {
   _DataBuffetState data(
       {@required List<Product> productsList,
       @required int basketValue,
-      @required List<Product> selectedProductsList}) {
+      @required List<Product> selectedProductsList,
+      @required List<BuyingProduct> buyingProduct,
+      @required bool openModal}) {
     return _DataBuffetState(
       productsList: productsList,
       basketValue: basketValue,
       selectedProductsList: selectedProductsList,
+      buyingProduct: buyingProduct,
+      openModal: openModal,
     );
   }
 
@@ -66,8 +70,12 @@ mixin _$BuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -76,8 +84,12 @@ mixin _$BuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -162,8 +174,12 @@ class _$_InitialBuffetState implements _InitialBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -182,8 +198,12 @@ class _$_InitialBuffetState implements _InitialBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -280,8 +300,12 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -300,8 +324,12 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -364,7 +392,9 @@ abstract class _$DataBuffetStateCopyWith<$Res> {
   $Res call(
       {List<Product> productsList,
       int basketValue,
-      List<Product> selectedProductsList});
+      List<Product> selectedProductsList,
+      List<BuyingProduct> buyingProduct,
+      bool openModal});
 }
 
 /// @nodoc
@@ -383,6 +413,8 @@ class __$DataBuffetStateCopyWithImpl<$Res>
     Object productsList = freezed,
     Object basketValue = freezed,
     Object selectedProductsList = freezed,
+    Object buyingProduct = freezed,
+    Object openModal = freezed,
   }) {
     return _then(_DataBuffetState(
       productsList: productsList == freezed
@@ -393,6 +425,10 @@ class __$DataBuffetStateCopyWithImpl<$Res>
       selectedProductsList: selectedProductsList == freezed
           ? _value.selectedProductsList
           : selectedProductsList as List<Product>,
+      buyingProduct: buyingProduct == freezed
+          ? _value.buyingProduct
+          : buyingProduct as List<BuyingProduct>,
+      openModal: openModal == freezed ? _value.openModal : openModal as bool,
     ));
   }
 }
@@ -402,10 +438,14 @@ class _$_DataBuffetState implements _DataBuffetState {
   const _$_DataBuffetState(
       {@required this.productsList,
       @required this.basketValue,
-      @required this.selectedProductsList})
+      @required this.selectedProductsList,
+      @required this.buyingProduct,
+      @required this.openModal})
       : assert(productsList != null),
         assert(basketValue != null),
-        assert(selectedProductsList != null);
+        assert(selectedProductsList != null),
+        assert(buyingProduct != null),
+        assert(openModal != null);
 
   @override
   final List<Product> productsList;
@@ -413,10 +453,14 @@ class _$_DataBuffetState implements _DataBuffetState {
   final int basketValue;
   @override
   final List<Product> selectedProductsList;
+  @override
+  final List<BuyingProduct> buyingProduct;
+  @override
+  final bool openModal;
 
   @override
   String toString() {
-    return 'BuffetState.data(productsList: $productsList, basketValue: $basketValue, selectedProductsList: $selectedProductsList)';
+    return 'BuffetState.data(productsList: $productsList, basketValue: $basketValue, selectedProductsList: $selectedProductsList, buyingProduct: $buyingProduct, openModal: $openModal)';
   }
 
   @override
@@ -430,8 +474,14 @@ class _$_DataBuffetState implements _DataBuffetState {
                 const DeepCollectionEquality()
                     .equals(other.basketValue, basketValue)) &&
             (identical(other.selectedProductsList, selectedProductsList) ||
+                const DeepCollectionEquality().equals(
+                    other.selectedProductsList, selectedProductsList)) &&
+            (identical(other.buyingProduct, buyingProduct) ||
                 const DeepCollectionEquality()
-                    .equals(other.selectedProductsList, selectedProductsList)));
+                    .equals(other.buyingProduct, buyingProduct)) &&
+            (identical(other.openModal, openModal) ||
+                const DeepCollectionEquality()
+                    .equals(other.openModal, openModal)));
   }
 
   @override
@@ -439,7 +489,9 @@ class _$_DataBuffetState implements _DataBuffetState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(productsList) ^
       const DeepCollectionEquality().hash(basketValue) ^
-      const DeepCollectionEquality().hash(selectedProductsList);
+      const DeepCollectionEquality().hash(selectedProductsList) ^
+      const DeepCollectionEquality().hash(buyingProduct) ^
+      const DeepCollectionEquality().hash(openModal);
 
   @JsonKey(ignore: true)
   @override
@@ -452,8 +504,12 @@ class _$_DataBuffetState implements _DataBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -464,7 +520,8 @@ class _$_DataBuffetState implements _DataBuffetState {
     assert(basket != null);
     assert(wallet != null);
     assert(error != null);
-    return data(productsList, basketValue, selectedProductsList);
+    return data(productsList, basketValue, selectedProductsList, buyingProduct,
+        openModal);
   }
 
   @override
@@ -472,8 +529,12 @@ class _$_DataBuffetState implements _DataBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -481,7 +542,8 @@ class _$_DataBuffetState implements _DataBuffetState {
   }) {
     assert(orElse != null);
     if (data != null) {
-      return data(productsList, basketValue, selectedProductsList);
+      return data(productsList, basketValue, selectedProductsList,
+          buyingProduct, openModal);
     }
     return orElse();
   }
@@ -528,11 +590,15 @@ abstract class _DataBuffetState implements BuffetState {
   const factory _DataBuffetState(
       {@required List<Product> productsList,
       @required int basketValue,
-      @required List<Product> selectedProductsList}) = _$_DataBuffetState;
+      @required List<Product> selectedProductsList,
+      @required List<BuyingProduct> buyingProduct,
+      @required bool openModal}) = _$_DataBuffetState;
 
   List<Product> get productsList;
   int get basketValue;
   List<Product> get selectedProductsList;
+  List<BuyingProduct> get buyingProduct;
+  bool get openModal;
   @JsonKey(ignore: true)
   _$DataBuffetStateCopyWith<_DataBuffetState> get copyWith;
 }
@@ -605,8 +671,12 @@ class _$_BasketBuffetState implements _BasketBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -625,8 +695,12 @@ class _$_BasketBuffetState implements _BasketBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -728,8 +802,12 @@ class _$_WalletBuffetState implements _WalletBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -748,8 +826,12 @@ class _$_WalletBuffetState implements _WalletBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),
@@ -868,8 +950,12 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
     @required TResult initial(),
     @required TResult loading(),
     @required
-        TResult data(List<Product> productsList, int basketValue,
-            List<Product> selectedProductsList),
+        TResult data(
+            List<Product> productsList,
+            int basketValue,
+            List<Product> selectedProductsList,
+            List<BuyingProduct> buyingProduct,
+            bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
     @required TResult wallet(),
     @required TResult error(String message),
@@ -888,8 +974,12 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Product> productsList, int basketValue,
-        List<Product> selectedProductsList),
+    TResult data(
+        List<Product> productsList,
+        int basketValue,
+        List<Product> selectedProductsList,
+        List<BuyingProduct> buyingProduct,
+        bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
     TResult wallet(),
     TResult error(String message),

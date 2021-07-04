@@ -4,5 +4,9 @@
 "password": "Пароль",
 "enterButton":"Войти",
 "idStudent": "ID студента",
-"qnt":"/шт"
+"qnt":"/шт",
+"selectProduct":"Выберите продукты",
+"back":"Назад",
+"emptyBasket":"Ваша корзина пуста!",
+"payDetail":"Детали оплаты"
 }

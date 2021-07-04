@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:it_megacom_hackthon/screens/buffet/buffet_bloc/buffet_bloc.dart';
+import 'package:it_megacom_hackthon/components/utils.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/screen.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
@@ -12,7 +12,16 @@ class BasketButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.read<BuffetBloc>().add(BuffetEvent.selectBasket());
+        data.buyingProduct.length == 0
+            ? openPopupNullBasket(context)
+            : showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return PaymentModalWindow(
+                    buyingProduct: data.buyingProduct,
+                  );
+                },
+              );
       },
       child: Stack(
         children: [

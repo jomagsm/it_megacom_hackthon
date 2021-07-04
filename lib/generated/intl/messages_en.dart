@@ -21,11 +21,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "back" : MessageLookupByLibrary.simpleMessage("Назад"),
+    "emptyBasket" : MessageLookupByLibrary.simpleMessage("Ваша корзина пуста!"),
     "enterButton" : MessageLookupByLibrary.simpleMessage("Войти"),
     "forgotPassword" : MessageLookupByLibrary.simpleMessage("Забыл пароль?"),
     "idStudent" : MessageLookupByLibrary.simpleMessage("ID студента"),
     "password" : MessageLookupByLibrary.simpleMessage("Пароль"),
+    "payDetail" : MessageLookupByLibrary.simpleMessage("Детали оплаты"),
     "qnt" : MessageLookupByLibrary.simpleMessage("/шт"),
+    "selectProduct" : MessageLookupByLibrary.simpleMessage("Выберите продукты"),
     "title" : MessageLookupByLibrary.simpleMessage("Demo")
   };
 }
