@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/buffet_bloc/buffet_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/custom_app_bar.dart';
+import 'package:sizer/sizer.dart';
 
 import 'basket_icon_button.dart';
 import 'card_content.dart';
@@ -18,8 +19,16 @@ class ProductsListData extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: BasketButton(data: data),
       appBar: CustomAppBar(
-        height: 126,
+        height: 20.5.h,
       ),
+
+      // body: data.openModal
+      // ? Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) =>
+      //           PaymentModalWindow(buyingProduct: data.buyingProduct),
+      //     ))
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.all(24),

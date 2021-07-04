@@ -8,10 +8,11 @@ part 'buffet_event.dart';
 part 'buffet_bloc.freezed.dart';
 
 class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
-  List<BuyingProduct> buyingProduct = [];
-  List<Product> productsList = [];
-  List<Product> selectedProductsList = [];
-  int basketValue = 0;
+  List<BuyingProduct> _buyingProductList = [];
+  List<Product> _productsList = [];
+  List<Product> _selectedProductsList = [];
+  int _basketValue = 0;
+  bool _openModal = false;
 
   BuffetBloc() : super(BuffetState.initial());
 
@@ -28,42 +29,55 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
   Stream<BuffetState> _mapInitialBuffetEvent(_InitialBuffetEvent event) async* {
     yield BuffetState.loading();
     try {
-      productsList = getAllProduct();
+      _productsList = getAllProduct();
     } catch (e) {
       yield BuffetState.error(message: e.toString());
     }
     yield BuffetState.data(
-        productsList: productsList,
-        basketValue: basketValue,
-        selectedProductsList: selectedProductsList);
+        productsList: _productsList,
+        basketValue: _basketValue,
+        buyingProduct: _buyingProductList,
+        selectedProductsList: _selectedProductsList,
+        openModal: _openModal);
   }
 
   Stream<BuffetState> _mapSelectedProductBuffetEvent(
       _SelectedProductBuffetEvent event) async* {
     yield BuffetState.loading();
     var product = getProduct(event.productId);
-    if (buyingProduct.length != 0) {
-      for (var i in buyingProduct) {
-        if (i.product.id == product.id) {
-          i.qnt += 1;
+    if (_buyingProductList.isNotEmpty) {
+      if (checkListOfProduct(_buyingProductList, product.id)) {
+        for (var i in _buyingProductList) {
+          if (i.product.id == product.id) {
+            i.qnt += 1;
+          }
         }
-      }
+      } else
+        _buyingProductList.add(BuyingProduct(product: product, qnt: 1));
     } else {
-      buyingProduct.add(BuyingProduct(product: product, qnt: 1));
+      _buyingProductList.add(BuyingProduct(product: product, qnt: 1));
     }
-    selectedProductsList.add(product);
-    basketValue += product.price.round();
+    print(_buyingProductList.length);
+    _selectedProductsList.add(product);
+    _basketValue += product.price.round();
     yield BuffetState.data(
-        productsList: productsList,
-        basketValue: basketValue,
-        selectedProductsList: selectedProductsList);
+        productsList: _productsList,
+        basketValue: _basketValue,
+        buyingProduct: _buyingProductList,
+        selectedProductsList: _selectedProductsList,
+        openModal: _openModal);
   }
 
   Stream<BuffetState> _mapSelectBasketBuffetEvent(
       _SelectBasketBuffetEvent event) async* {
     yield BuffetState.loading();
-    print(buyingProduct.length);
-    yield BuffetState.basket(buyingProduct: buyingProduct);
+    _openModal = true;
+    yield BuffetState.data(
+        productsList: _productsList,
+        basketValue: _basketValue,
+        buyingProduct: _buyingProductList,
+        selectedProductsList: _selectedProductsList,
+        openModal: _openModal);
   }
 
   Stream<BuffetState> _mapSelectWalletBuffetEvent(

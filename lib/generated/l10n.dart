@@ -94,6 +94,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Выберите продукты`
+  String get selectProduct {
+    return Intl.message(
+      'Выберите продукты',
+      name: 'selectProduct',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Назад`
+  String get back {
+    return Intl.message(
+      'Назад',
+      name: 'back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ваша корзина пуста!`
+  String get emptyBasket {
+    return Intl.message(
+      'Ваша корзина пуста!',
+      name: 'emptyBasket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Детали оплаты`
+  String get payDetail {
+    return Intl.message(
+      'Детали оплаты',
+      name: 'payDetail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

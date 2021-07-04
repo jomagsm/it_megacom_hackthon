@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/buffet_bloc/buffet_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/model_payment_window.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/products_list_data.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/screen.dart';
 
 class ProductsListGrid extends StatelessWidget {
   ProductsListGrid({Key key}) : super(key: key);
@@ -14,12 +15,18 @@ class ProductsListGrid extends StatelessWidget {
         create: (BuildContext context) => bloc..add(BuffetEvent.initial()),
         child:
             BlocConsumer<BuffetBloc, BuffetState>(listener: (context, state) {
-          state.maybeWhen(error: (_error) => {}, orElse: () {});
+          state.maybeWhen(
+            error: (_error) => {},
+            orElse: () {},
+          );
         }, builder: (context, state) {
           return state.maybeMap(
-              orElse: () => Text('ELSE'),
+              orElse: () => Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
               loading: (_) => CircularProgressIndicator(),
-              basket: (data) => ModelPaymentWindow(),
               error: (error) => Scaffold(
                     body: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
