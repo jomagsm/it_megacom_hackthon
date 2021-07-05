@@ -3,11 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
-import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/list_view.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
-import 'package:it_megacom_hackthon/theme/color_theme.dart';
-import 'package:it_megacom_hackthon/theme/text_theme.dart';
-import 'package:sizer/sizer.dart';
 
 class PaymentModalWindow extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;
@@ -16,28 +12,27 @@ class PaymentModalWindow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 51.0.h,
-      child: AlertDialog(
-        title: SizedBox(
-          width: 75.0.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(S.of(context).payDetail, style: TextThemes.paymentTitle),
-              IconButton(
-                icon: SvgPicture.asset(SvgIconCollect.close),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              )
-            ],
-          ),
-        ),
-        content: Column(
+    return AlertDialog(
+      contentPadding: EdgeInsets.all(10),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(S.of(context).payDetail),
+          IconButton(
+            icon: SvgPicture.asset(SvgIconCollect.close),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
+      ),
+      content:
+      Container(
+
+        padding: EdgeInsets.all(8),
+        child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(width: 55),
                 Text(
@@ -63,6 +58,11 @@ class PaymentModalWindow extends StatelessWidget {
         ),
       ),
     );
+
+
+
+
+
     // return Container(
     //     color: Colors.transparent,
     //     child: AlertDialog(
