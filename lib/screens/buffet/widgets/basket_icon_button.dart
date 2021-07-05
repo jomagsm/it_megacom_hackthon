@@ -13,6 +13,7 @@ class BasketButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        print(data.buyingProduct.length);
         data.buyingProduct.length == 0
             ? openPopupNullBasket(context)
             : showDialog(
