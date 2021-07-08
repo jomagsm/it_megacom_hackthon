@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/buffet_bloc/buffet_bloc.dart';
-import 'package:it_megacom_hackthon/screens/buffet/widgets/model_payment_window.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/products_list_data.dart';
-import 'package:it_megacom_hackthon/screens/buffet_payment/screen.dart';
 
 class ProductsListGrid extends StatelessWidget {
   ProductsListGrid({Key key}) : super(key: key);

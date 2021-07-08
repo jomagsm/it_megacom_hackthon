@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class BuyingProductListView extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;
@@ -9,7 +10,8 @@ class BuyingProductListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      height: 15.0.h,
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,

@@ -3,7 +3,7 @@ class UserApp {
   String firstName;
   String lastName;
   double debt;
-  String password;
+  int password;
   String avatar;
 
   UserApp(
@@ -25,6 +25,18 @@ checkUser(int id, String password) {
   return false;
 }
 
+UserApp getUser(String _password) {
+  int password;
+    password = int.parse(_password);
+  List<UserApp> usersList = getAllUser();
+  for (var user in usersList) {
+    if (user.password == password) {
+      return user;
+    }
+  }
+  return usersList.first;
+}
+
 List<UserApp> getAllUser() {
   List<UserApp> usersList = [];
 
@@ -33,7 +45,7 @@ List<UserApp> getAllUser() {
       firstName: 'Tom',
       lastName: 'Hardy',
       debt: 1000,
-      password: 'test',
+      password: 1234,
       avatar:
           'https://www.nme.com/wp-content/uploads/2018/08/GettyImages-813932476.jpg'));
 
@@ -42,7 +54,7 @@ List<UserApp> getAllUser() {
       firstName: 'Ilon',
       lastName: 'Mask',
       debt: 50,
-      password: 'test',
+      password: 2345,
       avatar:
           'https://www.ixbt.com/img/x780/n1/news/2021/4/0/mfile_1569242_1_L_20210108014210_large.png'));
 
@@ -51,7 +63,7 @@ List<UserApp> getAllUser() {
       firstName: 'Jack',
       lastName: 'Ma',
       debt: 777,
-      password: 'test',
+      password: 3456,
       avatar:
           'https://c.files.bbci.co.uk/1973/production/_115251560_jackma.jpg'));
   return usersList;

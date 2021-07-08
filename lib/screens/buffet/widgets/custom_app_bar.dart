@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/resource/images.dart';
+import 'package:it_megacom_hackthon/screens/debt_screen/screen.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends PreferredSize {
@@ -38,7 +39,14 @@ class CustomAppBar extends PreferredSize {
             alignment: Alignment.centerRight,
             margin: EdgeInsets.only(right: 5.0.w),
             child: InkWell(
-                onTap: () => print('Wallet'),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return DebtModal();
+                    },
+                  );
+                },
                 child: Image.asset(
                   "assets/images/Vector.png",
                   width: 22,
