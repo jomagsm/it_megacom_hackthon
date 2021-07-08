@@ -7,7 +7,6 @@ abstract class DebtEvent with _$DebtEvent {
       _InputPinDebtEvent;
 }
 
-
 // part of 'characters_bloc.dart';
 
 // @freezed

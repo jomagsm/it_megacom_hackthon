@@ -50,7 +50,7 @@ class CardContent extends StatelessWidget {
                         color: ColorPalette.productsCardSelectedBasket,
                       ),
                     ),
-                    Text("+${data.productsList[index].price.round()} c",
+                    Text("+${data.productsList[index].price} c",
                         style: TextThemes.selectedProductprice)
                   ],
                 ),

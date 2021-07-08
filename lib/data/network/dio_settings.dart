@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class DioSettings {
-  static final mainServer = "http://173.249.20.184:7001";
+  static final mainServer = "https://app.megacom.kg:9090/test-app/api/v1";
   Dio dio = Dio(BaseOptions(
     baseUrl: mainServer,
     connectTimeout: 10000,

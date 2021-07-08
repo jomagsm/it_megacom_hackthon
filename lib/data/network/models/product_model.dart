@@ -1,85 +1,51 @@
-class Product {
-  int id;
-  String name;
-  double price;
-  int qnt;
-  String avatar;
+// To parse this JSON data, do
+//
+//     final product = productFromJson(jsonString);
 
-  Product({this.id, this.name, this.price, this.qnt, this.avatar});
+import 'dart:convert';
+
+List<Product> productFromJson(String str) =>
+    List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
+
+String productToJson(List<Product> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class Product {
+  Product({
+    this.id,
+    this.name,
+    this.picture,
+    this.price,
+    this.active,
+  });
+
+  final int id;
+  final String name;
+  final String picture;
+  final double price;
+  final bool active;
+
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
+        id: json["id"],
+        name: json["name"],
+        picture: json["picture"],
+        price: json["price"],
+        active: json["active"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "picture": picture,
+        "price": price,
+        "active": active,
+      };
 }
 
-Product getProduct(productId) {
-  List<Product> products = getAllProduct();
-  for (var product in products) {
+getProduct(int productId, _productsList) {
+  for (var product in _productsList) {
     if (product.id == productId) {
       return product;
     }
   }
-  return null;
-}
-
-List<Product> getAllProduct() {
-  List<Product> products = [];
-  products.add(Product(
-      id: 1,
-      name: 'Пирожки с картошкой',
-      price: 10,
-      qnt: 20,
-      avatar:
-          'https://www.svoimirykami.club/upload/iblock/d2e/d2e4a2d3eec1ace413a0afe8341d61ef.jpg'));
-
-  products.add(Product(
-      id: 2,
-      name: 'Сосиски в тесте',
-      price: 25,
-      qnt: 18,
-      avatar:
-          'https://img.povar.ru/main/25/38/80/87/sosiski_v_teste_po_gostu-360265.jpg'));
-
-  products.add(Product(
-      id: 3,
-      name: 'Самсы',
-      price: 45,
-      qnt: 12,
-      avatar: 'https://img.povar.ru/main/d3/9d/fc/40/somsa_samosa-4902.jpg'));
-
-  products.add(Product(
-      id: 4,
-      name: 'Пирожки с картошкой',
-      price: 10,
-      qnt: 20,
-      avatar:
-          'https://www.svoimirykami.club/upload/iblock/d2e/d2e4a2d3eec1ace413a0afe8341d61ef.jpg'));
-
-  products.add(Product(
-      id: 5,
-      name: 'Сосиски в тесте',
-      price: 25,
-      qnt: 18,
-      avatar:
-          'https://img.povar.ru/main/25/38/80/87/sosiski_v_teste_po_gostu-360265.jpg'));
-
-  products.add(Product(
-      id: 6,
-      name: 'Самсы',
-      price: 45,
-      qnt: 12,
-      avatar: 'https://img.povar.ru/main/d3/9d/fc/40/somsa_samosa-4902.jpg'));
-
-  products.add(Product(
-      id: 7,
-      name: 'Сосиски в тесте',
-      price: 25,
-      qnt: 18,
-      avatar:
-          'https://img.povar.ru/main/25/38/80/87/sosiski_v_teste_po_gostu-360265.jpg'));
-
-  products.add(Product(
-      id: 8,
-      name: 'Самсы',
-      price: 45,
-      qnt: 12,
-      avatar: 'https://img.povar.ru/main/d3/9d/fc/40/somsa_samosa-4902.jpg'));
-
-  return products;
 }

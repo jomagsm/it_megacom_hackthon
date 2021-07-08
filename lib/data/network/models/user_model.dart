@@ -27,7 +27,7 @@ checkUser(int id, String password) {
 
 UserApp getUser(String _password) {
   int password;
-    password = int.parse(_password);
+  password = int.parse(_password);
   List<UserApp> usersList = getAllUser();
   for (var user in usersList) {
     if (user.password == password) {

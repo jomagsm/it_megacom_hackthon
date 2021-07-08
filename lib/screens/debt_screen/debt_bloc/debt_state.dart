@@ -11,8 +11,6 @@ abstract class DebtState with _$DebtState {
   const factory DebtState.error({@required String message}) = _ErrorDebtState;
 }
 
-
-
 // @freezed
 // abstract class CharactersState with _$CharactersState {
 //   /// Состояние с данными
