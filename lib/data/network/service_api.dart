@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import 'dio_settings.dart';
+import 'models/product_model.dart';
 
 class ServiceApi {
   DioSettings _dioSettings;
@@ -15,14 +16,13 @@ class ServiceApi {
     _dio = _dioSettings.dio;
   }
 
-  // Future<CharactersModel> getCharacters() async {
-  //   try {
-  //     Response<String> response = await _dio.get("/api/Characters/GetAll",
-  //         queryParameters: {"PageNumber": 1, "PageSize": 200});
-  //     return charactersModelFromJson(response.toString());
-  //   } catch (e) {
-  //     throw e;
-  //   }
-  // }
-
+  Future<List<Product>> getProductsAll() async {
+    try {
+      Response<String> response = await _dio.get("/product/all");
+      // queryParameters: {"PageNumber": 1, "PageSize": 200});
+      return productFromJson(response.toString());
+    } catch (e) {
+      throw e;
+    }
+  }
 }

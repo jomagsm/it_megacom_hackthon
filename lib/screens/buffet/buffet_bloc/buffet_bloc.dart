@@ -2,14 +2,16 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
+import 'package:it_megacom_hackthon/data/repository.dart';
 
 part 'buffet_state.dart';
 part 'buffet_event.dart';
 part 'buffet_bloc.freezed.dart';
 
 class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
+  final _repository = Repository();
   List<BuyingProduct> _buyingProductList = [];
-  List<Product> _productsList = [];
+  List<Product> _productsList;
   List<Product> _selectedProductsList = [];
   int _basketValue = 0;
   bool _openModal = false;
@@ -30,22 +32,23 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
   Stream<BuffetState> _mapInitialBuffetEvent(_InitialBuffetEvent event) async* {
     yield BuffetState.loading();
     try {
-      _productsList = getAllProduct();
+      var _productsListFeature = _repository.getProductsAll();
+      _productsList = await _productsListFeature;
+      yield BuffetState.data(
+          productsList: _productsList,
+          basketValue: _basketValue,
+          buyingProduct: _buyingProductList,
+          selectedProductsList: _selectedProductsList,
+          openModal: _openModal);
     } catch (e) {
       yield BuffetState.error(message: e.toString());
     }
-    yield BuffetState.data(
-        productsList: _productsList,
-        basketValue: _basketValue,
-        buyingProduct: _buyingProductList,
-        selectedProductsList: _selectedProductsList,
-        openModal: _openModal);
   }
 
   Stream<BuffetState> _mapSelectedProductBuffetEvent(
       _SelectedProductBuffetEvent event) async* {
     yield BuffetState.loading();
-    var product = getProduct(event.productId);
+    var product = getProduct(event.productId, _productsList);
     if (_buyingProductList.isNotEmpty) {
       if (checkListOfProduct(_buyingProductList, product.id)) {
         for (var i in _buyingProductList) {

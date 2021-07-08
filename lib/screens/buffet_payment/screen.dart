@@ -28,9 +28,7 @@ class PaymentModalWindow extends StatelessWidget {
           )
         ],
       ),
-      content:
-      Container(
-
+      content: Container(
         padding: EdgeInsets.all(8),
         child: Column(
           children: [
@@ -60,10 +58,6 @@ class PaymentModalWindow extends StatelessWidget {
         ),
       ),
     );
-
-
-
-
 
     // return Container(
     //     color: Colors.transparent,

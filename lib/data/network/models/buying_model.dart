@@ -27,9 +27,9 @@ List<Buying> getAllBuying() {
       date: DateTime.parse('2021-07-03T12:30:00'),
       user: getAllUser().first,
       buyingProduct: [
-        BuyingProduct(product: getAllProduct().first, qnt: 2),
-        BuyingProduct(product: getAllProduct().last, qnt: 5),
-        BuyingProduct(product: getAllProduct()[2], qnt: 7)
+        // BuyingProduct(product: getAllProduct().first, qnt: 2),
+        // BuyingProduct(product: getAllProduct().last, qnt: 5),
+        // BuyingProduct(product: getAllProduct()[2], qnt: 7)
       ],
       total: 20,
       howMuchPay: 20,
@@ -37,7 +37,7 @@ List<Buying> getAllBuying() {
   buying.add(Buying(
       date: DateTime.parse('2021-07-03T12:40:00'),
       user: getAllUser()[1],
-      buyingProduct: [BuyingProduct(product: getAllProduct()[2], qnt: 1)],
+      // buyingProduct: [BuyingProduct(product: getAllProduct()[2], qnt: 1)],
       total: 45,
       howMuchPay: 20,
       howMuchDebt: 25));
@@ -46,8 +46,8 @@ List<Buying> getAllBuying() {
       date: DateTime.parse('2021-07-03T13:40:00'),
       user: getAllUser()[2],
       buyingProduct: [
-        BuyingProduct(product: getAllProduct()[2], qnt: 1),
-        BuyingProduct(product: getAllProduct()[0], qnt: 3)
+        // BuyingProduct(product: getAllProduct()[2], qnt: 1),
+        // BuyingProduct(product: getAllProduct()[0], qnt: 3)
       ],
       total: 75,
       howMuchPay: 50,

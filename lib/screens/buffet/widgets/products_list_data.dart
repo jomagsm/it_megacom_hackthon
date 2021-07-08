@@ -50,7 +50,7 @@ class ProductsListData extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(8)),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    data.productsList[index].avatar),
+                                    data.productsList[index].picture),
                                 fit: BoxFit.fill,
                               )),
                         ),
