@@ -22,14 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "back" : MessageLookupByLibrary.simpleMessage("Назад"),
+    "change" : MessageLookupByLibrary.simpleMessage("Сдача"),
+    "date" : MessageLookupByLibrary.simpleMessage("Дата"),
+    "debt" : MessageLookupByLibrary.simpleMessage("Долг"),
+    "debts" : MessageLookupByLibrary.simpleMessage("Долги"),
     "emptyBasket" : MessageLookupByLibrary.simpleMessage("Ваша корзина пуста!"),
     "enterButton" : MessageLookupByLibrary.simpleMessage("Войти"),
     "forgotPassword" : MessageLookupByLibrary.simpleMessage("Забыл пароль?"),
     "idStudent" : MessageLookupByLibrary.simpleMessage("ID студента"),
+    "inputPin" : MessageLookupByLibrary.simpleMessage("Введите пин-код"),
+    "inputPinInfo" : MessageLookupByLibrary.simpleMessage("Введите пин код для получение информации"),
+    "name" : MessageLookupByLibrary.simpleMessage("Наименование"),
     "password" : MessageLookupByLibrary.simpleMessage("Пароль"),
+    "pay" : MessageLookupByLibrary.simpleMessage("Оплата"),
     "payDetail" : MessageLookupByLibrary.simpleMessage("Детали оплаты"),
+    "pin" : MessageLookupByLibrary.simpleMessage("Пин-код"),
     "qnt" : MessageLookupByLibrary.simpleMessage("/шт"),
     "selectProduct" : MessageLookupByLibrary.simpleMessage("Выберите продукты"),
-    "title" : MessageLookupByLibrary.simpleMessage("Demo")
+    "summPay" : MessageLookupByLibrary.simpleMessage("Сумма оплаты"),
+    "title" : MessageLookupByLibrary.simpleMessage("Demo"),
+    "total" : MessageLookupByLibrary.simpleMessage("Итого")
   };
 }

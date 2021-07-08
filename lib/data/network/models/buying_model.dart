@@ -26,7 +26,11 @@ List<Buying> getAllBuying() {
   buying.add(Buying(
       date: DateTime.parse('2021-07-03T12:30:00'),
       user: getAllUser().first,
-      buyingProduct: [BuyingProduct(product: getAllProduct().first, qnt: 2)],
+      buyingProduct: [
+        BuyingProduct(product: getAllProduct().first, qnt: 2),
+        BuyingProduct(product: getAllProduct().last, qnt: 5),
+        BuyingProduct(product: getAllProduct()[2], qnt: 7)
+      ],
       total: 20,
       howMuchPay: 20,
       howMuchDebt: 0));
@@ -49,4 +53,15 @@ List<Buying> getAllBuying() {
       howMuchPay: 50,
       howMuchDebt: 25));
   return buying;
+}
+
+List<Buying> getUserBuying(UserApp user) {
+  List<Buying> userBuyingList = [];
+  List<Buying> buyingList = getAllBuying();
+  for (var buying in buyingList) {
+    if (buying.user.password == user.password) {
+      userBuyingList.add(buying);
+    }
+  }
+  return userBuyingList;
 }

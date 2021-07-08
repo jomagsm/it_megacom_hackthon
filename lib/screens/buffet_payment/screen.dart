@@ -4,6 +4,8 @@ import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dar
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:sizer/sizer.dart';
 
 class PaymentModalWindow extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;

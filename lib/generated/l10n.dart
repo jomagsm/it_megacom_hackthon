@@ -134,6 +134,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Долги`
+  String get debts {
+    return Intl.message(
+      'Долги',
+      name: 'debts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Долг`
+  String get debt {
+    return Intl.message(
+      'Долг',
+      name: 'debt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Введите пин код для получение информации`
+  String get inputPinInfo {
+    return Intl.message(
+      'Введите пин код для получение информации',
+      name: 'inputPinInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пин-код`
+  String get pin {
+    return Intl.message(
+      'Пин-код',
+      name: 'pin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Введите пин-код`
+  String get inputPin {
+    return Intl.message(
+      'Введите пин-код',
+      name: 'inputPin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Наименование`
+  String get name {
+    return Intl.message(
+      'Наименование',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Дата`
+  String get date {
+    return Intl.message(
+      'Дата',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Итого`
+  String get total {
+    return Intl.message(
+      'Итого',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Оплата`
+  String get pay {
+    return Intl.message(
+      'Оплата',
+      name: 'pay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сумма оплаты`
+  String get summPay {
+    return Intl.message(
+      'Сумма оплаты',
+      name: 'summPay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сдача`
+  String get change {
+    return Intl.message(
+      'Сдача',
+      name: 'change',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -23,6 +23,7 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       selectedProduct: _mapSelectedProductBuffetEvent,
       selectBasket: _mapSelectBasketBuffetEvent,
       selectWallet: _mapSelectWalletBuffetEvent,
+      changeOriental: _mapChangeOrientalBuffetEvent,
     );
   }
 
@@ -59,6 +60,7 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
     }
     _selectedProductsList.add(product);
     _basketValue += product.price.round();
+
     yield BuffetState.data(
         productsList: _productsList,
         basketValue: _basketValue,
@@ -83,5 +85,15 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       _SelectWalletBuffetEvent event) async* {
     yield BuffetState.loading();
     yield BuffetState.wallet();
+  }
+
+  Stream<BuffetState> _mapChangeOrientalBuffetEvent(
+      _ChangeOrientalBuffetEvent event) async* {
+    yield BuffetState.data(
+        productsList: _productsList,
+        basketValue: _basketValue,
+        buyingProduct: _buyingProductList,
+        selectedProductsList: _selectedProductsList,
+        openModal: _openModal);
   }
 }
