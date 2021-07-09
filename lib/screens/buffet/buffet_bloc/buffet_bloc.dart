@@ -33,7 +33,8 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
     yield BuffetState.loading();
     try {
       var _productsListFeature = _repository.getProductsAll();
-      _productsList = await _productsListFeature;
+      List<Product> _productsListAll = await _productsListFeature;
+      _productsList = getActiveProductsList(_productsListAll);
       yield BuffetState.data(
           productsList: _productsList,
           basketValue: _basketValue,
