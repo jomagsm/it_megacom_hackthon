@@ -25,8 +25,15 @@ class AtextThemes {
   static TextStyle titleTextField = GoogleFonts.lato(
     textStyle: TextStyle(
         fontSize: 11,
-        fontWeight: FontWeight.bold,
-        color: AcolorPalette.textforgot),
+        fontWeight: FontWeight.normal ,
+        color: AcolorPalette.textforgot));
+
+      static TextStyle titlePage = GoogleFonts.lato(
+  textStyle: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: AcolorPalette.textforgot),
+
   );
   static TextStyle buttonText = GoogleFonts.lato(
     textStyle: TextStyle(fontSize: 11, color: AcolorPalette.titleTf),
@@ -42,7 +49,7 @@ class AtextThemes {
   );
   static TextStyle sumfDebt = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 15,
+          fontSize: 12,
           fontWeight: FontWeight.bold,
           color: AcolorPalette.textforgot));
   static TextStyle listDebt = GoogleFonts.lato(

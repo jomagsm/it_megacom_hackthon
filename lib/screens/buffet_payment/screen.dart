@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/list_view.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
@@ -16,10 +17,11 @@ class PaymentModalWindow extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: EdgeInsets.all(10),
-      title: Row(
+      actions: [
+      Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(S.of(context).payDetail),
+          Text(S.of(context).payDetail,style: AtextThemes.titlePage ),
           IconButton(
             icon: SvgPicture.asset(SvgIconCollect.close),
             onPressed: () {
@@ -28,8 +30,7 @@ class PaymentModalWindow extends StatelessWidget {
           )
         ],
       ),
-      content: Container(
-        padding: EdgeInsets.all(8),
+      Container(
         child: Column(
           children: [
             Row(
@@ -39,25 +40,149 @@ class PaymentModalWindow extends StatelessWidget {
                   "Наименование",
                   style: AtextThemes.hintTextField,
                 ),
-                SizedBox(width: 64),
+                SizedBox(width: 108),
                 Text(
                   "Кол-во",
                   style: AtextThemes.hintTextField,
                 ),
-                SizedBox(width: 30),
+                SizedBox(width: 42),
                 Text(
                   "Цена",
                   style: AtextThemes.hintTextField,
                 ),
               ],
             ),
-            // BuyingProductListView(
-            //   buyingProduct: buyingProduct,
-            // ),
+            BuyingProductListView(
+              buyingProduct: buyingProduct,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Итого",
+                  style: AtextThemes.sumfDebt,
+                ),
+                SizedBox(width: 225),
+                Text("", style: AtextThemes.sumfDebt),
+    //basketValue.toString()}
+                Text('с',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      decoration: TextDecoration.underline,
+                    )),
+              ],
+            ),
+      Text(
+                         "Оплата",
+                         style:  AtextThemes.titlePage,
+                       ),
+      Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           children: [
+                             Text("Пин-код",style: AtextThemes.titleTextField),
+                             Text("Сумма оплаты",style: AtextThemes.titleTextField),
+                           ]),
+                       SizedBox(
+                         height: 5,
+                       ),
+                       Row(
+                         children: [
+                           Expanded(
+                             child: TextField(
+                               onSubmitted: (_number) {
+                                 // if (_number.length == 4) {
+                                 //   setState(() {
+                                 //     _validate = true;
+                                 //   });
+                                 // }
+                                 // print(_number);
+                               },
+                               // controller: _number,
+                              keyboardType: TextInputType.number,
+                               decoration: InputDecoration(
+                                 border: OutlineInputBorder(),
+                                 hintText: 'Введите пин-код',
+                                 hintStyle: AtextThemes.hintTextField,
+                               ),
+                             ),
+                           ),
+                           SizedBox(width: 10),
+                                              Expanded(
+                                                child: TextField(
+                                                  // controller: _number,
+                                                  keyboardType: TextInputType.number,
+                                                  decoration: InputDecoration(
+                                                    border: OutlineInputBorder(),
+                                                    hintText: 'Введите сумму',
+                                                    hintStyle: AtextThemes.hintTextField,
+                                                 ),
+                                                ),
+                                              ),
+                     ],
+                                          ),
+                                          SizedBox(height: 7),
+                           Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: [
+                                 Text("Долг",style: AtextThemes.titleTextField),
+                                 Text("Сумма сдачи",style: AtextThemes.titleTextField),
+                               ]),
+                           SizedBox(
+                             height: 7,
+                           ),
+                           Row(
+                             children: [
+                               Expanded(
+                                 child: TextField(
+                                   // controller: _number,
+                                   keyboardType: TextInputType.number,
+                                   decoration: InputDecoration(
+                                     border: OutlineInputBorder(),
+                                     hintText: 'Сумма долга',
+                                     hintStyle: AtextThemes.hintTextField,
+                                   ),
+                                 ),
+                               ),
+                               SizedBox(width: 10),
+                               Expanded(
+                                 child: TextField(
+                                   // controller: _number,
+                                   keyboardType: TextInputType.number,
+                                   decoration: InputDecoration(
+                                     border: OutlineInputBorder(),
+                                     hintText: 'Сумма сдачи',
+                                     hintStyle: AtextThemes.hintTextField,
+                                   ),
+                                 ),
+                               ),
+                             ],
+                          ),
+      SizedBox(height: 7),
+      TextButton(
+        style: ButtonStyle(
+            backgroundColor:
+         
+            MaterialStateProperty.all<Color>(Colors.grey),
+                                 foregroundColor:
+                                     MaterialStateProperty.all<Color>(Colors.white)),
+                             child: Text(
+                               'Оплатить',
+                               style: TextStyle(
+                                 fontSize: 11.0,
+                               ),
+                             ),
+                             onPressed: () {}),
           ],
         ),
       ),
+    ],
     );
+
+
+
+
 
     // return Container(
     //     color: Colors.transparent,
