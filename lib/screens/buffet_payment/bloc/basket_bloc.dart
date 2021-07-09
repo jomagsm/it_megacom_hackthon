@@ -50,9 +50,13 @@ Stream<BasketState> _mapMinusBasketEvent(
     _DecremenBasketEvent event) async* {
   /// Возвращаем состояние загрузки
   yield BasketState.loading();
+  print(event.productId);
   _buyingProductList = changeQnt(_buyingProductList, event.productId, 'minus');
+  print(_buyingProductList.first.qnt);
   _buyingProductList = _buyingProductList;
+
   _total = getTotal(_buyingProductList);
+
   yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
 }
 }

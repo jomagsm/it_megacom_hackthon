@@ -1,19 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/list_view.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
 class PaymentModalWindow extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;
-  const PaymentModalWindow({Key key, @required this.buyingProduct})
+ PaymentModalWindow({Key key, @required this.buyingProduct})
       : super(key: key);
-
+ final bloc = BasketBloc();
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return BlocProvider<BasketBloc>(
+        create: (BuildContext context) => bloc..add(BasketEvent.initial(buyingProductList: buyingProduct)),
+        child:
+            BlocConsumer<BasketBloc, BasketState>(listener: (context, state) {
+          state.maybeWhen(
+            error: (_error) => {},
+            orElse: () {},
+          );
+        }, builder: (context, state) {
+          return state.maybeMap(
+              orElse: () => Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
+              loading: (_) => CircularProgressIndicator(),
+              error: (error) => Scaffold(
+                    body: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(),
+                        Text(error.message),
+                        ElevatedButton(
+                            onPressed: () {
+                              bloc..add(BasketEvent.initial(buyingProductList:buyingProduct));
+                            },
+                            child: Text('Повторить'))
+                      ],
+                    ),
+                  ),
+              data: (_data) =>              
+                   AlertDialog(
       contentPadding: EdgeInsets.all(10),
       actions: [
         Row(
@@ -159,6 +192,7 @@ class PaymentModalWindow extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));                                
+        }));     
   }
 }
