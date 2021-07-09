@@ -38,8 +38,8 @@ class OperationReport {
   final int id;
   final String addDate;
   final String status;
-  final int total;
-  final int debt;
+  final double total;
+  final double debt;
 
   factory OperationReport.fromJson(Map<String, dynamic> json) =>
       OperationReport(
@@ -66,7 +66,7 @@ class PinDto {
   });
 
   final String pin;
-  final int debt;
+  final double debt;
 
   factory PinDto.fromJson(Map<String, dynamic> json) => PinDto(
         pin: json["pin"],

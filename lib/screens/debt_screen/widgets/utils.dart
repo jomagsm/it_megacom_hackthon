@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:it_megacom_hackthon/data/network/models/buying_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
+import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
 getDataTableColumn(List<String> labelName) {
@@ -17,19 +16,18 @@ getDataTableColumn(List<String> labelName) {
   return column;
 }
 
-getDataTableRows(List<Buying> buyingList) {
-  var dateFormat = DateFormat("yyyy-MM-dd");
+getDataTableRows(List<OperationReport> operationList) {
   List<DataRow> row = [];
-  for (var i in buyingList) {
+  for (var i in operationList) {
     row.add(
       DataRow(cells: [
-        DataCell(Text(getDataTableCellText(i.buyingProduct))),
-        DataCell(Text(dateFormat.format(i.date))),
-        DataCell(Text("${i.howMuchDebt.toString()}c")),
+        DataCell(Text(i.id.toString())),
+        DataCell(Text(i.addDate)),
+        DataCell(Text("${i.debt.toString()}c")),
       ]),
     );
-    return row;
   }
+  return row;
 }
 
 getDataTableCellText(List<BuyingProduct> buyingProductList) {

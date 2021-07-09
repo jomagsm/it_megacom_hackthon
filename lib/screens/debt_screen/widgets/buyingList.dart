@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/data/network/models/buying_model.dart';
+import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
+import 'package:it_megacom_hackthon/screens/debt_screen/debt_bloc/debt_bloc.dart';
 import 'package:it_megacom_hackthon/screens/debt_screen/widgets/utils.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
-import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class BuyingList extends StatelessWidget {
@@ -13,7 +14,11 @@ class BuyingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Buying> buyingList = data.buyingList;
+    UserDebt userDebt = data.userDebt;
+    double _paymentAmount = 0;
+    double _debt = 0;
+    double _change = 0;
+
     return Column(
       children: [
         SizedBox(
@@ -27,8 +32,8 @@ class BuyingList extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: DataTable(
               columns: getDataTableColumn(
-                  [S.of(context).name, S.of(context).date, S.of(context).debt]),
-              rows: getDataTableRows(buyingList),
+                  [S.of(context).id, S.of(context).date, S.of(context).debt]),
+              rows: getDataTableRows(userDebt.operationReports),
             ),
           ),
         ),
@@ -39,7 +44,7 @@ class BuyingList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(S.of(context).total, style: AtextThemes.sumfDebt),
-            Text("20 c"),
+            Text("${data.userDebt.pinDto.debt} c"),
           ],
         ),
         SizedBox(
@@ -58,6 +63,7 @@ class BuyingList extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             child: DataTable(
+              showCheckboxColumn: false,
               columns: getDataTableColumn([
                 S.of(context).summPay,
                 S.of(context).debt,
@@ -68,6 +74,41 @@ class BuyingList extends StatelessWidget {
                   DataCell(
                     TextField(
                       keyboardType: TextInputType.number,
+                      onChanged: (value) {
+                        if (value != '') {
+                          _paymentAmount = double.parse(value);
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: S.of(context).summPay,
+                        hintStyle: AtextThemes.hintTextField,
+                      ),
+                    ),
+                  ),
+                  DataCell(
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (value) {
+                        if (value != '') {
+                          _debt = double.parse(value);
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: S.of(context).summPay,
+                        hintStyle: AtextThemes.hintTextField,
+                      ),
+                    ),
+                  ),
+                  DataCell(
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (value) {
+                        if (value != '') {
+                          _change = double.parse(value);
+                        }
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: S.of(context).summPay,
@@ -75,11 +116,27 @@ class BuyingList extends StatelessWidget {
                       ),
                     ),
                   )
-                ])
+                ]),
               ],
             ),
           ),
         ),
+        Align(
+          alignment: Alignment.topRight,
+          child: TextButton(
+            child: Text(S.of(context).payment),
+            style: TextButton.styleFrom(
+              primary: ColorPalette.white,
+              backgroundColor: ColorPalette.basketColorBlack,
+              onSurface: Colors.grey,
+            ),
+            onPressed: () {
+              context
+                  .read<DebtBloc>()
+                  .add(DebtEvent.makePayment(payment: _paymentAmount));
+            },
+          ),
+        )
       ],
     );
   }

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
 
 import 'dio_settings.dart';
+import 'models/debt_models/payment_model.dart';
 import 'models/product_model.dart';
 
 class ServiceApi {
@@ -22,6 +24,27 @@ class ServiceApi {
       // queryParameters: {"PageNumber": 1, "PageSize": 200});
       return productFromJson(response.toString());
     } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<UserDebt> getUserOperations(pin) async {
+    try {
+      Response<String> response =
+          await _dio.get("/operation/$pin", queryParameters: {});
+      return userDebtFromJson(response.toString());
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<Payment> makePayment(String pin, double payment) async {
+    try {
+      Response<String> response = await _dio.put("/pin/make/payment",
+          queryParameters: {"payment": payment, "pin": pin});
+      return paymentFromJson(response.toString());
+    } catch (e) {
+      print(e);
       throw e;
     }
   }

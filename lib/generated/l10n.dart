@@ -225,6 +225,16 @@ class S {
     );
   }
 
+  /// `Оплатить`
+  String get payment {
+    return Intl.message(
+      'Оплатить',
+      name: 'payment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Сумма оплаты`
   String get summPay {
     return Intl.message(
@@ -240,6 +250,16 @@ class S {
     return Intl.message(
       'Сдача',
       name: 'change',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Id`
+  String get id {
+    return Intl.message(
+      'Id',
+      name: 'id',
       desc: '',
       args: [],
     );

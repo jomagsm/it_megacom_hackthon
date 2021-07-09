@@ -24,12 +24,16 @@ class _$DebtStateTearOff {
   }
 
 // ignore: unused_element
-  _DataDebtState data(
-      {@required List<Buying> buyingList, @required bool authUser}) {
+  _DataDebtState data({UserDebt userDebt, @required bool authUser}) {
     return _DataDebtState(
-      buyingList: buyingList,
+      userDebt: userDebt,
       authUser: authUser,
     );
+  }
+
+// ignore: unused_element
+  _SuccesPayDebtState succesPay() {
+    return const _SuccesPayDebtState();
   }
 
 // ignore: unused_element
@@ -50,14 +54,16 @@ mixin _$DebtState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult data(List<Buying> buyingList, bool authUser),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
     @required TResult error(String message),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Buying> buyingList, bool authUser),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
     TResult error(String message),
     @required TResult orElse(),
   });
@@ -66,6 +72,7 @@ mixin _$DebtState {
     @required TResult initial(_InitialDebtState value),
     @required TResult loading(_LoadingDebtState value),
     @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
     @required TResult error(_ErrorDebtState value),
   });
   @optionalTypeArgs
@@ -73,6 +80,7 @@ mixin _$DebtState {
     TResult initial(_InitialDebtState value),
     TResult loading(_LoadingDebtState value),
     TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
     TResult error(_ErrorDebtState value),
     @required TResult orElse(),
   });
@@ -134,12 +142,14 @@ class _$_InitialDebtState implements _InitialDebtState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult data(List<Buying> buyingList, bool authUser),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return initial();
   }
@@ -149,7 +159,8 @@ class _$_InitialDebtState implements _InitialDebtState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Buying> buyingList, bool authUser),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -166,11 +177,13 @@ class _$_InitialDebtState implements _InitialDebtState {
     @required TResult initial(_InitialDebtState value),
     @required TResult loading(_LoadingDebtState value),
     @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
     @required TResult error(_ErrorDebtState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return initial(this);
   }
@@ -181,6 +194,7 @@ class _$_InitialDebtState implements _InitialDebtState {
     TResult initial(_InitialDebtState value),
     TResult loading(_LoadingDebtState value),
     TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
     TResult error(_ErrorDebtState value),
     @required TResult orElse(),
   }) {
@@ -237,12 +251,14 @@ class _$_LoadingDebtState implements _LoadingDebtState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult data(List<Buying> buyingList, bool authUser),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return loading();
   }
@@ -252,7 +268,8 @@ class _$_LoadingDebtState implements _LoadingDebtState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Buying> buyingList, bool authUser),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -269,11 +286,13 @@ class _$_LoadingDebtState implements _LoadingDebtState {
     @required TResult initial(_InitialDebtState value),
     @required TResult loading(_LoadingDebtState value),
     @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
     @required TResult error(_ErrorDebtState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return loading(this);
   }
@@ -284,6 +303,7 @@ class _$_LoadingDebtState implements _LoadingDebtState {
     TResult initial(_InitialDebtState value),
     TResult loading(_LoadingDebtState value),
     TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
     TResult error(_ErrorDebtState value),
     @required TResult orElse(),
   }) {
@@ -304,7 +324,7 @@ abstract class _$DataDebtStateCopyWith<$Res> {
   factory _$DataDebtStateCopyWith(
           _DataDebtState value, $Res Function(_DataDebtState) then) =
       __$DataDebtStateCopyWithImpl<$Res>;
-  $Res call({List<Buying> buyingList, bool authUser});
+  $Res call({UserDebt userDebt, bool authUser});
 }
 
 /// @nodoc
@@ -319,13 +339,11 @@ class __$DataDebtStateCopyWithImpl<$Res> extends _$DebtStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object buyingList = freezed,
+    Object userDebt = freezed,
     Object authUser = freezed,
   }) {
     return _then(_DataDebtState(
-      buyingList: buyingList == freezed
-          ? _value.buyingList
-          : buyingList as List<Buying>,
+      userDebt: userDebt == freezed ? _value.userDebt : userDebt as UserDebt,
       authUser: authUser == freezed ? _value.authUser : authUser as bool,
     ));
   }
@@ -333,27 +351,26 @@ class __$DataDebtStateCopyWithImpl<$Res> extends _$DebtStateCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_DataDebtState implements _DataDebtState {
-  const _$_DataDebtState({@required this.buyingList, @required this.authUser})
-      : assert(buyingList != null),
-        assert(authUser != null);
+  const _$_DataDebtState({this.userDebt, @required this.authUser})
+      : assert(authUser != null);
 
   @override
-  final List<Buying> buyingList;
+  final UserDebt userDebt;
   @override
   final bool authUser;
 
   @override
   String toString() {
-    return 'DebtState.data(buyingList: $buyingList, authUser: $authUser)';
+    return 'DebtState.data(userDebt: $userDebt, authUser: $authUser)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _DataDebtState &&
-            (identical(other.buyingList, buyingList) ||
+            (identical(other.userDebt, userDebt) ||
                 const DeepCollectionEquality()
-                    .equals(other.buyingList, buyingList)) &&
+                    .equals(other.userDebt, userDebt)) &&
             (identical(other.authUser, authUser) ||
                 const DeepCollectionEquality()
                     .equals(other.authUser, authUser)));
@@ -362,7 +379,7 @@ class _$_DataDebtState implements _DataDebtState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(buyingList) ^
+      const DeepCollectionEquality().hash(userDebt) ^
       const DeepCollectionEquality().hash(authUser);
 
   @JsonKey(ignore: true)
@@ -375,14 +392,16 @@ class _$_DataDebtState implements _DataDebtState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult data(List<Buying> buyingList, bool authUser),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
-    return data(buyingList, authUser);
+    return data(userDebt, authUser);
   }
 
   @override
@@ -390,13 +409,14 @@ class _$_DataDebtState implements _DataDebtState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Buying> buyingList, bool authUser),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (data != null) {
-      return data(buyingList, authUser);
+      return data(userDebt, authUser);
     }
     return orElse();
   }
@@ -407,11 +427,13 @@ class _$_DataDebtState implements _DataDebtState {
     @required TResult initial(_InitialDebtState value),
     @required TResult loading(_LoadingDebtState value),
     @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
     @required TResult error(_ErrorDebtState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return data(this);
   }
@@ -422,6 +444,7 @@ class _$_DataDebtState implements _DataDebtState {
     TResult initial(_InitialDebtState value),
     TResult loading(_LoadingDebtState value),
     TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
     TResult error(_ErrorDebtState value),
     @required TResult orElse(),
   }) {
@@ -434,14 +457,122 @@ class _$_DataDebtState implements _DataDebtState {
 }
 
 abstract class _DataDebtState implements DebtState {
-  const factory _DataDebtState(
-      {@required List<Buying> buyingList,
-      @required bool authUser}) = _$_DataDebtState;
+  const factory _DataDebtState({UserDebt userDebt, @required bool authUser}) =
+      _$_DataDebtState;
 
-  List<Buying> get buyingList;
+  UserDebt get userDebt;
   bool get authUser;
   @JsonKey(ignore: true)
   _$DataDebtStateCopyWith<_DataDebtState> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SuccesPayDebtStateCopyWith<$Res> {
+  factory _$SuccesPayDebtStateCopyWith(
+          _SuccesPayDebtState value, $Res Function(_SuccesPayDebtState) then) =
+      __$SuccesPayDebtStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SuccesPayDebtStateCopyWithImpl<$Res>
+    extends _$DebtStateCopyWithImpl<$Res>
+    implements _$SuccesPayDebtStateCopyWith<$Res> {
+  __$SuccesPayDebtStateCopyWithImpl(
+      _SuccesPayDebtState _value, $Res Function(_SuccesPayDebtState) _then)
+      : super(_value, (v) => _then(v as _SuccesPayDebtState));
+
+  @override
+  _SuccesPayDebtState get _value => super._value as _SuccesPayDebtState;
+}
+
+/// @nodoc
+class _$_SuccesPayDebtState implements _SuccesPayDebtState {
+  const _$_SuccesPayDebtState();
+
+  @override
+  String toString() {
+    return 'DebtState.succesPay()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SuccesPayDebtState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
+    @required TResult error(String message),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(data != null);
+    assert(succesPay != null);
+    assert(error != null);
+    return succesPay();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
+    TResult error(String message),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (succesPay != null) {
+      return succesPay();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialDebtState value),
+    @required TResult loading(_LoadingDebtState value),
+    @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
+    @required TResult error(_ErrorDebtState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(data != null);
+    assert(succesPay != null);
+    assert(error != null);
+    return succesPay(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialDebtState value),
+    TResult loading(_LoadingDebtState value),
+    TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
+    TResult error(_ErrorDebtState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (succesPay != null) {
+      return succesPay(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccesPayDebtState implements DebtState {
+  const factory _SuccesPayDebtState() = _$_SuccesPayDebtState;
 }
 
 /// @nodoc
@@ -506,12 +637,14 @@ class _$_ErrorDebtState implements _ErrorDebtState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult data(List<Buying> buyingList, bool authUser),
+    @required TResult data(UserDebt userDebt, bool authUser),
+    @required TResult succesPay(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return error(message);
   }
@@ -521,7 +654,8 @@ class _$_ErrorDebtState implements _ErrorDebtState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult data(List<Buying> buyingList, bool authUser),
+    TResult data(UserDebt userDebt, bool authUser),
+    TResult succesPay(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -538,11 +672,13 @@ class _$_ErrorDebtState implements _ErrorDebtState {
     @required TResult initial(_InitialDebtState value),
     @required TResult loading(_LoadingDebtState value),
     @required TResult data(_DataDebtState value),
+    @required TResult succesPay(_SuccesPayDebtState value),
     @required TResult error(_ErrorDebtState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
+    assert(succesPay != null);
     assert(error != null);
     return error(this);
   }
@@ -553,6 +689,7 @@ class _$_ErrorDebtState implements _ErrorDebtState {
     TResult initial(_InitialDebtState value),
     TResult loading(_LoadingDebtState value),
     TResult data(_DataDebtState value),
+    TResult succesPay(_SuccesPayDebtState value),
     TResult error(_ErrorDebtState value),
     @required TResult orElse(),
   }) {
@@ -587,6 +724,13 @@ class _$DebtEventTearOff {
       inputPinValue: inputPinValue,
     );
   }
+
+// ignore: unused_element
+  _MakePaymentDebtEvent makePayment({@required double payment}) {
+    return _MakePaymentDebtEvent(
+      payment: payment,
+    );
+  }
 }
 
 /// @nodoc
@@ -599,22 +743,26 @@ mixin _$DebtEvent {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inputPin(String inputPinValue),
+    @required TResult makePayment(double payment),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inputPin(String inputPinValue),
+    TResult makePayment(double payment),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_InitalDebtEvent value),
     @required TResult inputPin(_InputPinDebtEvent value),
+    @required TResult makePayment(_MakePaymentDebtEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitalDebtEvent value),
     TResult inputPin(_InputPinDebtEvent value),
+    TResult makePayment(_MakePaymentDebtEvent value),
     @required TResult orElse(),
   });
 }
@@ -674,9 +822,11 @@ class _$_InitalDebtEvent implements _InitalDebtEvent {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inputPin(String inputPinValue),
+    @required TResult makePayment(double payment),
   }) {
     assert(initial != null);
     assert(inputPin != null);
+    assert(makePayment != null);
     return initial();
   }
 
@@ -685,6 +835,7 @@ class _$_InitalDebtEvent implements _InitalDebtEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inputPin(String inputPinValue),
+    TResult makePayment(double payment),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -699,9 +850,11 @@ class _$_InitalDebtEvent implements _InitalDebtEvent {
   TResult map<TResult extends Object>({
     @required TResult initial(_InitalDebtEvent value),
     @required TResult inputPin(_InputPinDebtEvent value),
+    @required TResult makePayment(_MakePaymentDebtEvent value),
   }) {
     assert(initial != null);
     assert(inputPin != null);
+    assert(makePayment != null);
     return initial(this);
   }
 
@@ -710,6 +863,7 @@ class _$_InitalDebtEvent implements _InitalDebtEvent {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitalDebtEvent value),
     TResult inputPin(_InputPinDebtEvent value),
+    TResult makePayment(_MakePaymentDebtEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -791,9 +945,11 @@ class _$_InputPinDebtEvent implements _InputPinDebtEvent {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult inputPin(String inputPinValue),
+    @required TResult makePayment(double payment),
   }) {
     assert(initial != null);
     assert(inputPin != null);
+    assert(makePayment != null);
     return inputPin(inputPinValue);
   }
 
@@ -802,6 +958,7 @@ class _$_InputPinDebtEvent implements _InputPinDebtEvent {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult inputPin(String inputPinValue),
+    TResult makePayment(double payment),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -816,9 +973,11 @@ class _$_InputPinDebtEvent implements _InputPinDebtEvent {
   TResult map<TResult extends Object>({
     @required TResult initial(_InitalDebtEvent value),
     @required TResult inputPin(_InputPinDebtEvent value),
+    @required TResult makePayment(_MakePaymentDebtEvent value),
   }) {
     assert(initial != null);
     assert(inputPin != null);
+    assert(makePayment != null);
     return inputPin(this);
   }
 
@@ -827,6 +986,7 @@ class _$_InputPinDebtEvent implements _InputPinDebtEvent {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitalDebtEvent value),
     TResult inputPin(_InputPinDebtEvent value),
+    TResult makePayment(_MakePaymentDebtEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -844,4 +1004,130 @@ abstract class _InputPinDebtEvent implements DebtEvent {
   String get inputPinValue;
   @JsonKey(ignore: true)
   _$InputPinDebtEventCopyWith<_InputPinDebtEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class _$MakePaymentDebtEventCopyWith<$Res> {
+  factory _$MakePaymentDebtEventCopyWith(_MakePaymentDebtEvent value,
+          $Res Function(_MakePaymentDebtEvent) then) =
+      __$MakePaymentDebtEventCopyWithImpl<$Res>;
+  $Res call({double payment});
+}
+
+/// @nodoc
+class __$MakePaymentDebtEventCopyWithImpl<$Res>
+    extends _$DebtEventCopyWithImpl<$Res>
+    implements _$MakePaymentDebtEventCopyWith<$Res> {
+  __$MakePaymentDebtEventCopyWithImpl(
+      _MakePaymentDebtEvent _value, $Res Function(_MakePaymentDebtEvent) _then)
+      : super(_value, (v) => _then(v as _MakePaymentDebtEvent));
+
+  @override
+  _MakePaymentDebtEvent get _value => super._value as _MakePaymentDebtEvent;
+
+  @override
+  $Res call({
+    Object payment = freezed,
+  }) {
+    return _then(_MakePaymentDebtEvent(
+      payment: payment == freezed ? _value.payment : payment as double,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_MakePaymentDebtEvent implements _MakePaymentDebtEvent {
+  const _$_MakePaymentDebtEvent({@required this.payment})
+      : assert(payment != null);
+
+  @override
+  final double payment;
+
+  @override
+  String toString() {
+    return 'DebtEvent.makePayment(payment: $payment)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _MakePaymentDebtEvent &&
+            (identical(other.payment, payment) ||
+                const DeepCollectionEquality().equals(other.payment, payment)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(payment);
+
+  @JsonKey(ignore: true)
+  @override
+  _$MakePaymentDebtEventCopyWith<_MakePaymentDebtEvent> get copyWith =>
+      __$MakePaymentDebtEventCopyWithImpl<_MakePaymentDebtEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult inputPin(String inputPinValue),
+    @required TResult makePayment(double payment),
+  }) {
+    assert(initial != null);
+    assert(inputPin != null);
+    assert(makePayment != null);
+    return makePayment(payment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult inputPin(String inputPinValue),
+    TResult makePayment(double payment),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (makePayment != null) {
+      return makePayment(payment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitalDebtEvent value),
+    @required TResult inputPin(_InputPinDebtEvent value),
+    @required TResult makePayment(_MakePaymentDebtEvent value),
+  }) {
+    assert(initial != null);
+    assert(inputPin != null);
+    assert(makePayment != null);
+    return makePayment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitalDebtEvent value),
+    TResult inputPin(_InputPinDebtEvent value),
+    TResult makePayment(_MakePaymentDebtEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (makePayment != null) {
+      return makePayment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MakePaymentDebtEvent implements DebtEvent {
+  const factory _MakePaymentDebtEvent({@required double payment}) =
+      _$_MakePaymentDebtEvent;
+
+  double get payment;
+  @JsonKey(ignore: true)
+  _$MakePaymentDebtEventCopyWith<_MakePaymentDebtEvent> get copyWith;
 }
