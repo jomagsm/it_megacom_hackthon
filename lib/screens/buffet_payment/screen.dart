@@ -49,7 +49,8 @@ class PaymentModalWindow extends StatelessWidget {
                   ),
               data: (_data) => AlertDialog(
                     contentPadding: EdgeInsets.all(10),
-                    title: Row(
+                    actions: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(S.of(context).payDetail,
@@ -62,12 +63,11 @@ class PaymentModalWindow extends StatelessWidget {
                         )
                       ],
                     ),
-                    content: Container(
+                     Container(
                       child: Column(
                         children: [
                           Row(
                             children: [
-                              SizedBox(width: 55),
                               Text(
                                 "Наименование",
                                 style: AtextThemes.hintTextField,
@@ -77,7 +77,7 @@ class PaymentModalWindow extends StatelessWidget {
                                 "Кол-во",
                                 style: AtextThemes.hintTextField,
                               ),
-                              SizedBox(width: 42),
+                              SizedBox(width: 38),
                               Text(
                                 "Цена",
                                 style: AtextThemes.hintTextField,
@@ -201,7 +201,7 @@ class PaymentModalWindow extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ));
+                  ]));
         }));
   }
 }

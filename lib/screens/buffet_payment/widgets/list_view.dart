@@ -47,7 +47,7 @@ class BuyingProductListView extends StatelessWidget {
                   width: 5.0,
                 ),
                 Container(
-                    width: 87,
+                    width: 82,
                     child: Text(buyingProduct[index].product.name,
                         style: AtextThemes.titleTextField)),
                 IconButton(
@@ -75,8 +75,9 @@ class BuyingProductListView extends StatelessWidget {
                   padding: EdgeInsets.only(right: 25),
                   icon: const Icon(Icons.add, size: 13),
                   onPressed: () {
-                    print("plus");
-                  },
+          context.read<BasketBloc>().add(
+          BasketEvent.plus(productId: buyingProduct[index].product.id));
+          },
                 ),
                 Container(
                   height: 19,
