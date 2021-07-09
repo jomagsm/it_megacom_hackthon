@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'debt_bloc/debt_bloc.dart';
 import 'widgets/debt_modal_data.dart';
 
@@ -26,7 +25,13 @@ class DebtModal extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
-            loading: (_) => CircularProgressIndicator(),
+            succesPay: (_) => Scaffold(
+              body: Center(
+                child: Text('Succes'),
+              ),
+            ),
+            loading: (_) =>
+                Scaffold(body: Center(child: CircularProgressIndicator())),
             error: (error) => Scaffold(
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -49,3 +49,13 @@ getProduct(int productId, _productsList) {
     }
   }
 }
+
+List<Product> getActiveProductsList(_productList) {
+  List<Product> activeProducts = [];
+  for (var product in _productList) {
+    if (product.active) {
+      activeProducts.add(product);
+    }
+  }
+  return activeProducts;
+}
