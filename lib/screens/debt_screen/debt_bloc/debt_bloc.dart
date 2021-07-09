@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:it_megacom_hackthon/data/network/models/buying_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/payment_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
-import 'package:it_megacom_hackthon/data/network/models/user_model.dart';
 import 'package:it_megacom_hackthon/data/repository.dart';
 
 part 'debt_state.dart';

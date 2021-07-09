@@ -1,4 +1,3 @@
-import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/user_model.dart';
 
 import 'buying_product_model.dart';
