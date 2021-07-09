@@ -163,9 +163,7 @@ class PaymentModalWindow extends StatelessWidget {
       TextButton(
         style: ButtonStyle(
             backgroundColor:
-         // backgroundColor: _validate
-                                     // ? MaterialStateProperty.all<Color>(Colors.black)
-                                    //  :
+         
             MaterialStateProperty.all<Color>(Colors.grey),
                                  foregroundColor:
                                      MaterialStateProperty.all<Color>(Colors.white)),
