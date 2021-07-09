@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
+import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
 import 'package:it_megacom_hackthon/theme/acolor_theme.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:sizer/sizer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BuyingProductListView extends StatelessWidget {
   final List<BuyingProduct> buyingProduct;
@@ -51,8 +53,9 @@ class BuyingProductListView extends StatelessWidget {
                 IconButton(
                   padding: EdgeInsets.only(left: 25, bottom: 5),
                   icon: const Icon(Icons.minimize, size: 13),
-                  onPressed: () {
-                    print("minus");
+                  onPressed: () {                
+                      context.read<BasketBloc>().add(
+                          BasketEvent.minus(productId: buyingProduct[index].product.id));                                        
                   },
                 ),
                 Container(

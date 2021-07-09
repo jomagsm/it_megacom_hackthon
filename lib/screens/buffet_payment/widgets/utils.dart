@@ -9,12 +9,15 @@ getTotal(List<BuyingProduct> buyingProduct) {
 }
 
 changeQnt(List<BuyingProduct> buyingProduct, int id, String value){
+  print (value);
+  print(buyingProduct.first.qnt );
   for(var i in buyingProduct){
     if (i.product.id == id){
       if (value == "plus"){
         i.qnt+1;
       }
       else{
+        print ("rrrr");
         if(i.qnt < 1){
           i.qnt = 0;
         }
@@ -22,5 +25,6 @@ changeQnt(List<BuyingProduct> buyingProduct, int id, String value){
       }
     }
   }
+  print (buyingProduct.first.qnt );
   return buyingProduct;
 }
