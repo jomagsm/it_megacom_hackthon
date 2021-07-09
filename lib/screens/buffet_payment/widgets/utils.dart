@@ -8,23 +8,19 @@ getTotal(List<BuyingProduct> buyingProduct) {
   return total;
 }
 
-changeQnt(List<BuyingProduct> buyingProduct, int id, String value){
-  print (value);
-  print(buyingProduct.first.qnt );
-  for(var i in buyingProduct){
-    if (i.product.id == id){
-      if (value == "plus"){
-        i.qnt+1;
-      }
-      else{
-        print ("rrrr");
-        if(i.qnt < 1){
+changeQnt(List<BuyingProduct> buyingProduct, int id, String value) {
+  for (var i in buyingProduct) {
+    if (i.product.id == id) {
+      if (value == "plus") {
+        i.qnt += 1;
+      } else {
+        if (i.qnt <= 1) {
           i.qnt = 0;
+        } else {
+          i.qnt = -1;
         }
-        else{i.qnt-1;}
       }
     }
   }
-  print (buyingProduct.first.qnt );
   return buyingProduct;
 }

@@ -13,8 +13,6 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
 
   BasketBloc() : super(BasketState.initial());
 
-
-
   @override
   Stream<BasketState> mapEventToState(
     BasketEvent event,
@@ -26,9 +24,8 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
       // payButton:_mapPayButtonBasketEvent,
     );
   }
-  
-  Stream<BasketState> _mapInitialBasketEvent(
-      _InitialBasketEvent event) async* {
+
+  Stream<BasketState> _mapInitialBasketEvent(_InitialBasketEvent event) async* {
     /// Возвращаем состояние загрузки
     yield BasketState.loading();
     _buyingProductList = event.buyingProductList;
@@ -36,28 +33,24 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
     yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
   }
 
-Stream<BasketState> _mapPlusBasketEvent(
-    _IncremenBasketEvent event) async* {
-  /// Возвращаем состояние загрузки
-  yield BasketState.loading();
-  _buyingProductList = changeQnt(_buyingProductList, event.productId, 'plus');
-  _buyingProductList = _buyingProductList;
-  _total = getTotal(_buyingProductList);
-  yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
+  Stream<BasketState> _mapPlusBasketEvent(_IncremenBasketEvent event) async* {
+    /// Возвращаем состояние загрузки
+    yield BasketState.loading();
+    _buyingProductList = changeQnt(_buyingProductList, event.productId, 'plus');
+    _buyingProductList = _buyingProductList;
+    _total = getTotal(_buyingProductList);
+    yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
+  }
+
+  Stream<BasketState> _mapMinusBasketEvent(_DecremenBasketEvent event) async* {
+    /// Возвращаем состояние загрузки
+    yield BasketState.loading();
+    _buyingProductList =
+        changeQnt(_buyingProductList, event.productId, 'minus');
+    _buyingProductList = _buyingProductList;
+
+    _total = getTotal(_buyingProductList);
+
+    yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
+  }
 }
-
-Stream<BasketState> _mapMinusBasketEvent(
-    _DecremenBasketEvent event) async* {
-  /// Возвращаем состояние загрузки
-  yield BasketState.loading();
-  print(event.productId);
-  _buyingProductList = changeQnt(_buyingProductList, event.productId, 'minus');
-  print(_buyingProductList.first.qnt);
-  _buyingProductList = _buyingProductList;
-
-  _total = getTotal(_buyingProductList);
-
-  yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
-}
-}
-
