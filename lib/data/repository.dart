@@ -34,4 +34,13 @@ class Repository {
       throw (e);
     }
   }
+
+  Future makePurchase(json) async {
+    try {
+      final response = await _serviceApi.makePurchase(json);
+      return response;
+    } catch (e) {
+      throw (e);
+    }
+  }
 }

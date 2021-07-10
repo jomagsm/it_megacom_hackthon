@@ -19,7 +19,8 @@ class BasketButton extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return PaymentModalWindow(
-                    buyingProduct: data.buyingProduct,
+                    buyingProductList: data.buyingProduct,
+                    selectedProductsList: data.selectedProductsList,
                   );
                 },
               );

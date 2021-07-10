@@ -30,10 +30,10 @@ getDataTableRows(List<OperationReport> operationList) {
   return row;
 }
 
-getDataTableCellText(List<BuyingProduct> buyingProductList) {
-  String name = '';
-  for (var i in buyingProductList) {
-    name += '${i.product.name}\n';
-  }
-  return name;
-}
+// getDataTableCellText(List<BuyingProduct> buyingProductList) {
+//   String name = '';
+//   for (var i in buyingProductList) {
+//     name += '${i.product.name}\n';
+//   }
+//   return name;
+// }

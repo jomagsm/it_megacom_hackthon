@@ -44,7 +44,16 @@ class ServiceApi {
           queryParameters: {"payment": payment, "pin": pin});
       return paymentFromJson(response.toString());
     } catch (e) {
-      print(e);
+      throw e;
+    }
+  }
+
+  Future makePurchase(json) async {
+    try {
+      Response<String> response =
+          await _dio.post("/operation/append", data: json);
+      return response;
+    } catch (e) {
       throw e;
     }
   }
