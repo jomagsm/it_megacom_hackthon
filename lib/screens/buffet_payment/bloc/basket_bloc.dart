@@ -39,7 +39,6 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
   }
 
   Stream<BasketState> _mapPlusBasketEvent(_IncremenBasketEvent event) async* {
-    /// Возвращаем состояние загрузки
     yield BasketState.loading();
     _buyingProductList = changeQnt(_buyingProductList, event.productId, 'plus');
     _buyingProductList = _buyingProductList;
@@ -48,7 +47,6 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
   }
 
   Stream<BasketState> _mapMinusBasketEvent(_DecremenBasketEvent event) async* {
-    /// Возвращаем состояние загрузки
     yield BasketState.loading();
     _buyingProductList =
         changeQnt(_buyingProductList, event.productId, 'minus');
@@ -62,7 +60,7 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
     yield BasketState.loading();
     BuyingProduct _buying = BuyingProduct(
         money: event.money, pin: event.pin, products: _buyingProductList);
-    _repository.makePurchase(_buying.toJson());
+    var response = _repository.makePurchase(_buying.toJson());
     yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
   }
 }

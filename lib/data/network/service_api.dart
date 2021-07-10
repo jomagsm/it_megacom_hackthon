@@ -52,7 +52,6 @@ class ServiceApi {
     try {
       Response<String> response =
           await _dio.post("/operation/append", data: json);
-      print(response.statusCode);
       return response;
     } catch (e) {
       throw e;
