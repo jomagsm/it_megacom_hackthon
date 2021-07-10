@@ -2,21 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
+import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/list_view.dart';
+import 'package:sizer/sizer.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
 class PaymentModalWindow extends StatelessWidget {
-  final List<BuyingProduct> buyingProduct;
-  PaymentModalWindow({Key key, @required this.buyingProduct}) : super(key: key);
+  final List<ProductBuying> buyingProductList;
+  final List<Product> selectedProductsList;
+  PaymentModalWindow(
+      {Key key, @required this.buyingProductList, this.selectedProductsList})
+      : super(key: key);
   final bloc = BasketBloc();
+  String pin;
+  double money;
   @override
   Widget build(BuildContext context) {
     return BlocProvider<BasketBloc>(
-        create: (BuildContext context) =>
-            bloc..add(BasketEvent.initial(buyingProductList: buyingProduct)),
+        create: (BuildContext context) => bloc
+          ..add(BasketEvent.initial(
+              buyingProductList: buyingProductList,
+              selectedProductsList: selectedProductsList)),
         child:
             BlocConsumer<BasketBloc, BasketState>(listener: (context, state) {
           state.maybeWhen(
@@ -41,7 +50,9 @@ class PaymentModalWindow extends StatelessWidget {
                             onPressed: () {
                               bloc
                                 ..add(BasketEvent.initial(
-                                    buyingProductList: buyingProduct));
+                                    buyingProductList: buyingProductList,
+                                    selectedProductsList:
+                                        selectedProductsList));
                             },
                             child: Text('Повторить'))
                       ],
@@ -49,8 +60,7 @@ class PaymentModalWindow extends StatelessWidget {
                   ),
               data: (_data) => AlertDialog(
                     contentPadding: EdgeInsets.all(10),
-                    actions: [
-                    Row(
+                    title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(S.of(context).payDetail,
@@ -63,39 +73,53 @@ class PaymentModalWindow extends StatelessWidget {
                         )
                       ],
                     ),
-                     Container(
+                    content: Container(
+                      width: 74.0.w,
                       child: Column(
                         children: [
                           Row(
                             children: [
-                              Text(
-                                "Наименование",
-                                style: AtextThemes.hintTextField,
+                              Expanded(
+                                flex: 3,
+                                child: Text(
+                                  "Наименование",
+                                  textAlign: TextAlign.center,
+                                  style: AtextThemes.hintTextField,
+                                ),
                               ),
-                              SizedBox(width: 108),
-                              Text(
-                                "Кол-во",
-                                style: AtextThemes.hintTextField,
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  "Кол-во",
+                                  textAlign: TextAlign.center,
+                                  style: AtextThemes.hintTextField,
+                                ),
                               ),
-                              SizedBox(width: 38),
-                              Text(
-                                "Цена",
-                                style: AtextThemes.hintTextField,
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  "Цена",
+                                  textAlign: TextAlign.center,
+                                  style: AtextThemes.hintTextField,
+                                ),
                               ),
                             ],
                           ),
                           BuyingProductListView(
-                            buyingProduct: buyingProduct,
-                          ),
+                              buyingProduct: buyingProductList,
+                              selectedProductsList: selectedProductsList),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "Итого",
-                                style: AtextThemes.sumfDebt,
+                              Expanded(
+                                flex: 3,
+                                child: Text(
+                                  "Итого",
+                                  style: AtextThemes.sumfDebt,
+                                ),
                               ),
-                              SizedBox(width: 225),
-                              Text("", style: AtextThemes.sumfDebt),
+                              Text(_data.total.toString(),
+                                  style: AtextThemes.sumfDebt),
                               Text('с',
                                   style: TextStyle(
                                     fontSize: 12,
@@ -124,7 +148,9 @@ class PaymentModalWindow extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: TextField(
-                                  onSubmitted: (_number) {},
+                                  onSubmitted: (_number) {
+                                    pin = _number;
+                                  },
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(),
@@ -136,6 +162,9 @@ class PaymentModalWindow extends StatelessWidget {
                               SizedBox(width: 10),
                               Expanded(
                                 child: TextField(
+                                  onSubmitted: (_value) {
+                                    money = double.parse(_value);
+                                  },
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(),
@@ -197,11 +226,16 @@ class PaymentModalWindow extends StatelessWidget {
                                   fontSize: 11.0,
                                 ),
                               ),
-                              onPressed: () {}),
+                              onPressed: () {
+                                print('PAY ' * 20);
+                                bloc
+                                  ..add(BasketEvent.payButton(
+                                      pin: pin, money: money));
+                              }),
                         ],
                       ),
                     ),
-                  ]));
+                  ));
         }));
   }
 }

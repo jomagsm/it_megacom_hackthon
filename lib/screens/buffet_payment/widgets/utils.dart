@@ -1,23 +1,26 @@
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
+import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
 
-getTotal(List<BuyingProduct> buyingProduct) {
+getTotal(
+    List<ProductBuying> buyingProduct, List<Product> selectedProductsList) {
   double total = 0;
   for (var i in buyingProduct) {
-    total += i.qnt * i.product.price;
+    Product product = getProduct(i.id, selectedProductsList);
+    total += i.amount * product.price;
   }
   return total;
 }
 
-changeQnt(List<BuyingProduct> buyingProduct, int id, String value) {
+changeQnt(List<ProductBuying> buyingProduct, int id, String value) {
   for (var i in buyingProduct) {
-    if (i.product.id == id) {
+    if (i.id == id) {
       if (value == "plus") {
-        i.qnt += 1;
+        i.amount += 1;
       } else {
-        if (i.qnt <= 1) {
-          i.qnt = 0;
+        if (i.amount <= 1) {
+          i.amount = 0;
         } else {
-          i.qnt = 0;
+          i.amount = 0;
         }
       }
     }

@@ -28,7 +28,7 @@ class _$BuffetStateTearOff {
       {@required List<Product> productsList,
       @required int basketValue,
       @required List<Product> selectedProductsList,
-      @required List<BuyingProduct> buyingProduct,
+      @required List<ProductBuying> buyingProduct,
       @required bool openModal}) {
     return _DataBuffetState(
       productsList: productsList,
@@ -44,11 +44,6 @@ class _$BuffetStateTearOff {
     return _BasketBuffetState(
       buyingProduct: buyingProduct,
     );
-  }
-
-// ignore: unused_element
-  _WalletBuffetState wallet() {
-    return const _WalletBuffetState();
   }
 
 // ignore: unused_element
@@ -74,10 +69,9 @@ mixin _$BuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   });
   @optionalTypeArgs
@@ -88,10 +82,9 @@ mixin _$BuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   });
@@ -101,7 +94,6 @@ mixin _$BuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   });
   @optionalTypeArgs
@@ -110,7 +102,6 @@ mixin _$BuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   });
@@ -178,17 +169,15 @@ class _$_InitialBuffetState implements _InitialBuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return initial();
   }
@@ -202,10 +191,9 @@ class _$_InitialBuffetState implements _InitialBuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -223,14 +211,12 @@ class _$_InitialBuffetState implements _InitialBuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return initial(this);
   }
@@ -242,7 +228,6 @@ class _$_InitialBuffetState implements _InitialBuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   }) {
@@ -304,17 +289,15 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return loading();
   }
@@ -328,10 +311,9 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -349,14 +331,12 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return loading(this);
   }
@@ -368,7 +348,6 @@ class _$_LoadingBuffetState implements _LoadingBuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   }) {
@@ -393,7 +372,7 @@ abstract class _$DataBuffetStateCopyWith<$Res> {
       {List<Product> productsList,
       int basketValue,
       List<Product> selectedProductsList,
-      List<BuyingProduct> buyingProduct,
+      List<ProductBuying> buyingProduct,
       bool openModal});
 }
 
@@ -427,7 +406,7 @@ class __$DataBuffetStateCopyWithImpl<$Res>
           : selectedProductsList as List<Product>,
       buyingProduct: buyingProduct == freezed
           ? _value.buyingProduct
-          : buyingProduct as List<BuyingProduct>,
+          : buyingProduct as List<ProductBuying>,
       openModal: openModal == freezed ? _value.openModal : openModal as bool,
     ));
   }
@@ -454,7 +433,7 @@ class _$_DataBuffetState implements _DataBuffetState {
   @override
   final List<Product> selectedProductsList;
   @override
-  final List<BuyingProduct> buyingProduct;
+  final List<ProductBuying> buyingProduct;
   @override
   final bool openModal;
 
@@ -508,17 +487,15 @@ class _$_DataBuffetState implements _DataBuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return data(productsList, basketValue, selectedProductsList, buyingProduct,
         openModal);
@@ -533,10 +510,9 @@ class _$_DataBuffetState implements _DataBuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -555,14 +531,12 @@ class _$_DataBuffetState implements _DataBuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return data(this);
   }
@@ -574,7 +548,6 @@ class _$_DataBuffetState implements _DataBuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   }) {
@@ -591,13 +564,13 @@ abstract class _DataBuffetState implements BuffetState {
       {@required List<Product> productsList,
       @required int basketValue,
       @required List<Product> selectedProductsList,
-      @required List<BuyingProduct> buyingProduct,
+      @required List<ProductBuying> buyingProduct,
       @required bool openModal}) = _$_DataBuffetState;
 
   List<Product> get productsList;
   int get basketValue;
   List<Product> get selectedProductsList;
-  List<BuyingProduct> get buyingProduct;
+  List<ProductBuying> get buyingProduct;
   bool get openModal;
   @JsonKey(ignore: true)
   _$DataBuffetStateCopyWith<_DataBuffetState> get copyWith;
@@ -675,17 +648,15 @@ class _$_BasketBuffetState implements _BasketBuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return basket(buyingProduct);
   }
@@ -699,10 +670,9 @@ class _$_BasketBuffetState implements _BasketBuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -720,14 +690,12 @@ class _$_BasketBuffetState implements _BasketBuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return basket(this);
   }
@@ -739,7 +707,6 @@ class _$_BasketBuffetState implements _BasketBuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   }) {
@@ -758,132 +725,6 @@ abstract class _BasketBuffetState implements BuffetState {
   List<BuyingProduct> get buyingProduct;
   @JsonKey(ignore: true)
   _$BasketBuffetStateCopyWith<_BasketBuffetState> get copyWith;
-}
-
-/// @nodoc
-abstract class _$WalletBuffetStateCopyWith<$Res> {
-  factory _$WalletBuffetStateCopyWith(
-          _WalletBuffetState value, $Res Function(_WalletBuffetState) then) =
-      __$WalletBuffetStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WalletBuffetStateCopyWithImpl<$Res>
-    extends _$BuffetStateCopyWithImpl<$Res>
-    implements _$WalletBuffetStateCopyWith<$Res> {
-  __$WalletBuffetStateCopyWithImpl(
-      _WalletBuffetState _value, $Res Function(_WalletBuffetState) _then)
-      : super(_value, (v) => _then(v as _WalletBuffetState));
-
-  @override
-  _WalletBuffetState get _value => super._value as _WalletBuffetState;
-}
-
-/// @nodoc
-class _$_WalletBuffetState implements _WalletBuffetState {
-  const _$_WalletBuffetState();
-
-  @override
-  String toString() {
-    return 'BuffetState.wallet()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WalletBuffetState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loading(),
-    @required
-        TResult data(
-            List<Product> productsList,
-            int basketValue,
-            List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
-            bool openModal),
-    @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
-    @required TResult error(String message),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(data != null);
-    assert(basket != null);
-    assert(wallet != null);
-    assert(error != null);
-    return wallet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loading(),
-    TResult data(
-        List<Product> productsList,
-        int basketValue,
-        List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
-        bool openModal),
-    TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
-    TResult error(String message),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (wallet != null) {
-      return wallet();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialBuffetState value),
-    @required TResult loading(_LoadingBuffetState value),
-    @required TResult data(_DataBuffetState value),
-    @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
-    @required TResult error(_ErrorBuffetState value),
-  }) {
-    assert(initial != null);
-    assert(loading != null);
-    assert(data != null);
-    assert(basket != null);
-    assert(wallet != null);
-    assert(error != null);
-    return wallet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialBuffetState value),
-    TResult loading(_LoadingBuffetState value),
-    TResult data(_DataBuffetState value),
-    TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
-    TResult error(_ErrorBuffetState value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (wallet != null) {
-      return wallet(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WalletBuffetState implements BuffetState {
-  const factory _WalletBuffetState() = _$_WalletBuffetState;
 }
 
 /// @nodoc
@@ -954,17 +795,15 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
             List<Product> productsList,
             int basketValue,
             List<Product> selectedProductsList,
-            List<BuyingProduct> buyingProduct,
+            List<ProductBuying> buyingProduct,
             bool openModal),
     @required TResult basket(List<BuyingProduct> buyingProduct),
-    @required TResult wallet(),
     @required TResult error(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return error(message);
   }
@@ -978,10 +817,9 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
         List<Product> productsList,
         int basketValue,
         List<Product> selectedProductsList,
-        List<BuyingProduct> buyingProduct,
+        List<ProductBuying> buyingProduct,
         bool openModal),
     TResult basket(List<BuyingProduct> buyingProduct),
-    TResult wallet(),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -999,14 +837,12 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
     @required TResult loading(_LoadingBuffetState value),
     @required TResult data(_DataBuffetState value),
     @required TResult basket(_BasketBuffetState value),
-    @required TResult wallet(_WalletBuffetState value),
     @required TResult error(_ErrorBuffetState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(data != null);
     assert(basket != null);
-    assert(wallet != null);
     assert(error != null);
     return error(this);
   }
@@ -1018,7 +854,6 @@ class _$_ErrorBuffetState implements _ErrorBuffetState {
     TResult loading(_LoadingBuffetState value),
     TResult data(_DataBuffetState value),
     TResult basket(_BasketBuffetState value),
-    TResult wallet(_WalletBuffetState value),
     TResult error(_ErrorBuffetState value),
     @required TResult orElse(),
   }) {
@@ -1064,11 +899,6 @@ class _$BuffetEventTearOff {
   _SelectBasketBuffetEvent selectBasket() {
     return const _SelectBasketBuffetEvent();
   }
-
-// ignore: unused_element
-  _SelectWalletBuffetEvent selectWallet() {
-    return const _SelectWalletBuffetEvent();
-  }
 }
 
 /// @nodoc
@@ -1083,7 +913,6 @@ mixin _$BuffetEvent {
     @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
-    @required TResult selectWallet(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -1091,7 +920,6 @@ mixin _$BuffetEvent {
     TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
-    TResult selectWallet(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -1100,7 +928,6 @@ mixin _$BuffetEvent {
     @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -1108,7 +935,6 @@ mixin _$BuffetEvent {
     TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
     @required TResult orElse(),
   });
 }
@@ -1172,13 +998,11 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
-    @required TResult selectWallet(),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return initial();
   }
 
@@ -1189,7 +1013,6 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
-    TResult selectWallet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1206,13 +1029,11 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return initial(this);
   }
 
@@ -1223,7 +1044,6 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1282,13 +1102,11 @@ class _$_ChangeOrientalBuffetEvent implements _ChangeOrientalBuffetEvent {
     @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
-    @required TResult selectWallet(),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return changeOriental();
   }
 
@@ -1299,7 +1117,6 @@ class _$_ChangeOrientalBuffetEvent implements _ChangeOrientalBuffetEvent {
     TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
-    TResult selectWallet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1316,13 +1133,11 @@ class _$_ChangeOrientalBuffetEvent implements _ChangeOrientalBuffetEvent {
     @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return changeOriental(this);
   }
 
@@ -1333,7 +1148,6 @@ class _$_ChangeOrientalBuffetEvent implements _ChangeOrientalBuffetEvent {
     TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1418,13 +1232,11 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
-    @required TResult selectWallet(),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return selectedProduct(productId);
   }
 
@@ -1435,7 +1247,6 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
-    TResult selectWallet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1452,13 +1263,11 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return selectedProduct(this);
   }
 
@@ -1469,7 +1278,6 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1534,13 +1342,11 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
-    @required TResult selectWallet(),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return selectBasket();
   }
 
@@ -1551,7 +1357,6 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
-    TResult selectWallet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1568,13 +1373,11 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
   }) {
     assert(initial != null);
     assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
-    assert(selectWallet != null);
     return selectBasket(this);
   }
 
@@ -1585,7 +1388,6 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1598,114 +1400,4 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
 
 abstract class _SelectBasketBuffetEvent implements BuffetEvent {
   const factory _SelectBasketBuffetEvent() = _$_SelectBasketBuffetEvent;
-}
-
-/// @nodoc
-abstract class _$SelectWalletBuffetEventCopyWith<$Res> {
-  factory _$SelectWalletBuffetEventCopyWith(_SelectWalletBuffetEvent value,
-          $Res Function(_SelectWalletBuffetEvent) then) =
-      __$SelectWalletBuffetEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$SelectWalletBuffetEventCopyWithImpl<$Res>
-    extends _$BuffetEventCopyWithImpl<$Res>
-    implements _$SelectWalletBuffetEventCopyWith<$Res> {
-  __$SelectWalletBuffetEventCopyWithImpl(_SelectWalletBuffetEvent _value,
-      $Res Function(_SelectWalletBuffetEvent) _then)
-      : super(_value, (v) => _then(v as _SelectWalletBuffetEvent));
-
-  @override
-  _SelectWalletBuffetEvent get _value =>
-      super._value as _SelectWalletBuffetEvent;
-}
-
-/// @nodoc
-class _$_SelectWalletBuffetEvent implements _SelectWalletBuffetEvent {
-  const _$_SelectWalletBuffetEvent();
-
-  @override
-  String toString() {
-    return 'BuffetEvent.selectWallet()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SelectWalletBuffetEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult changeOriental(),
-    @required TResult selectedProduct(int productId),
-    @required TResult selectBasket(),
-    @required TResult selectWallet(),
-  }) {
-    assert(initial != null);
-    assert(changeOriental != null);
-    assert(selectedProduct != null);
-    assert(selectBasket != null);
-    assert(selectWallet != null);
-    return selectWallet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult changeOriental(),
-    TResult selectedProduct(int productId),
-    TResult selectBasket(),
-    TResult selectWallet(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectWallet != null) {
-      return selectWallet();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
-    @required TResult selectedProduct(_SelectedProductBuffetEvent value),
-    @required TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult selectWallet(_SelectWalletBuffetEvent value),
-  }) {
-    assert(initial != null);
-    assert(changeOriental != null);
-    assert(selectedProduct != null);
-    assert(selectBasket != null);
-    assert(selectWallet != null);
-    return selectWallet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
-    TResult selectedProduct(_SelectedProductBuffetEvent value),
-    TResult selectBasket(_SelectBasketBuffetEvent value),
-    TResult selectWallet(_SelectWalletBuffetEvent value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectWallet != null) {
-      return selectWallet(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SelectWalletBuffetEvent implements BuffetEvent {
-  const factory _SelectWalletBuffetEvent() = _$_SelectWalletBuffetEvent;
 }

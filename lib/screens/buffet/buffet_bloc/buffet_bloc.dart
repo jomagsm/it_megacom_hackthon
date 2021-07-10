@@ -10,7 +10,7 @@ part 'buffet_bloc.freezed.dart';
 
 class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
   final _repository = Repository();
-  List<BuyingProduct> _buyingProductList = [];
+  List<ProductBuying> _buyingProductList = [];
   List<Product> _productsList;
   List<Product> _selectedProductsList = [];
   int _basketValue = 0;
@@ -24,7 +24,6 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       initial: _mapInitialBuffetEvent,
       selectedProduct: _mapSelectedProductBuffetEvent,
       selectBasket: _mapSelectBasketBuffetEvent,
-      selectWallet: _mapSelectWalletBuffetEvent,
       changeOriental: _mapChangeOrientalBuffetEvent,
     );
   }
@@ -49,20 +48,22 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
   Stream<BuffetState> _mapSelectedProductBuffetEvent(
       _SelectedProductBuffetEvent event) async* {
     yield BuffetState.loading();
-    var product = getProduct(event.productId, _productsList);
+    Product product = getProduct(event.productId, _productsList);
     if (_buyingProductList.isNotEmpty) {
-      if (checkListOfProduct(_buyingProductList, product.id)) {
+      if (checkListOfProduct(_buyingProductList, event.productId)) {
         for (var i in _buyingProductList) {
-          if (i.product.id == product.id) {
-            i.qnt += 1;
+          if (i.id == event.productId) {
+            i.amount += 1;
           }
         }
-      } else
-        _buyingProductList.add(BuyingProduct(product: product, qnt: 1));
+      } else {
+        _selectedProductsList.add(product);
+        _buyingProductList.add(ProductBuying(amount: 1, id: event.productId));
+      }
     } else {
-      _buyingProductList.add(BuyingProduct(product: product, qnt: 1));
+      _selectedProductsList.add(product);
+      _buyingProductList.add(ProductBuying(amount: 1, id: event.productId));
     }
-    _selectedProductsList.add(product);
     _basketValue += product.price.round();
 
     yield BuffetState.data(
@@ -83,12 +84,6 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
         buyingProduct: _buyingProductList,
         selectedProductsList: _selectedProductsList,
         openModal: _openModal);
-  }
-
-  Stream<BuffetState> _mapSelectWalletBuffetEvent(
-      _SelectWalletBuffetEvent event) async* {
-    yield BuffetState.loading();
-    yield BuffetState.wallet();
   }
 
   Stream<BuffetState> _mapChangeOrientalBuffetEvent(
