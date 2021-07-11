@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/theme/acolor_theme.dart';
-
+import 'package:sizer/sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AtextThemes {
@@ -20,20 +20,19 @@ class AtextThemes {
         color: AcolorPalette.textforgot),
   );
   static TextStyle hintTextField = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 11, color: AcolorPalette.titleTf),
+    textStyle: TextStyle(fontSize: 5.0.sp, color: AcolorPalette.titleTf),
   );
   static TextStyle titleTextField = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 10.0.sp,
+          fontWeight: FontWeight.normal,
+          color: AcolorPalette.textforgot));
+
+  static TextStyle titlePage = GoogleFonts.lato(
     textStyle: TextStyle(
-        fontSize: 11,
-        fontWeight: FontWeight.normal ,
-        color: AcolorPalette.textforgot));
-
-      static TextStyle titlePage = GoogleFonts.lato(
-  textStyle: TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.bold,
-      color: AcolorPalette.textforgot),
-
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+        color: AcolorPalette.textforgot),
   );
   static TextStyle buttonText = GoogleFonts.lato(
     textStyle: TextStyle(fontSize: 11, color: AcolorPalette.titleTf),
@@ -49,7 +48,7 @@ class AtextThemes {
   );
   static TextStyle sumfDebt = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 12,
+          fontSize: 8.0.sp,
           fontWeight: FontWeight.bold,
           color: AcolorPalette.textforgot));
   static TextStyle listDebt = GoogleFonts.lato(

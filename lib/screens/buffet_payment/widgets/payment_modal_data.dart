@@ -27,16 +27,24 @@ class PaymentData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      scrollable: true,
       contentPadding: EdgeInsets.all(10),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(S.of(context).payDetail, style: AtextThemes.titlePage),
-          IconButton(
-            icon: SvgPicture.asset(SvgIconCollect.close),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+          Container(
+            height: 6.75.w,
+            width: 6.75.w,
+            child: IconButton(
+              icon: SvgPicture.asset(
+                SvgIconCollect.close,
+                // fit: BoxFit.cover,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           )
         ],
       ),
@@ -51,9 +59,15 @@ class PaymentData extends StatelessWidget {
             RowTotal(
               total: data.total.toString(),
             ),
-            Text(
-              "Оплата",
-              style: AtextThemes.titlePage,
+            SizedBox(
+              height: 2.35.h,
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Оплата",
+                style: AtextThemes.titlePage,
+              ),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text("Пин-код", style: AtextThemes.titleTextField),

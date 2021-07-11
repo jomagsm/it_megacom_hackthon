@@ -6,13 +6,13 @@ import 'color_theme.dart';
 class TextThemes {
   static var productsName = GoogleFonts.lato(
     textStyle: TextStyle(
-        fontSize: 7.0.sp,
+        fontSize: 9.0.sp,
         height: getTextHeight(10, 20),
         color: ColorPalette.white),
   );
 
   static var productsPrice = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 6.0.sp, color: ColorPalette.white),
+    textStyle: TextStyle(fontSize: 7.0.sp, color: ColorPalette.white),
   );
 
   static var productsPiceUnderline = TextStyle(

@@ -19,116 +19,123 @@ class BuyingProductListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 14.62.h,
       width: 80.0.w,
       child: ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: buyingProduct.length,
-        separatorBuilder: (BuildContext context, int index) => Divider(
-          height: 0.5,
-          color: ColorPalette.dividerColor,
+        separatorBuilder: (BuildContext context, int index) => Container(
+          margin: EdgeInsets.only(top: 0.58.h, bottom: 1.61.h),
+          child: Divider(
+            height: 0.5,
+            color: ColorPalette.dividerColor,
+          ),
         ),
         itemBuilder: (_, index) {
-          return SizedBox(
-            height: 55,
-            child: Row(
-              children: [
-                Expanded(
-                    flex: 3,
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(getProduct(
-                                      buyingProduct[index].id,
-                                      selectedProductsList)
-                                  .picture),
-                              fit: BoxFit.cover,
-                            ),
+          return Row(
+            children: [
+              Expanded(
+                  flex: 3,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 5.26.h,
+                        width: 5.26.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(getProduct(
+                                    buyingProduct[index].id,
+                                    selectedProductsList)
+                                .picture),
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        Container(
-                            width: 82,
-                            child: Text(
-                                getProduct(buyingProduct[index].id,
-                                        selectedProductsList)
-                                    .name,
-                                style: AtextThemes.titleTextField)),
-                      ],
-                    )),
-                Expanded(
-                    flex: 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          padding: EdgeInsets.only(left: 25, bottom: 5),
+                      ),
+                      SizedBox(
+                        width: 5.0,
+                      ),
+                      Container(
+                          width: 20.0.w,
+                          child: Text(
+                              getProduct(buyingProduct[index].id,
+                                      selectedProductsList)
+                                  .name,
+                              style: AtextThemes.titleTextField)),
+                    ],
+                  )),
+              Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 7.0.w,
+                        child: IconButton(
+                          padding: EdgeInsets.only(bottom: 7),
                           icon: const Icon(Icons.minimize, size: 13),
                           onPressed: () {
                             context.read<BasketBloc>().add(BasketEvent.minus(
                                 productId: buyingProduct[index].id));
                           },
                         ),
-                        Container(
-                          height: 20,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(buyingProduct[index].amount.toString(),
-                                style: AtextThemes.titleTextField),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(1.0.w),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(
+                            color: Colors.grey,
                           ),
                         ),
-                        IconButton(
-                          padding: EdgeInsets.only(right: 25),
+                        child: Center(
+                          child: Text(buyingProduct[index].amount.toString(),
+                              style: AtextThemes.titleTextField),
+                        ),
+                      ),
+                      Container(
+                        width: 7.0.w,
+                        margin: EdgeInsets.only(right: 2.11.w),
+                        child: IconButton(
+                          padding: EdgeInsets.only(bottom: 0),
                           icon: const Icon(Icons.add, size: 13),
                           onPressed: () {
                             context.read<BasketBloc>().add(BasketEvent.plus(
                                 productId: buyingProduct[index].id));
                           },
                         ),
-                      ],
-                    )),
-                Expanded(
-                    flex: 1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 19,
-                          width: 20,
-                          child: Center(
-                            child: Text(
-                                (getProduct(buyingProduct[index].id,
-                                            selectedProductsList)
-                                        .price
-                                        .toInt())
-                                    .toString(),
-                                style: AtextThemes.titleTextField),
-                          ),
+                      ),
+                    ],
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        // height: 19,
+                        // width: 20,
+                        child: Center(
+                          child: Text(
+                              (getProduct(buyingProduct[index].id,
+                                          selectedProductsList)
+                                      .price
+                                      .toInt())
+                                  .toString(),
+                              style: AtextThemes.titleTextField),
                         ),
-                        Text('с',
-                            style: GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
-                                    color: AcolorPalette.textforgot,
-                                    decoration: TextDecoration.underline))),
-                      ],
-                    )),
-              ],
-            ),
+                      ),
+                      Text('с',
+                          style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 10.0.sp,
+                                  fontWeight: FontWeight.normal,
+                                  color: AcolorPalette.textforgot,
+                                  decoration: TextDecoration.underline))),
+                    ],
+                  )),
+            ],
           );
         },
       ),
