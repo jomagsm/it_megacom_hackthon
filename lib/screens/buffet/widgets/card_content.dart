@@ -21,7 +21,7 @@ class CardContent extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: ColorPalette.productsCardName,
+                    color: ColorPalette.dividerColor,
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
                   child: Padding(

@@ -20,7 +20,7 @@ class CardContentPrice extends StatelessWidget {
                 child: Container(
                   margin: EdgeInsets.only(bottom: 7.0.w, right: 10),
                   child: CircleAvatar(
-                    radius: 2.40.h,
+                    radius: 3.0.h,
                     backgroundColor: ColorPalette.productsCardCirculeAvatar,
                     child: RichText(
                       textAlign: TextAlign.center,
