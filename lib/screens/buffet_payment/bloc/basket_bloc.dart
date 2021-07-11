@@ -14,6 +14,8 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
   List<ProductBuying> _buyingProductList;
   List<Product> _selectedProductsList;
   double _total = 0;
+  String _pin = '';
+  double _money;
 
   BasketBloc() : super(BasketState.initial());
 
@@ -26,6 +28,7 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
       plus: _mapPlusBasketEvent,
       minus: _mapMinusBasketEvent,
       payButton: _mapPayButtonBasketEvent,
+      inputValue: _mapInputValueBasketEvent,
     );
   }
 
@@ -55,12 +58,23 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
     yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
   }
 
+  Stream<BasketState> _mapInputValueBasketEvent(
+      _InputValueBasketEvent event) async* {
+    Map<String, String> value = event.value;
+    if (value.keys.toString() == '(pin)') {
+      _pin = value['pin'];
+    } else if (value.keys.toString() == '(money)') {
+      _money = double.parse(value['money']);
+    }
+  }
+
   Stream<BasketState> _mapPayButtonBasketEvent(
       _PayButtonBasketEvent event) async* {
     yield BasketState.loading();
-    BuyingProduct _buying = BuyingProduct(
-        money: event.money, pin: event.pin, products: _buyingProductList);
-    var response = _repository.makePurchase(_buying.toJson());
+    BuyingProduct _buying =
+        BuyingProduct(money: _money, pin: _pin, products: _buyingProductList);
+    var response = await _repository.makePurchase(_buying.toJson());
+    print(response.statusCode);
     yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
   }
 }

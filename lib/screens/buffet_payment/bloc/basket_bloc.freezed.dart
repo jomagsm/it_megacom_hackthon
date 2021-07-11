@@ -38,12 +38,15 @@ class _$BasketEventTearOff {
   }
 
 // ignore: unused_element
-  _PayButtonBasketEvent payButton(
-      {@required String pin, @required double money}) {
-    return _PayButtonBasketEvent(
-      pin: pin,
-      money: money,
+  _InputValueBasketEvent inputValue({@required Map<String, String> value}) {
+    return _InputValueBasketEvent(
+      value: value,
     );
+  }
+
+// ignore: unused_element
+  _PayButtonBasketEvent payButton() {
+    return const _PayButtonBasketEvent();
   }
 }
 
@@ -60,7 +63,8 @@ mixin _$BasketEvent {
             List<Product> selectedProductsList),
     @required TResult plus(int productId),
     @required TResult minus(int productId),
-    @required TResult payButton(String pin, double money),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -68,7 +72,8 @@ mixin _$BasketEvent {
         List<Product> selectedProductsList),
     TResult plus(int productId),
     TResult minus(int productId),
-    TResult payButton(String pin, double money),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -76,6 +81,7 @@ mixin _$BasketEvent {
     @required TResult initial(_InitialBasketEvent value),
     @required TResult plus(_IncremenBasketEvent value),
     @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
     @required TResult payButton(_PayButtonBasketEvent value),
   });
   @optionalTypeArgs
@@ -83,6 +89,7 @@ mixin _$BasketEvent {
     TResult initial(_InitialBasketEvent value),
     TResult plus(_IncremenBasketEvent value),
     TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
     TResult payButton(_PayButtonBasketEvent value),
     @required TResult orElse(),
   });
@@ -189,11 +196,13 @@ class _$_InitialBasketEvent implements _InitialBasketEvent {
             List<Product> selectedProductsList),
     @required TResult plus(int productId),
     @required TResult minus(int productId),
-    @required TResult payButton(String pin, double money),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return initial(buyingProductList, selectedProductsList);
   }
@@ -205,7 +214,8 @@ class _$_InitialBasketEvent implements _InitialBasketEvent {
         List<Product> selectedProductsList),
     TResult plus(int productId),
     TResult minus(int productId),
-    TResult payButton(String pin, double money),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -221,11 +231,13 @@ class _$_InitialBasketEvent implements _InitialBasketEvent {
     @required TResult initial(_InitialBasketEvent value),
     @required TResult plus(_IncremenBasketEvent value),
     @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
     @required TResult payButton(_PayButtonBasketEvent value),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return initial(this);
   }
@@ -236,6 +248,7 @@ class _$_InitialBasketEvent implements _InitialBasketEvent {
     TResult initial(_InitialBasketEvent value),
     TResult plus(_IncremenBasketEvent value),
     TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
     TResult payButton(_PayButtonBasketEvent value),
     @required TResult orElse(),
   }) {
@@ -327,11 +340,13 @@ class _$_IncremenBasketEvent implements _IncremenBasketEvent {
             List<Product> selectedProductsList),
     @required TResult plus(int productId),
     @required TResult minus(int productId),
-    @required TResult payButton(String pin, double money),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return plus(productId);
   }
@@ -343,7 +358,8 @@ class _$_IncremenBasketEvent implements _IncremenBasketEvent {
         List<Product> selectedProductsList),
     TResult plus(int productId),
     TResult minus(int productId),
-    TResult payButton(String pin, double money),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -359,11 +375,13 @@ class _$_IncremenBasketEvent implements _IncremenBasketEvent {
     @required TResult initial(_InitialBasketEvent value),
     @required TResult plus(_IncremenBasketEvent value),
     @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
     @required TResult payButton(_PayButtonBasketEvent value),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return plus(this);
   }
@@ -374,6 +392,7 @@ class _$_IncremenBasketEvent implements _IncremenBasketEvent {
     TResult initial(_InitialBasketEvent value),
     TResult plus(_IncremenBasketEvent value),
     TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
     TResult payButton(_PayButtonBasketEvent value),
     @required TResult orElse(),
   }) {
@@ -463,11 +482,13 @@ class _$_DecremenBasketEvent implements _DecremenBasketEvent {
             List<Product> selectedProductsList),
     @required TResult plus(int productId),
     @required TResult minus(int productId),
-    @required TResult payButton(String pin, double money),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return minus(productId);
   }
@@ -479,7 +500,8 @@ class _$_DecremenBasketEvent implements _DecremenBasketEvent {
         List<Product> selectedProductsList),
     TResult plus(int productId),
     TResult minus(int productId),
-    TResult payButton(String pin, double money),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -495,11 +517,13 @@ class _$_DecremenBasketEvent implements _DecremenBasketEvent {
     @required TResult initial(_InitialBasketEvent value),
     @required TResult plus(_IncremenBasketEvent value),
     @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
     @required TResult payButton(_PayButtonBasketEvent value),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return minus(this);
   }
@@ -510,6 +534,7 @@ class _$_DecremenBasketEvent implements _DecremenBasketEvent {
     TResult initial(_InitialBasketEvent value),
     TResult plus(_IncremenBasketEvent value),
     TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
     TResult payButton(_PayButtonBasketEvent value),
     @required TResult orElse(),
   }) {
@@ -531,11 +556,151 @@ abstract class _DecremenBasketEvent implements BasketEvent {
 }
 
 /// @nodoc
+abstract class _$InputValueBasketEventCopyWith<$Res> {
+  factory _$InputValueBasketEventCopyWith(_InputValueBasketEvent value,
+          $Res Function(_InputValueBasketEvent) then) =
+      __$InputValueBasketEventCopyWithImpl<$Res>;
+  $Res call({Map<String, String> value});
+}
+
+/// @nodoc
+class __$InputValueBasketEventCopyWithImpl<$Res>
+    extends _$BasketEventCopyWithImpl<$Res>
+    implements _$InputValueBasketEventCopyWith<$Res> {
+  __$InputValueBasketEventCopyWithImpl(_InputValueBasketEvent _value,
+      $Res Function(_InputValueBasketEvent) _then)
+      : super(_value, (v) => _then(v as _InputValueBasketEvent));
+
+  @override
+  _InputValueBasketEvent get _value => super._value as _InputValueBasketEvent;
+
+  @override
+  $Res call({
+    Object value = freezed,
+  }) {
+    return _then(_InputValueBasketEvent(
+      value: value == freezed ? _value.value : value as Map<String, String>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_InputValueBasketEvent implements _InputValueBasketEvent {
+  const _$_InputValueBasketEvent({@required this.value})
+      : assert(value != null);
+
+  @override
+  final Map<String, String> value;
+
+  @override
+  String toString() {
+    return 'BasketEvent.inputValue(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _InputValueBasketEvent &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InputValueBasketEventCopyWith<_InputValueBasketEvent> get copyWith =>
+      __$InputValueBasketEventCopyWithImpl<_InputValueBasketEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required
+        TResult initial(List<ProductBuying> buyingProductList,
+            List<Product> selectedProductsList),
+    @required TResult plus(int productId),
+    @required TResult minus(int productId),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
+  }) {
+    assert(initial != null);
+    assert(plus != null);
+    assert(minus != null);
+    assert(inputValue != null);
+    assert(payButton != null);
+    return inputValue(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(List<ProductBuying> buyingProductList,
+        List<Product> selectedProductsList),
+    TResult plus(int productId),
+    TResult minus(int productId),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (inputValue != null) {
+      return inputValue(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialBasketEvent value),
+    @required TResult plus(_IncremenBasketEvent value),
+    @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
+    @required TResult payButton(_PayButtonBasketEvent value),
+  }) {
+    assert(initial != null);
+    assert(plus != null);
+    assert(minus != null);
+    assert(inputValue != null);
+    assert(payButton != null);
+    return inputValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialBasketEvent value),
+    TResult plus(_IncremenBasketEvent value),
+    TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
+    TResult payButton(_PayButtonBasketEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (inputValue != null) {
+      return inputValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InputValueBasketEvent implements BasketEvent {
+  const factory _InputValueBasketEvent({@required Map<String, String> value}) =
+      _$_InputValueBasketEvent;
+
+  Map<String, String> get value;
+  @JsonKey(ignore: true)
+  _$InputValueBasketEventCopyWith<_InputValueBasketEvent> get copyWith;
+}
+
+/// @nodoc
 abstract class _$PayButtonBasketEventCopyWith<$Res> {
   factory _$PayButtonBasketEventCopyWith(_PayButtonBasketEvent value,
           $Res Function(_PayButtonBasketEvent) then) =
       __$PayButtonBasketEventCopyWithImpl<$Res>;
-  $Res call({String pin, double money});
 }
 
 /// @nodoc
@@ -548,56 +713,24 @@ class __$PayButtonBasketEventCopyWithImpl<$Res>
 
   @override
   _PayButtonBasketEvent get _value => super._value as _PayButtonBasketEvent;
-
-  @override
-  $Res call({
-    Object pin = freezed,
-    Object money = freezed,
-  }) {
-    return _then(_PayButtonBasketEvent(
-      pin: pin == freezed ? _value.pin : pin as String,
-      money: money == freezed ? _value.money : money as double,
-    ));
-  }
 }
 
 /// @nodoc
 class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
-  const _$_PayButtonBasketEvent({@required this.pin, @required this.money})
-      : assert(pin != null),
-        assert(money != null);
-
-  @override
-  final String pin;
-  @override
-  final double money;
+  const _$_PayButtonBasketEvent();
 
   @override
   String toString() {
-    return 'BasketEvent.payButton(pin: $pin, money: $money)';
+    return 'BasketEvent.payButton()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _PayButtonBasketEvent &&
-            (identical(other.pin, pin) ||
-                const DeepCollectionEquality().equals(other.pin, pin)) &&
-            (identical(other.money, money) ||
-                const DeepCollectionEquality().equals(other.money, money)));
+    return identical(this, other) || (other is _PayButtonBasketEvent);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(pin) ^
-      const DeepCollectionEquality().hash(money);
-
-  @JsonKey(ignore: true)
-  @override
-  _$PayButtonBasketEventCopyWith<_PayButtonBasketEvent> get copyWith =>
-      __$PayButtonBasketEventCopyWithImpl<_PayButtonBasketEvent>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -607,13 +740,15 @@ class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
             List<Product> selectedProductsList),
     @required TResult plus(int productId),
     @required TResult minus(int productId),
-    @required TResult payButton(String pin, double money),
+    @required TResult inputValue(Map<String, String> value),
+    @required TResult payButton(),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
-    return payButton(pin, money);
+    return payButton();
   }
 
   @override
@@ -623,12 +758,13 @@ class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
         List<Product> selectedProductsList),
     TResult plus(int productId),
     TResult minus(int productId),
-    TResult payButton(String pin, double money),
+    TResult inputValue(Map<String, String> value),
+    TResult payButton(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (payButton != null) {
-      return payButton(pin, money);
+      return payButton();
     }
     return orElse();
   }
@@ -639,11 +775,13 @@ class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
     @required TResult initial(_InitialBasketEvent value),
     @required TResult plus(_IncremenBasketEvent value),
     @required TResult minus(_DecremenBasketEvent value),
+    @required TResult inputValue(_InputValueBasketEvent value),
     @required TResult payButton(_PayButtonBasketEvent value),
   }) {
     assert(initial != null);
     assert(plus != null);
     assert(minus != null);
+    assert(inputValue != null);
     assert(payButton != null);
     return payButton(this);
   }
@@ -654,6 +792,7 @@ class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
     TResult initial(_InitialBasketEvent value),
     TResult plus(_IncremenBasketEvent value),
     TResult minus(_DecremenBasketEvent value),
+    TResult inputValue(_InputValueBasketEvent value),
     TResult payButton(_PayButtonBasketEvent value),
     @required TResult orElse(),
   }) {
@@ -666,13 +805,7 @@ class _$_PayButtonBasketEvent implements _PayButtonBasketEvent {
 }
 
 abstract class _PayButtonBasketEvent implements BasketEvent {
-  const factory _PayButtonBasketEvent(
-      {@required String pin, @required double money}) = _$_PayButtonBasketEvent;
-
-  String get pin;
-  double get money;
-  @JsonKey(ignore: true)
-  _$PayButtonBasketEventCopyWith<_PayButtonBasketEvent> get copyWith;
+  const factory _PayButtonBasketEvent() = _$_PayButtonBasketEvent;
 }
 
 /// @nodoc
