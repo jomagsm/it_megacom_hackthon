@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 

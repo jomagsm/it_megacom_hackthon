@@ -30,8 +30,6 @@ class DebtBloc extends Bloc<DebtEvent, DebtState> {
 
   Stream<DebtState> _mapMakePaymentEvent(_MakePaymentDebtEvent event) async* {
     yield DebtState.loading();
-    print(event.payment);
-    print(_userDebt.pinDto.pin);
     try {
       Payment _payment =
           await _repository.makePayment(_userDebt.pinDto.pin, event.payment);
