@@ -21,9 +21,8 @@ class DebtModalData extends StatelessWidget {
     return Container(
       height: 51.0.h,
       child: AlertDialog(
-        title: SizedBox(
-          width: 75.0.w,
-          child: Row(
+        actions: [
+           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(S.of(context).debts, style: TextThemes.paymentTitle),
@@ -35,8 +34,7 @@ class DebtModalData extends StatelessWidget {
               )
             ],
           ),
-        ),
-        content: Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -54,8 +52,8 @@ class DebtModalData extends StatelessWidget {
               height: 8,
             ),
             Container(
-              width: 22.51.w,
-              height: 3.51.h,
+             // width: 22.51.w,
+              height: 6.0.h,
               child: TextField(
                 onSubmitted: (value) {
                   context
@@ -64,20 +62,25 @@ class DebtModalData extends StatelessWidget {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(top: 3,left: 6),
                   border: OutlineInputBorder(),
                   hintText: S.of(context).inputPin,
                   hintStyle: AtextThemes.hintTextField,
                 ),
               ),
+
             ),
             data.authUser
                 ? BuyingList(
                     data: data,
                   )
                 : SizedBox(),
+
           ],
+
         ),
-      ),
+          SizedBox(height: 530),
+    ],),
     );
   }
 }

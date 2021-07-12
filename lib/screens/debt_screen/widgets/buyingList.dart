@@ -24,7 +24,9 @@ class BuyingList extends StatelessWidget {
         SizedBox(
           height: 1.75.h,
         ),
-        SingleChildScrollView(
+        Container (
+          height: 230,
+        child:SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           child: SingleChildScrollView(
@@ -36,7 +38,7 @@ class BuyingList extends StatelessWidget {
               rows: getDataTableRows(userDebt.operationReports),
             ),
           ),
-        ),
+        ),),
         SizedBox(
           height: 1.61.h,
         ),
@@ -56,7 +58,7 @@ class BuyingList extends StatelessWidget {
               S.of(context).pay,
               style: AtextThemes.titleTextField,
             )),
-        SingleChildScrollView(
+       SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           child: SingleChildScrollView(
