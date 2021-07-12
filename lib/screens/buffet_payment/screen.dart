@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
+import 'package:it_megacom_hackthon/generated/intl/messages_en.dart';
+import 'package:it_megacom_hackthon/screens/buffet/screen.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/payment_modal_data.dart';
 
@@ -23,7 +25,18 @@ class PaymentModalWindow extends StatelessWidget {
         child:
             BlocConsumer<BasketBloc, BasketState>(listener: (context, state) {
           state.maybeWhen(
-            error: (_error) => {},
+            error: (_error) => {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(_error.toString())))
+            },
+            successPayment: (messages) => {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(messages))),
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductsListGrid()),
+                  (route) => false)
+            },
             orElse: () {},
           );
         }, builder: (context, state) {

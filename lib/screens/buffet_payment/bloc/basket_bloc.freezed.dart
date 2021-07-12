@@ -837,6 +837,13 @@ class _$BasketStateTearOff {
       total: total,
     );
   }
+
+// ignore: unused_element
+  _SuccessPaymentBasketState successPayment({@required String message}) {
+    return _SuccessPaymentBasketState(
+      message: message,
+    );
+  }
 }
 
 /// @nodoc
@@ -851,6 +858,7 @@ mixin _$BasketState {
     @required TResult loading(),
     @required TResult error(String message),
     @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -858,6 +866,7 @@ mixin _$BasketState {
     TResult loading(),
     TResult error(String message),
     TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -866,6 +875,7 @@ mixin _$BasketState {
     @required TResult loading(_LoadingBasketState value),
     @required TResult error(_ErrorBasketState value),
     @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -873,6 +883,7 @@ mixin _$BasketState {
     TResult loading(_LoadingBasketState value),
     TResult error(_ErrorBasketState value),
     TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
     @required TResult orElse(),
   });
 }
@@ -936,11 +947,13 @@ class _$_InitialBasketState implements _InitialBasketState {
     @required TResult loading(),
     @required TResult error(String message),
     @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return initial();
   }
 
@@ -951,6 +964,7 @@ class _$_InitialBasketState implements _InitialBasketState {
     TResult loading(),
     TResult error(String message),
     TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -967,11 +981,13 @@ class _$_InitialBasketState implements _InitialBasketState {
     @required TResult loading(_LoadingBasketState value),
     @required TResult error(_ErrorBasketState value),
     @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return initial(this);
   }
 
@@ -982,6 +998,7 @@ class _$_InitialBasketState implements _InitialBasketState {
     TResult loading(_LoadingBasketState value),
     TResult error(_ErrorBasketState value),
     TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1039,11 +1056,13 @@ class _$_LoadingBasketState implements _LoadingBasketState {
     @required TResult loading(),
     @required TResult error(String message),
     @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return loading();
   }
 
@@ -1054,6 +1073,7 @@ class _$_LoadingBasketState implements _LoadingBasketState {
     TResult loading(),
     TResult error(String message),
     TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1070,11 +1090,13 @@ class _$_LoadingBasketState implements _LoadingBasketState {
     @required TResult loading(_LoadingBasketState value),
     @required TResult error(_ErrorBasketState value),
     @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return loading(this);
   }
 
@@ -1085,6 +1107,7 @@ class _$_LoadingBasketState implements _LoadingBasketState {
     TResult loading(_LoadingBasketState value),
     TResult error(_ErrorBasketState value),
     TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1164,11 +1187,13 @@ class _$_ErrorBasketState implements _ErrorBasketState {
     @required TResult loading(),
     @required TResult error(String message),
     @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return error(message);
   }
 
@@ -1179,6 +1204,7 @@ class _$_ErrorBasketState implements _ErrorBasketState {
     TResult loading(),
     TResult error(String message),
     TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1195,11 +1221,13 @@ class _$_ErrorBasketState implements _ErrorBasketState {
     @required TResult loading(_LoadingBasketState value),
     @required TResult error(_ErrorBasketState value),
     @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return error(this);
   }
 
@@ -1210,6 +1238,7 @@ class _$_ErrorBasketState implements _ErrorBasketState {
     TResult loading(_LoadingBasketState value),
     TResult error(_ErrorBasketState value),
     TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1307,11 +1336,13 @@ class _$_DataBasketState implements _DataBasketState {
     @required TResult loading(),
     @required TResult error(String message),
     @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return data(buyingProduct, total);
   }
 
@@ -1322,6 +1353,7 @@ class _$_DataBasketState implements _DataBasketState {
     TResult loading(),
     TResult error(String message),
     TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1338,11 +1370,13 @@ class _$_DataBasketState implements _DataBasketState {
     @required TResult loading(_LoadingBasketState value),
     @required TResult error(_ErrorBasketState value),
     @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
   }) {
     assert(initial != null);
     assert(loading != null);
     assert(error != null);
     assert(data != null);
+    assert(successPayment != null);
     return data(this);
   }
 
@@ -1353,6 +1387,7 @@ class _$_DataBasketState implements _DataBasketState {
     TResult loading(_LoadingBasketState value),
     TResult error(_ErrorBasketState value),
     TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1372,4 +1407,144 @@ abstract class _DataBasketState implements BasketState {
   double get total;
   @JsonKey(ignore: true)
   _$DataBasketStateCopyWith<_DataBasketState> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SuccessPaymentBasketStateCopyWith<$Res> {
+  factory _$SuccessPaymentBasketStateCopyWith(_SuccessPaymentBasketState value,
+          $Res Function(_SuccessPaymentBasketState) then) =
+      __$SuccessPaymentBasketStateCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$SuccessPaymentBasketStateCopyWithImpl<$Res>
+    extends _$BasketStateCopyWithImpl<$Res>
+    implements _$SuccessPaymentBasketStateCopyWith<$Res> {
+  __$SuccessPaymentBasketStateCopyWithImpl(_SuccessPaymentBasketState _value,
+      $Res Function(_SuccessPaymentBasketState) _then)
+      : super(_value, (v) => _then(v as _SuccessPaymentBasketState));
+
+  @override
+  _SuccessPaymentBasketState get _value =>
+      super._value as _SuccessPaymentBasketState;
+
+  @override
+  $Res call({
+    Object message = freezed,
+  }) {
+    return _then(_SuccessPaymentBasketState(
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SuccessPaymentBasketState implements _SuccessPaymentBasketState {
+  const _$_SuccessPaymentBasketState({@required this.message})
+      : assert(message != null);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'BasketState.successPayment(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SuccessPaymentBasketState &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuccessPaymentBasketStateCopyWith<_SuccessPaymentBasketState>
+      get copyWith =>
+          __$SuccessPaymentBasketStateCopyWithImpl<_SuccessPaymentBasketState>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult error(String message),
+    @required TResult data(List<ProductBuying> buyingProduct, double total),
+    @required TResult successPayment(String message),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(error != null);
+    assert(data != null);
+    assert(successPayment != null);
+    return successPayment(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult error(String message),
+    TResult data(List<ProductBuying> buyingProduct, double total),
+    TResult successPayment(String message),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (successPayment != null) {
+      return successPayment(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialBasketState value),
+    @required TResult loading(_LoadingBasketState value),
+    @required TResult error(_ErrorBasketState value),
+    @required TResult data(_DataBasketState value),
+    @required TResult successPayment(_SuccessPaymentBasketState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(error != null);
+    assert(data != null);
+    assert(successPayment != null);
+    return successPayment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialBasketState value),
+    TResult loading(_LoadingBasketState value),
+    TResult error(_ErrorBasketState value),
+    TResult data(_DataBasketState value),
+    TResult successPayment(_SuccessPaymentBasketState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (successPayment != null) {
+      return successPayment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessPaymentBasketState implements BasketState {
+  const factory _SuccessPaymentBasketState({@required String message}) =
+      _$_SuccessPaymentBasketState;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$SuccessPaymentBasketStateCopyWith<_SuccessPaymentBasketState> get copyWith;
 }

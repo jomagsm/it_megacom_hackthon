@@ -10,4 +10,5 @@ abstract class BasketState with _$BasketState {
     @required List<ProductBuying> buyingProduct,
     @required double total,
   }) = _DataBasketState;
+   const factory BasketState.successPayment({@required String message}) = _SuccessPaymentBasketState;
 }
