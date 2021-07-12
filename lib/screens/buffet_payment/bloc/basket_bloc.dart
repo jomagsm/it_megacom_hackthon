@@ -71,10 +71,13 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
   Stream<BasketState> _mapPayButtonBasketEvent(
       _PayButtonBasketEvent event) async* {
     yield BasketState.loading();
-    BuyingProduct _buying =
-        BuyingProduct(money: _money, pin: _pin, products: _buyingProductList);
-    var response = await _repository.makePurchase(_buying.toJson());
-    print(response.statusCode);
-    yield BasketState.data(buyingProduct: _buyingProductList, total: _total);
+    try {
+      BuyingProduct _buying =
+          BuyingProduct(money: _money, pin: _pin, products: _buyingProductList);
+      var response = await _repository.makePurchase(_buying.toJson());
+      yield BasketState.successPayment(message: "Успешно!");
+    } catch (e) {
+      yield BasketState.error(message: e.toString());
+    }
   }
 }
