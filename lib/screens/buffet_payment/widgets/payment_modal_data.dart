@@ -28,7 +28,6 @@ class PaymentData extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       scrollable: true,
-      contentPadding: EdgeInsets.all(10),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -101,12 +100,13 @@ class PaymentData extends StatelessWidget {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.grey),
+
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white)),
                 child: Text(
                   S.of(context).payment,
                   style: TextStyle(
-                    fontSize: 11.0,
+                    fontSize: 11.0,fontWeight: FontWeight.normal,
                   ),
                 ),
                 onPressed: () {

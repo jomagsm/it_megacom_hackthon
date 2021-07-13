@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
+import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 getDataTableColumn(List<String> labelName) {
@@ -8,7 +10,7 @@ getDataTableColumn(List<String> labelName) {
     column.add(DataColumn(
       label: Text(
         name,
-        style: TextThemes.hintTextField,
+        style: TextThemes.titleListProduct ,
       ),
     ));
   }
@@ -20,10 +22,18 @@ getDataTableRows(List<OperationReport> operationList) {
   for (var i in operationList) {
     row.add(
       DataRow(cells: [
-        DataCell(Text(i.id.toString())),
-        DataCell(Text(i.addDate)),
-        DataCell(Text("${i.debt.toString()}c")),
-      ]),
+        DataCell(Text(i.id.toString(),style: TextThemes.listDebt)),
+        DataCell(Text(i.addDate,style: TextThemes.listDebt)),
+        DataCell(Row(
+          children: [
+            Text("${i.debt.toString()}",style: TextThemes.listDebt),
+            Text('с',
+           style: GoogleFonts.lato(
+          textStyle: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+              color: ColorPalette.textforgot,
+              decoration: TextDecoration.underline))),],),),]),
     );
   }
   return row;

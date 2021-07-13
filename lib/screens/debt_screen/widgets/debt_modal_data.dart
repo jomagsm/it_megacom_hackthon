@@ -29,7 +29,7 @@ class DebtModalData extends StatelessWidget {
            Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(S.of(context).debts, style: TextThemes.paymentTitle),
+              Text(S.of(context).debts, style: TextThemes.titlePage),
               Container(
                 height: 6.75.w,
                 width: 6.75.w,
@@ -62,7 +62,7 @@ class DebtModalData extends StatelessWidget {
             ),
             Container(
               width: 30.51.w,
-              height: 6.0.h,
+              height:4.51.h,
               child: TextField(
                 onSubmitted: (value) {
                   context
@@ -83,7 +83,7 @@ class DebtModalData extends StatelessWidget {
                     data: data,
                   )
                 : SizedBox(),
-            SizedBox(height: 530),
+            SizedBox(height: 200),
           ],
         ),
 
