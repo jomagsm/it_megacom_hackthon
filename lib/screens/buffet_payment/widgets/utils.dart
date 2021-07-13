@@ -20,7 +20,7 @@ changeQnt(List<ProductBuying> buyingProduct, int id, String value) {
         if (i.amount <= 1) {
           i.amount = 0;
         } else {
-          i.amount = 0;
+          i.amount -= 1;
         }
       }
     }

@@ -58,12 +58,21 @@ class BuyingList extends StatelessWidget {
               S.of(context).pay,
               style: AtextThemes.titleTextField,
             )),
+
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Text(S.of(context).summPay),
+          Text( S.of(context).debt,),
+        ],),
+Row (),
+SizedBox(height: 10),
        SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
+
             child: DataTable(
               showCheckboxColumn: false,
               columns: getDataTableColumn([
