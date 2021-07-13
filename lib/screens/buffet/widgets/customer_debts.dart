@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 class CustomerDebts extends StatefulWidget {
   CustomerDebts({Key key}) : super(key: key);
@@ -24,7 +24,7 @@ class _CustomerDebtsState extends State<CustomerDebts> {
                     children: [
                       Text(
                         "Долги",
-                        style: AtextThemes.titleTextField,
+                        style: TextThemes.titleTextField,
                       )
                     ],
                   ),
@@ -33,7 +33,7 @@ class _CustomerDebtsState extends State<CustomerDebts> {
                     children: [
                       Text(
                         "Введите пин-код для получения информации",
-                        style: AtextThemes.passwordRequired,
+                        style: TextThemes.passwordRequired,
                       ),
                       SizedBox(width: 5),
                     ],
@@ -41,7 +41,7 @@ class _CustomerDebtsState extends State<CustomerDebts> {
                   Row(children: [
                     Text(
                       "Пин-код",
-                      style: AtextThemes.password,
+                      style: TextThemes.password,
                     ),
                   ]),
                   SizedBox(height: 3),
@@ -53,7 +53,7 @@ class _CustomerDebtsState extends State<CustomerDebts> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Введите пин-код',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),

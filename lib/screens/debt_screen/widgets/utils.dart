@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 getDataTableColumn(List<String> labelName) {
   List<DataColumn> column = [];
@@ -8,7 +8,7 @@ getDataTableColumn(List<String> labelName) {
     column.add(DataColumn(
       label: Text(
         name,
-        style: AtextThemes.hintTextField,
+        style: TextThemes.hintTextField,
       ),
     ));
   }

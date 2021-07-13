@@ -3,9 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
-import 'package:it_megacom_hackthon/theme/acolor_theme.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -62,7 +61,7 @@ class BuyingProductListView extends StatelessWidget {
                               getProduct(buyingProduct[index].id,
                                       selectedProductsList)
                                   .name,
-                              style: AtextThemes.titleTextField)),
+                              style: TextThemes.titleTextField)),
                     ],
                   )),
               Expanded(
@@ -91,7 +90,7 @@ class BuyingProductListView extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(buyingProduct[index].amount.toString(),
-                              style: AtextThemes.titleTextField),
+                              style: TextThemes.titleTextField),
                         ),
                       ),
                       Container(
@@ -123,7 +122,7 @@ class BuyingProductListView extends StatelessWidget {
                                       .price
                                       .toInt())
                                   .toString(),
-                              style: AtextThemes.titleTextField),
+                              style: TextThemes.titleTextField),
                         ),
                       ),
                       Text('с',
@@ -131,7 +130,7 @@ class BuyingProductListView extends StatelessWidget {
                               textStyle: TextStyle(
                                   fontSize: 10.0.sp,
                                   fontWeight: FontWeight.normal,
-                                  color: AcolorPalette.textforgot,
+                                  color: ColorPalette.textforgot,
                                   decoration: TextDecoration.underline))),
                     ],
                   )),

@@ -8,7 +8,7 @@ import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/row_input_pin_money.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/row_title.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/widgets/row_total.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'list_view.dart';
@@ -32,7 +32,7 @@ class PaymentData extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(S.of(context).payDetail, style: AtextThemes.titlePage),
+          Text(S.of(context).payDetail, style: TextThemes.titlePage),
           Container(
             height: 6.75.w,
             width: 6.75.w,
@@ -66,12 +66,12 @@ class PaymentData extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Text(
                 "Оплата",
-                style: AtextThemes.titlePage,
+                style: TextThemes.titlePage,
               ),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text("Пин-код", style: AtextThemes.titleTextField),
-              Text("Сумма оплаты", style: AtextThemes.titleTextField),
+              Text("Пин-код", style: TextThemes.titleTextField),
+              Text("Сумма оплаты", style: TextThemes.titleTextField),
             ]),
             SizedBox(
               height: 5,
@@ -84,8 +84,8 @@ class PaymentData extends StatelessWidget {
             ),
             SizedBox(height: 7),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text("Долг", style: AtextThemes.titleTextField),
-              Text("Сумма сдачи", style: AtextThemes.titleTextField),
+              Text("Долг", style: TextThemes.titleTextField),
+              Text("Сумма сдачи", style: TextThemes.titleTextField),
             ]),
             SizedBox(
               height: 7,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 class RowTitile extends StatelessWidget {
   const RowTitile({Key key}) : super(key: key);
@@ -14,7 +14,7 @@ class RowTitile extends StatelessWidget {
           child: Text(
             "Наименование",
             textAlign: TextAlign.center,
-            style: AtextThemes.hintTextField,
+            style: TextThemes.hintTextField,
           ),
         ),
         Expanded(
@@ -22,7 +22,7 @@ class RowTitile extends StatelessWidget {
           child: Text(
             "Кол-во",
             textAlign: TextAlign.center,
-            style: AtextThemes.hintTextField,
+            style: TextThemes.hintTextField,
           ),
         ),
         Expanded(
@@ -30,7 +30,7 @@ class RowTitile extends StatelessWidget {
           child: Text(
             "Цена",
             textAlign: TextAlign.center,
-            style: AtextThemes.hintTextField,
+            style: TextThemes.hintTextField,
           ),
         ),
       ],

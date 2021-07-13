@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 class PayDebt extends StatefulWidget {
   PayDebt({Key key}) : super(key: key);
@@ -28,7 +28,7 @@ class _PayDebtState extends State<PayDebt> {
                     children: [
                       Text(
                         "Долги",
-                        style: AtextThemes.titleTextField,
+                        style: TextThemes.titleTextField,
                       )
                     ],
                   ),
@@ -37,7 +37,7 @@ class _PayDebtState extends State<PayDebt> {
                     children: [
                       Text(
                         "Введите пин-код для получения информации",
-                        style: AtextThemes.passwordRequired,
+                        style: TextThemes.passwordRequired,
                       ),
                       SizedBox(width: 5),
                     ],
@@ -45,7 +45,7 @@ class _PayDebtState extends State<PayDebt> {
                   Row(children: [
                     Text(
                       "Пин-код",
-                      style: AtextThemes.password,
+                      style: TextThemes.password,
                     ),
                   ]),
                   SizedBox(height: 3),
@@ -57,7 +57,7 @@ class _PayDebtState extends State<PayDebt> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Введите пин-код',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),
@@ -75,17 +75,17 @@ class _PayDebtState extends State<PayDebt> {
               SizedBox(width: 5),
               Text(
                 "Наименование",
-                style: AtextThemes.hintTextField,
+                style: TextThemes.hintTextField,
               ),
               SizedBox(width: 70),
               Text(
                 "Дата",
-                style: AtextThemes.hintTextField,
+                style: TextThemes.hintTextField,
               ),
               SizedBox(width: 30),
               Text(
                 "Долг",
-                style: AtextThemes.hintTextField,
+                style: TextThemes.hintTextField,
               ),
             ],
           ),
@@ -102,17 +102,17 @@ class _PayDebtState extends State<PayDebt> {
                         ),
                         Text(
                           "Пирожки с картошкой",
-                          style: AtextThemes.listDebt,
+                          style: TextThemes.listDebt,
                         ),
                         SizedBox(width: 29),
                         Text(
                           "12.05.2021",
-                          style: AtextThemes.listDebt,
+                          style: TextThemes.listDebt,
                         ),
                         SizedBox(
                           width: 23,
                         ),
-                        Text('50', style: AtextThemes.listDebt),
+                        Text('50', style: TextThemes.listDebt),
                         Text('с',
                             style: GoogleFonts.lato(
                                 textStyle: TextStyle(
@@ -143,10 +143,10 @@ class _PayDebtState extends State<PayDebt> {
             children: [
               Text(
                 "Итого",
-                style: AtextThemes.sumfDebt,
+                style: TextThemes.sumfDebt,
               ),
               SizedBox(width: 225),
-              Text('50', style: AtextThemes.sumfDebt),
+              Text('50', style: TextThemes.sumfDebt),
               Text('с',
                   style: TextStyle(
                     fontSize: 15,
@@ -161,13 +161,13 @@ class _PayDebtState extends State<PayDebt> {
             children: [
               Text(
                 "Оплата",
-                style: AtextThemes.titleTextField,
+                style: TextThemes.titleTextField,
               ),
             ],
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text("Сумма оплаты", style: AtextThemes.password),
-            Text("Долг", style: AtextThemes.password),
+            Text("Сумма оплаты", style: TextThemes.password),
+            Text("Долг", style: TextThemes.password),
           ]),
           SizedBox(
             height: 5,
@@ -189,7 +189,7 @@ class _PayDebtState extends State<PayDebt> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Сумма оплаты',
-                    hintStyle: AtextThemes.hintTextField,
+                    hintStyle: TextThemes.hintTextField,
                   ),
                 ),
               ),
@@ -201,7 +201,7 @@ class _PayDebtState extends State<PayDebt> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Долг',
-                    hintStyle: AtextThemes.hintTextField,
+                    hintStyle: TextThemes.hintTextField,
                   ),
                 ),
               ),
@@ -209,7 +209,7 @@ class _PayDebtState extends State<PayDebt> {
           ),
           SizedBox(height: 7),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text("Сдача", style: AtextThemes.password),
+            Text("Сдача", style: TextThemes.password),
           ]),
           SizedBox(
             height: 7,
@@ -223,7 +223,7 @@ class _PayDebtState extends State<PayDebt> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Сдача',
-                    hintStyle: AtextThemes.hintTextField,
+                    hintStyle: TextThemes.hintTextField,
                   ),
                 ),
               ),

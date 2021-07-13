@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 
 class ModelPaymentWindow extends StatefulWidget {
   ModelPaymentWindow({Key key}) : super(key: key);
@@ -28,7 +28,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                     children: [
                       Text(
                         "Детали оплаты",
-                        style: AtextThemes.titleTextField,
+                        style: TextThemes.titleTextField,
                       )
                     ],
                   ),
@@ -37,17 +37,17 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                       SizedBox(width: 55),
                       Text(
                         "Наименование",
-                        style: AtextThemes.hintTextField,
+                        style: TextThemes.hintTextField,
                       ),
                       SizedBox(width: 64),
                       Text(
                         "Кол-во",
-                        style: AtextThemes.hintTextField,
+                        style: TextThemes.hintTextField,
                       ),
                       SizedBox(width: 30),
                       Text(
                         "Цена",
-                        style: AtextThemes.hintTextField,
+                        style: TextThemes.hintTextField,
                       ),
                     ],
                   ),
@@ -76,7 +76,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                                 ),
                                 Text(
                                   "Пирожки с картошкой",
-                                  style: AtextThemes.titleofProduct,
+                                  style: TextThemes.titleofProduct,
                                 ),
                                 IconButton(
                                   icon: const Icon(Icons.minimize, size: 10),
@@ -94,7 +94,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                                   ),
                                   child: Center(
                                     child: Text('2',
-                                        style: AtextThemes.titleofProduct),
+                                        style: TextThemes.titleofProduct),
                                   ),
                                 ),
                                 IconButton(
@@ -109,7 +109,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                                   width: 20,
                                   child: Center(
                                     child: Text('50с',
-                                        style: AtextThemes.titleofProduct),
+                                        style: TextThemes.titleofProduct),
                                   ),
                                 )
                               ],
@@ -131,7 +131,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                   SizedBox(height: 8),
                   Text(
                     "Оплата",
-                    style: AtextThemes.titleTextField,
+                    style: TextThemes.titleTextField,
                   ),
 
                   Row(
@@ -160,7 +160,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Введите пин-код',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),
@@ -172,7 +172,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Введите сумму',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),
@@ -197,7 +197,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Сумма долга',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),
@@ -209,7 +209,7 @@ class _ModelPaymentWindowState extends State<ModelPaymentWindow> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Сумма сдачи',
-                            hintStyle: AtextThemes.hintTextField,
+                            hintStyle: TextThemes.hintTextField,
                           ),
                         ),
                       ),

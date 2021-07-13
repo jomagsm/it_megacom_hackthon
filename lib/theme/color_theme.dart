@@ -12,5 +12,8 @@ class ColorPalette {
   static var basketColorGradient1 = Color.fromRGBO(218, 218, 218, 1);
   static var basketColorGradient2 = Color.fromRGBO(255, 255, 255, 1);
   static var dividerColor = Color.fromRGBO(0, 0, 0, 0.5);
-  static Color authback = Colors.white;
+  static var textforgot = Colors.black;
+  static var button = Colors.greenAccent[700];
+  static var textfieldBorder = Colors.purple;
+  static var titleTf = Colors.grey;
 }
