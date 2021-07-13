@@ -65,36 +65,36 @@ class PaymentData extends StatelessWidget {
             Align(
               alignment: Alignment.topLeft,
               child: Text(
-                "Оплата",
+                S.of(context).pay,
                 style: TextThemes.titlePage,
               ),
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text("Пин-код", style: TextThemes.titleTextField),
-              Text("Сумма оплаты", style: TextThemes.titleTextField),
+              Text(S.of(context).pin, style: TextThemes.titleTextField),
+              Text(S.of(context).summPay, style: TextThemes.titleTextField),
             ]),
             SizedBox(
               height: 5,
             ),
             RowInputPinMoney(
               mapKeyFirst: "pin",
-              hintTextFirst: "Введите пин-код",
+              hintTextFirst: S.of(context).inputPin,
               mapKeySecond: "money",
-              hintTextSecond: "Введите сумму",
+              hintTextSecond: S.of(context).inputSum,
             ),
             SizedBox(height: 7),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text("Долг", style: TextThemes.titleTextField),
-              Text("Сумма сдачи", style: TextThemes.titleTextField),
+              Text(S.of(context).debt, style: TextThemes.titleTextField),
+              Text(S.of(context).sumChange, style: TextThemes.titleTextField),
             ]),
             SizedBox(
               height: 7,
             ),
             RowInputPinMoney(
               mapKeyFirst: "debt",
-              hintTextFirst: "Сумма долга",
+              hintTextFirst: S.of(context).sumDebt,
               mapKeySecond: "change",
-              hintTextSecond: "Сумма сдачи",
+              hintTextSecond: S.of(context).sumChange,
             ),
             SizedBox(height: 7),
             TextButton(
@@ -104,7 +104,7 @@ class PaymentData extends StatelessWidget {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white)),
                 child: Text(
-                  'Оплатить',
+                  S.of(context).payment,
                   style: TextStyle(
                     fontSize: 11.0,
                   ),

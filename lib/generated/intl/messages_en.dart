@@ -21,8 +21,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "amount" : MessageLookupByLibrary.simpleMessage("Кол-во"),
     "back" : MessageLookupByLibrary.simpleMessage("Назад"),
     "change" : MessageLookupByLibrary.simpleMessage("Сдача"),
+    "com" : MessageLookupByLibrary.simpleMessage("c"),
     "date" : MessageLookupByLibrary.simpleMessage("Дата"),
     "debt" : MessageLookupByLibrary.simpleMessage("Долг"),
     "debts" : MessageLookupByLibrary.simpleMessage("Долги"),
@@ -33,14 +35,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "idStudent" : MessageLookupByLibrary.simpleMessage("ID студента"),
     "inputPin" : MessageLookupByLibrary.simpleMessage("Введите пин-код"),
     "inputPinInfo" : MessageLookupByLibrary.simpleMessage("Введите пин код для получение информации"),
+    "inputSum" : MessageLookupByLibrary.simpleMessage("Введите сумму"),
     "name" : MessageLookupByLibrary.simpleMessage("Наименование"),
     "password" : MessageLookupByLibrary.simpleMessage("Пароль"),
     "pay" : MessageLookupByLibrary.simpleMessage("Оплата"),
     "payDetail" : MessageLookupByLibrary.simpleMessage("Детали оплаты"),
     "payment" : MessageLookupByLibrary.simpleMessage("Оплатить"),
     "pin" : MessageLookupByLibrary.simpleMessage("Пин-код"),
+    "price" : MessageLookupByLibrary.simpleMessage("Цена"),
     "qnt" : MessageLookupByLibrary.simpleMessage("/шт"),
     "selectProduct" : MessageLookupByLibrary.simpleMessage("Выберите продукты"),
+    "sumChange" : MessageLookupByLibrary.simpleMessage("Сумма сдачи"),
+    "sumDebt" : MessageLookupByLibrary.simpleMessage("Сумма долга"),
     "summPay" : MessageLookupByLibrary.simpleMessage("Сумма оплаты"),
     "title" : MessageLookupByLibrary.simpleMessage("Demo"),
     "total" : MessageLookupByLibrary.simpleMessage("Итого")
