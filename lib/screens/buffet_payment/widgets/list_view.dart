@@ -61,7 +61,7 @@ class BuyingProductListView extends StatelessWidget {
                               getProduct(buyingProduct[index].id,
                                       selectedProductsList)
                                   .name,
-                              style: TextThemes.titleTextField)),
+                              style: TextThemes.titleListProduct)),
                     ],
                   )),
               Expanded(
@@ -90,7 +90,7 @@ class BuyingProductListView extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(buyingProduct[index].amount.toString(),
-                              style: TextThemes.titleTextField),
+                              style: TextThemes.titleListProduct ),
                         ),
                       ),
                       Container(
@@ -110,7 +110,7 @@ class BuyingProductListView extends StatelessWidget {
               Expanded(
                   flex: 1,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end ,
                     children: [
                       Container(
                         // height: 19,
@@ -122,14 +122,14 @@ class BuyingProductListView extends StatelessWidget {
                                       .price
                                       .toInt())
                                   .toString(),
-                              style: TextThemes.titleTextField),
+                              style: TextThemes.titleListProduct ),
                         ),
                       ),
                       Text('с',
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
-                                  fontSize: 10.0.sp,
-                                  fontWeight: FontWeight.normal,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
                                   color: ColorPalette.textforgot,
                                   decoration: TextDecoration.underline))),
                     ],

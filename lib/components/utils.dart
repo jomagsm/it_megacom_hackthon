@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
+import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 openPopupNullBasket(context) {
@@ -11,6 +12,7 @@ openPopupNullBasket(context) {
       ),
       buttons: [
         DialogButton(
+          color:ColorPalette.purple,
           onPressed: () => Navigator.pop(context),
           child: Text(
             S.of(context).back,

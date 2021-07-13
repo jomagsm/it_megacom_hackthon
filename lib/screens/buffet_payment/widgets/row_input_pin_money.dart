@@ -39,7 +39,6 @@ class RowInputPinMoney extends StatelessWidget {
         ),
         SizedBox(width: 10),
         Expanded(
-
           child: Container (
             height:4.51.h,
             child:TextField(

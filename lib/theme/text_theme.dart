@@ -61,8 +61,14 @@ class TextThemes {
 
   static var titleTextField = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 10.0.sp,
+          fontSize: 10,
           fontWeight: FontWeight.normal,
+          color: ColorPalette.textforgot)
+  );
+  static var titleListProduct = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 11,
+          fontWeight: FontWeight.bold ,
           color: ColorPalette.textforgot)
   );
 

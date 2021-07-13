@@ -8,13 +8,13 @@ class RowTitile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
           flex: 3,
           child: Text(
             S.of(context).name,
-            textAlign: TextAlign.center,
+           textAlign: TextAlign.left,
             style: TextThemes.hintTextField,
           ),
         ),
@@ -22,7 +22,7 @@ class RowTitile extends StatelessWidget {
           flex: 2,
           child: Text(
             S.of(context).amount,
-            textAlign: TextAlign.center,
+           textAlign: TextAlign.center,
             style: TextThemes.hintTextField,
           ),
         ),
@@ -30,7 +30,7 @@ class RowTitile extends StatelessWidget {
           flex: 1,
           child: Text(
             S.of(context).price ,
-            textAlign: TextAlign.center,
+           textAlign: TextAlign.right ,
             style: TextThemes.hintTextField,
           ),
         ),
