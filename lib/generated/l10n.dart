@@ -264,6 +264,66 @@ class S {
       args: [],
     );
   }
+
+  /// `c`
+  String get com {
+    return Intl.message(
+      'c',
+      name: 'com',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Кол-во`
+  String get amount {
+    return Intl.message(
+      'Кол-во',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Цена`
+  String get price {
+    return Intl.message(
+      'Цена',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сумма сдачи`
+  String get sumChange {
+    return Intl.message(
+      'Сумма сдачи',
+      name: 'sumChange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сумма долга`
+  String get sumDebt {
+    return Intl.message(
+      'Сумма долга',
+      name: 'sumDebt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Введите сумму`
+  String get inputSum {
+    return Intl.message(
+      'Введите сумму',
+      name: 'inputSum',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
