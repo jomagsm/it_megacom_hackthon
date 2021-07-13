@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 
 class RowTotal extends StatelessWidget {
@@ -14,10 +14,10 @@ class RowTotal extends StatelessWidget {
           flex: 3,
           child: Text(
             "Итого",
-            style: AtextThemes.sumfDebt,
+            style: TextThemes.sumfDebt,
           ),
         ),
-        Text(total, style: AtextThemes.sumfDebt),
+        Text(total, style: TextThemes.sumfDebt),
         Text('с',
             style: TextStyle(
               fontSize: 8.0.sp,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
 class RowInputPinMoney extends StatelessWidget {
   final String mapKeyFirst;
@@ -33,7 +33,7 @@ class RowInputPinMoney extends StatelessWidget {
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: hintTextFirst,
-              hintStyle: AtextThemes.hintTextField,
+              hintStyle: TextThemes.hintTextField,
             ),
           ),),
         ),
@@ -51,7 +51,7 @@ class RowInputPinMoney extends StatelessWidget {
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               hintText: hintTextSecond,
-              hintStyle: AtextThemes.hintTextField,
+              hintStyle: TextThemes.hintTextField,
             ),
           ),)
         ),

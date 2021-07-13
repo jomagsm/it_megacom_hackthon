@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
 import 'package:it_megacom_hackthon/screens/debt_screen/debt_bloc/debt_bloc.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 
@@ -49,14 +48,14 @@ class DebtModalData extends StatelessWidget {
              width: double.infinity,
              child: Text(
               S.of(context).inputPinInfo,
-              style: AtextThemes.passwordRequired,
+              style: TextThemes.passwordRequired,
             ),),
             const SizedBox(
               height: 8,
             ),
             Text(
               S.of(context).pin,
-              style: AtextThemes.password,
+              style: TextThemes.password,
             ),
             const SizedBox(
               height: 8,
@@ -75,7 +74,7 @@ class DebtModalData extends StatelessWidget {
                   contentPadding: EdgeInsets.only(top: 3,left: 6),
                   border: OutlineInputBorder(),
                   hintText: S.of(context).inputPin,
-                  hintStyle: AtextThemes.hintTextField,
+                  hintStyle: TextThemes.hintTextField,
                 ),
               ),
             ),

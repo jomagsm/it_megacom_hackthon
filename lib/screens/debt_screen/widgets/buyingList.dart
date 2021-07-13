@@ -3,9 +3,9 @@ import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.da
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/screens/debt_screen/debt_bloc/debt_bloc.dart';
 import 'package:it_megacom_hackthon/screens/debt_screen/widgets/utils.dart';
-import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 
 class BuyingList extends StatelessWidget {
@@ -45,7 +45,7 @@ class BuyingList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(S.of(context).total, style: AtextThemes.sumfDebt),
+            Text(S.of(context).total, style: TextThemes.sumfDebt),
             Text("${data.userDebt.pinDto.debt} c"),
           ],
         ),
@@ -56,7 +56,7 @@ class BuyingList extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               S.of(context).pay,
-              style: AtextThemes.titleTextField,
+              style: TextThemes.titleTextField,
             )),
 
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,7 +93,7 @@ SizedBox(height: 10),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: S.of(context).summPay,
-                        hintStyle: AtextThemes.hintTextField,
+                        hintStyle: TextThemes.hintTextField,
                       ),
                     ),
                   ),
@@ -108,7 +108,7 @@ SizedBox(height: 10),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: S.of(context).summPay,
-                        hintStyle: AtextThemes.hintTextField,
+                        hintStyle: TextThemes.hintTextField,
                       ),
                     ),
                   ),
@@ -123,7 +123,7 @@ SizedBox(height: 10),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: S.of(context).summPay,
-                        hintStyle: AtextThemes.hintTextField,
+                        hintStyle: TextThemes.hintTextField,
                       ),
                     ),
                   )

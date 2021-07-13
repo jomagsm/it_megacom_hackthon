@@ -33,6 +33,7 @@ class TextThemes {
         height: getTextHeight(10, 20),
         color: ColorPalette.productsCardSelectedBasket),
   );
+
   static var paymentTitle = GoogleFonts.lato(
     textStyle: TextStyle(
         fontSize: 10.0.sp,
@@ -40,8 +41,71 @@ class TextThemes {
         color: ColorPalette.productsCardName),
   );
 
-}
+  static var text = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.normal,
+        color: ColorPalette.textforgot),
+  );
 
+  static var title = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.normal,
+        color: ColorPalette.textforgot),
+  );
+
+  static var hintTextField = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 7.0.sp, color: ColorPalette.titleTf),
+  );
+
+  static var titleTextField = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 10.0.sp,
+          fontWeight: FontWeight.normal,
+          color: ColorPalette.textforgot)
+  );
+
+  static var titlePage = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+        color: ColorPalette.textforgot),
+  );
+
+  static var buttonText = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 11, color: ColorPalette.titleTf),
+  );
+
+  static var titleofProduct = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.normal,
+        color: ColorPalette.textforgot),
+  );
+
+  static var passwordRequired = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 12, color: ColorPalette.titleTf),
+  );
+
+  static var sumfDebt = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 8.0.sp,
+          fontWeight: FontWeight.bold,
+          color: ColorPalette.textforgot)
+  );
+
+  static var listDebt = GoogleFonts.lato(
+      textStyle: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: ColorPalette.textforgot)
+  );
+
+  static var password = GoogleFonts.lato(
+    textStyle: TextStyle(fontSize: 11, color: ColorPalette.textforgot),
+  );
+}
 getTextHeight(double size, double height) {
   return height / size;
 }
