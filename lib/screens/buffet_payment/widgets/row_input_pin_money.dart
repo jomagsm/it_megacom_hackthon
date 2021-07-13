@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:sizer/sizer.dart';
 import 'package:it_megacom_hackthon/screens/buffet_payment/bloc/basket_bloc.dart';
 import 'package:it_megacom_hackthon/theme/atext_theme.dart';
 
@@ -22,7 +22,9 @@ class RowInputPinMoney extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextField(
+          child: Container (
+            height:4.51.h,
+            child:TextField(
             onChanged: (_number) {
               context.read<BasketBloc>()
                 ..add(BasketEvent.inputValue(value: {mapKeyFirst: _number}));
@@ -33,11 +35,14 @@ class RowInputPinMoney extends StatelessWidget {
               hintText: hintTextFirst,
               hintStyle: AtextThemes.hintTextField,
             ),
-          ),
+          ),),
         ),
         SizedBox(width: 10),
         Expanded(
-          child: TextField(
+
+          child: Container (
+            height:4.51.h,
+            child:TextField(
             onChanged: (_value) {
               context.read<BasketBloc>()
                 ..add(BasketEvent.inputValue(value: {mapKeySecond: _value}));
@@ -48,7 +53,7 @@ class RowInputPinMoney extends StatelessWidget {
               hintText: hintTextSecond,
               hintStyle: AtextThemes.hintTextField,
             ),
-          ),
+          ),)
         ),
       ],
     );

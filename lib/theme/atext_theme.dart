@@ -3,9 +3,11 @@ import 'package:it_megacom_hackthon/theme/acolor_theme.dart';
 import 'package:sizer/sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'color_theme.dart';
+
 class AtextThemes {
   static var productsName = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 10, color: AcolorPalette.authback),
+    textStyle: TextStyle(fontSize: 10, color: ColorPalette.authback),
   );
   static TextStyle text = GoogleFonts.lato(
     textStyle: TextStyle(
@@ -20,7 +22,7 @@ class AtextThemes {
         color: AcolorPalette.textforgot),
   );
   static TextStyle hintTextField = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 5.0.sp, color: AcolorPalette.titleTf),
+    textStyle: TextStyle(fontSize: 7.0.sp, color: AcolorPalette.titleTf),
   );
   static TextStyle titleTextField = GoogleFonts.lato(
       textStyle: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,28 +20,37 @@ class DebtModalData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       height: 51.0.h,
       child: AlertDialog(
-        actions: [
+        scrollable: true,
+        contentPadding: EdgeInsets.all(0.77.w),
+        titlePadding: EdgeInsets.all(0.77.w),
+        title:
            Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(S.of(context).debts, style: TextThemes.paymentTitle),
-              IconButton(
+              Container(
+                height: 6.75.w,
+                width: 6.75.w,
+             child: IconButton(
                 icon: SvgPicture.asset(SvgIconCollect.close),
                 onPressed: () {
                   Navigator.pop(context);
                 },
-              )
+              )),
             ],
           ),
-        Column(
+       content: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+           Container(
+             width: double.infinity,
+             child: Text(
               S.of(context).inputPinInfo,
               style: AtextThemes.passwordRequired,
-            ),
+            ),),
             const SizedBox(
               height: 8,
             ),
@@ -52,7 +62,7 @@ class DebtModalData extends StatelessWidget {
               height: 8,
             ),
             Container(
-             // width: 22.51.w,
+              width: 30.51.w,
               height: 6.0.h,
               child: TextField(
                 onSubmitted: (value) {
@@ -68,19 +78,17 @@ class DebtModalData extends StatelessWidget {
                   hintStyle: AtextThemes.hintTextField,
                 ),
               ),
-
             ),
             data.authUser
                 ? BuyingList(
                     data: data,
                   )
                 : SizedBox(),
-
+            SizedBox(height: 530),
           ],
-
         ),
-          SizedBox(height: 530),
-    ],),
+
+    ),
     );
   }
 }

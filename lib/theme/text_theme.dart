@@ -39,6 +39,7 @@ class TextThemes {
         fontWeight: FontWeight.w600,
         color: ColorPalette.productsCardName),
   );
+
 }
 
 getTextHeight(double size, double height) {
