@@ -884,11 +884,6 @@ class _$BuffetEventTearOff {
   }
 
 // ignore: unused_element
-  _ChangeOrientalBuffetEvent changeOriental() {
-    return const _ChangeOrientalBuffetEvent();
-  }
-
-// ignore: unused_element
   _SelectedProductBuffetEvent selectedProduct({@required int productId}) {
     return _SelectedProductBuffetEvent(
       productId: productId,
@@ -910,14 +905,12 @@ mixin _$BuffetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
     @required TResult orElse(),
@@ -925,14 +918,12 @@ mixin _$BuffetEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
     @required TResult orElse(),
@@ -995,12 +986,10 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return initial();
@@ -1010,7 +999,6 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
     @required TResult orElse(),
@@ -1026,12 +1014,10 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return initial(this);
@@ -1041,7 +1027,6 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
     @required TResult orElse(),
@@ -1056,110 +1041,6 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
 
 abstract class _InitialBuffetEvent implements BuffetEvent {
   const factory _InitialBuffetEvent() = _$_InitialBuffetEvent;
-}
-
-/// @nodoc
-abstract class _$ChangeOrientalBuffetEventCopyWith<$Res> {
-  factory _$ChangeOrientalBuffetEventCopyWith(_ChangeOrientalBuffetEvent value,
-          $Res Function(_ChangeOrientalBuffetEvent) then) =
-      __$ChangeOrientalBuffetEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ChangeOrientalBuffetEventCopyWithImpl<$Res>
-    extends _$BuffetEventCopyWithImpl<$Res>
-    implements _$ChangeOrientalBuffetEventCopyWith<$Res> {
-  __$ChangeOrientalBuffetEventCopyWithImpl(_ChangeOrientalBuffetEvent _value,
-      $Res Function(_ChangeOrientalBuffetEvent) _then)
-      : super(_value, (v) => _then(v as _ChangeOrientalBuffetEvent));
-
-  @override
-  _ChangeOrientalBuffetEvent get _value =>
-      super._value as _ChangeOrientalBuffetEvent;
-}
-
-/// @nodoc
-class _$_ChangeOrientalBuffetEvent implements _ChangeOrientalBuffetEvent {
-  const _$_ChangeOrientalBuffetEvent();
-
-  @override
-  String toString() {
-    return 'BuffetEvent.changeOriental()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ChangeOrientalBuffetEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult changeOriental(),
-    @required TResult selectedProduct(int productId),
-    @required TResult selectBasket(),
-  }) {
-    assert(initial != null);
-    assert(changeOriental != null);
-    assert(selectedProduct != null);
-    assert(selectBasket != null);
-    return changeOriental();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult changeOriental(),
-    TResult selectedProduct(int productId),
-    TResult selectBasket(),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (changeOriental != null) {
-      return changeOriental();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
-    @required TResult selectedProduct(_SelectedProductBuffetEvent value),
-    @required TResult selectBasket(_SelectBasketBuffetEvent value),
-  }) {
-    assert(initial != null);
-    assert(changeOriental != null);
-    assert(selectedProduct != null);
-    assert(selectBasket != null);
-    return changeOriental(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
-    TResult selectedProduct(_SelectedProductBuffetEvent value),
-    TResult selectBasket(_SelectBasketBuffetEvent value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (changeOriental != null) {
-      return changeOriental(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ChangeOrientalBuffetEvent implements BuffetEvent {
-  const factory _ChangeOrientalBuffetEvent() = _$_ChangeOrientalBuffetEvent;
 }
 
 /// @nodoc
@@ -1229,12 +1110,10 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return selectedProduct(productId);
@@ -1244,7 +1123,6 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
     @required TResult orElse(),
@@ -1260,12 +1138,10 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return selectedProduct(this);
@@ -1275,7 +1151,6 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
     @required TResult orElse(),
@@ -1339,12 +1214,10 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult changeOriental(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return selectBasket();
@@ -1354,7 +1227,6 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult changeOriental(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
     @required TResult orElse(),
@@ -1370,12 +1242,10 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(_InitialBuffetEvent value),
-    @required TResult changeOriental(_ChangeOrientalBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
   }) {
     assert(initial != null);
-    assert(changeOriental != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
     return selectBasket(this);
@@ -1385,7 +1255,6 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitialBuffetEvent value),
-    TResult changeOriental(_ChangeOrientalBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
     @required TResult orElse(),

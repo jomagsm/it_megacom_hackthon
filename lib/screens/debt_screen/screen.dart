@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/components/circullar_progress.dart';
 import 'package:it_megacom_hackthon/screens/buffet/screen.dart';
 import 'debt_bloc/debt_bloc.dart';
 import 'widgets/debt_modal_data.dart';
@@ -22,25 +23,15 @@ class DebtModal extends StatelessWidget {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => ProductsListGrid()),
-                      (route) => false)
+                  (route) => false)
             },
             orElse: () {},
           );
         },
         builder: (context, state) {
           return state.maybeMap(
-            orElse: () => Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
-            succesPay: (_) => Scaffold(
-              body: Center(
-                child: Text('Succes'),
-              ),
-            ),
-            loading: (_) =>
-                Scaffold(body: Center(child: CircularProgressIndicator())),
+            orElse: () => circularProgressScaffold(),
+            loading: (_) => circularProgressScaffold(),
             error: (error) => Scaffold(
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -24,7 +24,6 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       initial: _mapInitialBuffetEvent,
       selectedProduct: _mapSelectedProductBuffetEvent,
       selectBasket: _mapSelectBasketBuffetEvent,
-      changeOriental: _mapChangeOrientalBuffetEvent,
     );
   }
 
@@ -41,30 +40,38 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
           selectedProductsList: _selectedProductsList,
           openModal: _openModal);
     } catch (e) {
-      yield BuffetState.error(message: e.toString());
+      yield BuffetState.error(message: e.message.toString());
     }
   }
 
   Stream<BuffetState> _mapSelectedProductBuffetEvent(
       _SelectedProductBuffetEvent event) async* {
     yield BuffetState.loading();
-    Product product = getProduct(event.productId, _productsList);
-    if (_buyingProductList.isNotEmpty) {
-      if (checkListOfProduct(_buyingProductList, event.productId)) {
-        for (var i in _buyingProductList) {
-          if (i.id == event.productId) {
-            i.amount += 1;
+    try {
+      Product product = getProduct(event.productId, _productsList);
+      if (_buyingProductList.isNotEmpty) {
+        if (checkListOfProduct(_buyingProductList, event.productId)) {
+          for (var i in _buyingProductList) {
+            if (i.id == event.productId) {
+              _buyingProductList.remove(i);
+              _basketValue -= product.price.round();
+              _selectedProductsList.remove(product);
+              break;
+            }
           }
+        } else {
+          _selectedProductsList.add(product);
+          _buyingProductList.add(ProductBuying(amount: 1, id: event.productId));
+          _basketValue += product.price.round();
         }
       } else {
         _selectedProductsList.add(product);
         _buyingProductList.add(ProductBuying(amount: 1, id: event.productId));
+        _basketValue += product.price.round();
       }
-    } else {
-      _selectedProductsList.add(product);
-      _buyingProductList.add(ProductBuying(amount: 1, id: event.productId));
+    } catch (e) {
+      yield BuffetState.error(message: e.message.toString());
     }
-    _basketValue += product.price.round();
 
     yield BuffetState.data(
         productsList: _productsList,
@@ -78,16 +85,6 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       _SelectBasketBuffetEvent event) async* {
     yield BuffetState.loading();
     _openModal = true;
-    yield BuffetState.data(
-        productsList: _productsList,
-        basketValue: _basketValue,
-        buyingProduct: _buyingProductList,
-        selectedProductsList: _selectedProductsList,
-        openModal: _openModal);
-  }
-
-  Stream<BuffetState> _mapChangeOrientalBuffetEvent(
-      _ChangeOrientalBuffetEvent event) async* {
     yield BuffetState.data(
         productsList: _productsList,
         basketValue: _basketValue,

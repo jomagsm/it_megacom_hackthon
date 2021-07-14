@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/components/circullar_progress.dart';
 import 'package:it_megacom_hackthon/screens/buffet/buffet_bloc/buffet_bloc.dart';
 import 'package:it_megacom_hackthon/screens/buffet/widgets/products_list_data.dart';
 
@@ -19,13 +20,8 @@ class ProductsListGrid extends StatelessWidget {
           );
         }, builder: (context, state) {
           return state.maybeMap(
-              orElse: () => Scaffold(
-                    body: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  ),
-              loading: (_) => Scaffold(body: Center(child: CircularProgressIndicator(),),),
-
+              orElse: () => circularProgressScaffold(),
+              loading: (_) => circularProgressScaffold(),
               error: (error) => Scaffold(
                     body: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

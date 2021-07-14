@@ -37,7 +37,6 @@ class DebtBloc extends Bloc<DebtEvent, DebtState> {
     } catch (e) {
       yield DebtState.error(message: e.toString());
     }
-    yield DebtState.data(authUser: _authUser);
   }
 
   Stream<DebtState> _mapInputPinDebtEvent(_InputPinDebtEvent event) async* {
