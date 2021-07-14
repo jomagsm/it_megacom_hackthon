@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/components/circullar_progress.dart';
 import 'package:it_megacom_hackthon/data/network/models/buying_product_model.dart';
 import 'package:it_megacom_hackthon/data/network/models/product_model.dart';
 import 'package:it_megacom_hackthon/generated/intl/messages_en.dart';
@@ -41,12 +42,8 @@ class PaymentModalWindow extends StatelessWidget {
           );
         }, builder: (context, state) {
           return state.maybeMap(
-            orElse: () => Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
-            loading: (_) => CircularProgressIndicator(),
+            orElse: () => circularProgressScaffold(),
+            loading: (_) => circularProgressScaffold(),
             error: (error) => Scaffold(
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
