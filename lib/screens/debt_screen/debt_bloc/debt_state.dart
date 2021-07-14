@@ -8,7 +8,7 @@ abstract class DebtState with _$DebtState {
     UserDebt userDebt,
     @required bool authUser,
   }) = _DataDebtState;
-  const factory DebtState.succesPay() = _SuccesPayDebtState;
+  const factory DebtState.succesPay({@required String message}) = _SuccesPayDebtState;
   const factory DebtState.error({@required String message}) = _ErrorDebtState;
 }
 

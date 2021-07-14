@@ -33,7 +33,7 @@ class DebtBloc extends Bloc<DebtEvent, DebtState> {
     try {
       Payment _payment =
           await _repository.makePayment(_userDebt.pinDto.pin, event.payment);
-      yield DebtState.succesPay();
+      yield DebtState.succesPay(message: "Успешно");
     } catch (e) {
       yield DebtState.error(message: e.toString());
     }

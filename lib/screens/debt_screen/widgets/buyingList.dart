@@ -87,6 +87,8 @@ class BuyingList extends StatelessWidget {
       }
     },
     decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black )),
       border: OutlineInputBorder(),
       hintText: S.of(context).inputSum ,
       hintStyle: TextThemes.hintTextField,
@@ -102,6 +104,8 @@ class BuyingList extends StatelessWidget {
     }
     },
     decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black )),
     border: OutlineInputBorder(),
     hintText: S.of(context).sumDebt ,
     hintStyle: TextThemes.hintTextField,
@@ -125,6 +129,8 @@ SizedBox(height: 7),
     }
     },
     decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black )),
     border: OutlineInputBorder(),
     hintText: S.of(context).sumDebt ,
     hintStyle: TextThemes.hintTextField,
@@ -149,6 +155,7 @@ SizedBox(height: 7),
             ),),),
           ],
         ),
+        SizedBox(height: 10,)
       ],
     );
   }

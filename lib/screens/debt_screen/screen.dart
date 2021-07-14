@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:it_megacom_hackthon/screens/buffet/screen.dart';
 import 'debt_bloc/debt_bloc.dart';
 import 'widgets/debt_modal_data.dart';
 
@@ -15,6 +16,14 @@ class DebtModal extends StatelessWidget {
         listener: (context, state) {
           state.maybeWhen(
             error: (_error) => {},
+            succesPay: (messages) => {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(messages))),
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProductsListGrid()),
+                      (route) => false)
+            },
             orElse: () {},
           );
         },

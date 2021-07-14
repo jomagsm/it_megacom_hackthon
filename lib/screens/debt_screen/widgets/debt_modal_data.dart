@@ -71,6 +71,8 @@ class DebtModalData extends StatelessWidget {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black )),
                   contentPadding: EdgeInsets.only(top: 3,left: 6),
                   border: OutlineInputBorder(),
                   hintText: S.of(context).inputPin,
@@ -82,8 +84,8 @@ class DebtModalData extends StatelessWidget {
                 ? BuyingList(
                     data: data,
                   )
-                : SizedBox(),
-            SizedBox(height: 200),
+                : SizedBox(height: 200,),
+            // SizedBox(height: 200),
           ],
         ),
 
