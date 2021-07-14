@@ -24,7 +24,8 @@ class ProductsListGrid extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     ),
                   ),
-              loading: (_) => CircularProgressIndicator(),
+              loading: (_) => Scaffold(body: Center(child: CircularProgressIndicator(),),),
+
               error: (error) => Scaffold(
                     body: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

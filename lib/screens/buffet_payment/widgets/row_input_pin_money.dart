@@ -31,6 +31,8 @@ class RowInputPinMoney extends StatelessWidget {
             },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black )),
               border: OutlineInputBorder(),
               hintText: hintTextFirst,
               hintStyle: TextThemes.hintTextField,
@@ -48,6 +50,8 @@ class RowInputPinMoney extends StatelessWidget {
             },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black )),
               border: OutlineInputBorder(),
               hintText: hintTextSecond,
               hintStyle: TextThemes.hintTextField,

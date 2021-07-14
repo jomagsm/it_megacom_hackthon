@@ -32,8 +32,10 @@ class _$DebtStateTearOff {
   }
 
 // ignore: unused_element
-  _SuccesPayDebtState succesPay() {
-    return const _SuccesPayDebtState();
+  _SuccesPayDebtState succesPay({@required String message}) {
+    return _SuccesPayDebtState(
+      message: message,
+    );
   }
 
 // ignore: unused_element
@@ -55,7 +57,7 @@ mixin _$DebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   });
   @optionalTypeArgs
@@ -63,7 +65,7 @@ mixin _$DebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   });
@@ -143,7 +145,7 @@ class _$_InitialDebtState implements _InitialDebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   }) {
     assert(initial != null);
@@ -160,7 +162,7 @@ class _$_InitialDebtState implements _InitialDebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -252,7 +254,7 @@ class _$_LoadingDebtState implements _LoadingDebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   }) {
     assert(initial != null);
@@ -269,7 +271,7 @@ class _$_LoadingDebtState implements _LoadingDebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -393,7 +395,7 @@ class _$_DataDebtState implements _DataDebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   }) {
     assert(initial != null);
@@ -410,7 +412,7 @@ class _$_DataDebtState implements _DataDebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   }) {
@@ -471,6 +473,7 @@ abstract class _$SuccesPayDebtStateCopyWith<$Res> {
   factory _$SuccesPayDebtStateCopyWith(
           _SuccesPayDebtState value, $Res Function(_SuccesPayDebtState) then) =
       __$SuccesPayDebtStateCopyWithImpl<$Res>;
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -483,24 +486,46 @@ class __$SuccesPayDebtStateCopyWithImpl<$Res>
 
   @override
   _SuccesPayDebtState get _value => super._value as _SuccesPayDebtState;
+
+  @override
+  $Res call({
+    Object message = freezed,
+  }) {
+    return _then(_SuccesPayDebtState(
+      message: message == freezed ? _value.message : message as String,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_SuccesPayDebtState implements _SuccesPayDebtState {
-  const _$_SuccesPayDebtState();
+  const _$_SuccesPayDebtState({@required this.message})
+      : assert(message != null);
+
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'DebtState.succesPay()';
+    return 'DebtState.succesPay(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SuccesPayDebtState);
+    return identical(this, other) ||
+        (other is _SuccesPayDebtState &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SuccesPayDebtStateCopyWith<_SuccesPayDebtState> get copyWith =>
+      __$SuccesPayDebtStateCopyWithImpl<_SuccesPayDebtState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -508,7 +533,7 @@ class _$_SuccesPayDebtState implements _SuccesPayDebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   }) {
     assert(initial != null);
@@ -516,7 +541,7 @@ class _$_SuccesPayDebtState implements _SuccesPayDebtState {
     assert(data != null);
     assert(succesPay != null);
     assert(error != null);
-    return succesPay();
+    return succesPay(message);
   }
 
   @override
@@ -525,13 +550,13 @@ class _$_SuccesPayDebtState implements _SuccesPayDebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (succesPay != null) {
-      return succesPay();
+      return succesPay(message);
     }
     return orElse();
   }
@@ -572,7 +597,12 @@ class _$_SuccesPayDebtState implements _SuccesPayDebtState {
 }
 
 abstract class _SuccesPayDebtState implements DebtState {
-  const factory _SuccesPayDebtState() = _$_SuccesPayDebtState;
+  const factory _SuccesPayDebtState({@required String message}) =
+      _$_SuccesPayDebtState;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$SuccesPayDebtStateCopyWith<_SuccesPayDebtState> get copyWith;
 }
 
 /// @nodoc
@@ -638,7 +668,7 @@ class _$_ErrorDebtState implements _ErrorDebtState {
     @required TResult initial(),
     @required TResult loading(),
     @required TResult data(UserDebt userDebt, bool authUser),
-    @required TResult succesPay(),
+    @required TResult succesPay(String message),
     @required TResult error(String message),
   }) {
     assert(initial != null);
@@ -655,7 +685,7 @@ class _$_ErrorDebtState implements _ErrorDebtState {
     TResult initial(),
     TResult loading(),
     TResult data(UserDebt userDebt, bool authUser),
-    TResult succesPay(),
+    TResult succesPay(String message),
     TResult error(String message),
     @required TResult orElse(),
   }) {
