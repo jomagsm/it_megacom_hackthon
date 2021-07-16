@@ -26,7 +26,7 @@ class BuyingList extends StatelessWidget {
           height: 1.75.h,
         ),
         Container (
-          height: 200,
+          height: 25.0.h,
         child:SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
@@ -35,7 +35,7 @@ class BuyingList extends StatelessWidget {
             scrollDirection: Axis.vertical,
             child: DataTable(
               columns: getDataTableColumn(
-                  [S.of(context).id, S.of(context).date, S.of(context).debt]),
+                  [S.of(context).id, S.of(context).date, S.of(context).debt],),
               rows: getDataTableRows(userDebt.operationReports),
             ),
           ),
@@ -54,7 +54,7 @@ class BuyingList extends StatelessWidget {
             Text('с',
                 style: GoogleFonts.lato(
                     textStyle: TextStyle(
-                        fontSize: 11,
+                        fontSize: 8.50.sp,
                         fontWeight: FontWeight.bold,
                         color: ColorPalette.textforgot,
                         decoration: TextDecoration.underline))),],),
@@ -74,7 +74,7 @@ class BuyingList extends StatelessWidget {
           Text(S.of(context).summPay,style: TextThemes.titleTextField ),
           Text( S.of(context).debt,style: TextThemes.titleTextField),
         ],),
-        SizedBox(height: 5),
+        SizedBox(height: 0.39.h),
  Row (mainAxisAlignment:MainAxisAlignment.spaceBetween,
    children: [
  Expanded(child: Container (
@@ -111,12 +111,12 @@ class BuyingList extends StatelessWidget {
     hintStyle: TextThemes.hintTextField,
     ),),),)
 ],),
-SizedBox(height: 7),
+SizedBox(height: 0.49.h),
         Row(mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(S.of(context).change,style:TextThemes.titleTextField ),
           ],),
-        SizedBox(height: 5),
+        SizedBox(height:0.39.h),
         Row (mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(child: Container (
@@ -135,13 +135,13 @@ SizedBox(height: 7),
     hintText: S.of(context).sumDebt ,
     hintStyle: TextThemes.hintTextField,
     ),),),),
-            SizedBox(width: 10),
+            SizedBox(width: 1.0.h),
             Expanded(
              child: Container (
     height:4.51.h,
     child:TextButton(
               child: Text(S.of(context).payment,style: TextStyle(
-    fontSize: 11.0,fontWeight: FontWeight.normal)),
+    fontSize: 8.0.sp,fontWeight: FontWeight.normal)),
               style: TextButton.styleFrom(
                 primary: ColorPalette.white,
                 backgroundColor: ColorPalette.basketColorBlack,
@@ -155,7 +155,7 @@ SizedBox(height: 7),
             ),),),
           ],
         ),
-        SizedBox(height: 10,)
+        SizedBox(height: 0.56.h)
       ],
     );
   }

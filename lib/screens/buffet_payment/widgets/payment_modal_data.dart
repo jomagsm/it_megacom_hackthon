@@ -106,7 +106,7 @@ class PaymentData extends StatelessWidget {
                 child: Text(
                   S.of(context).payment,
                   style: TextStyle(
-                    fontSize: 11.0,fontWeight: FontWeight.normal,
+                    fontSize: 7.0.sp,fontWeight: FontWeight.normal,
                   ),
                 ),
                 onPressed: () {

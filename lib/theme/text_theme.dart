@@ -61,20 +61,20 @@ class TextThemes {
 
   static var titleTextField = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 10,
+          fontSize: 7.0.sp,
           fontWeight: FontWeight.normal,
           color: ColorPalette.textforgot)
   );
   static var titleListProduct = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 11,
+          fontSize: 9.0.sp,
           fontWeight: FontWeight.bold ,
           color: ColorPalette.textforgot)
   );
 
   static var titlePage = GoogleFonts.lato(
     textStyle: TextStyle(
-        fontSize: 15,
+        fontSize: 10.0.sp,
         fontWeight: FontWeight.bold,
         color: ColorPalette.textforgot),
   );
@@ -91,7 +91,7 @@ class TextThemes {
   );
 
   static var passwordRequired = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 12, color: ColorPalette.titleTf),
+    textStyle: TextStyle(fontSize: 9.0.sp, color: ColorPalette.titleTf),
   );
 
   static var sumfDebt = GoogleFonts.lato(
@@ -103,13 +103,13 @@ class TextThemes {
 
   static var listDebt = GoogleFonts.lato(
       textStyle: TextStyle(
-          fontSize: 10,
+          fontSize: 8.0.sp,
           fontWeight: FontWeight.bold,
           color: ColorPalette.textforgot)
   );
 
   static var password = GoogleFonts.lato(
-    textStyle: TextStyle(fontSize: 11, color: ColorPalette.textforgot),
+    textStyle: TextStyle(fontSize: 9.0.sp, color: ColorPalette.textforgot),
   );
 }
 getTextHeight(double size, double height) {

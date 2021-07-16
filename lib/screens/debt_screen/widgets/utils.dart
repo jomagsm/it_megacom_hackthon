@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:it_megacom_hackthon/data/network/models/debt_models/user_debt.dart';
 import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
+import 'package:sizer/sizer.dart';
 
 getDataTableColumn(List<String> labelName) {
   List<DataColumn> column = [];
@@ -30,7 +31,7 @@ getDataTableRows(List<OperationReport> operationList) {
             Text('с',
            style: GoogleFonts.lato(
           textStyle: TextStyle(
-              fontSize: 10,
+              fontSize: 8.0.sp,
               fontWeight: FontWeight.bold,
               color: ColorPalette.textforgot,
               decoration: TextDecoration.underline))),],),),]),

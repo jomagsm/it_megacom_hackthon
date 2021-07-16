@@ -19,20 +19,20 @@ class DebtModalData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: 51.0.h,
+     // height: 8.0.h,
+     //width: 7.0.h,
       child: AlertDialog(
         scrollable: true,
-        contentPadding: EdgeInsets.all(0.77.w),
-        titlePadding: EdgeInsets.all(0.77.w),
+        contentPadding: EdgeInsets.only(left: 2.77.h,right: 2.77.h,top: 1.77.h,bottom:2.77.h),
+        titlePadding : EdgeInsets.only(left: 2.77.h,right: 2.77.h,top: 1.77.h),
         title:
            Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(S.of(context).debts, style: TextThemes.titlePage),
               Container(
-                height: 6.75.w,
-                width: 6.75.w,
+                height: 3.75.h,
+                width: 3.75.h,
              child: IconButton(
                 icon: SvgPicture.asset(SvgIconCollect.close),
                 onPressed: () {
@@ -45,21 +45,19 @@ class DebtModalData extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            Container(
-             width: double.infinity,
+            width: double.infinity,
              child: Text(
               S.of(context).inputPinInfo,
               style: TextThemes.passwordRequired,
             ),),
-            const SizedBox(
-              height: 8,
+             SizedBox(
+              height: 0.50.h,
             ),
             Text(
               S.of(context).pin,
               style: TextThemes.password,
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            SizedBox( height: 0.65.h),
             Container(
               width: 30.51.w,
               height:4.51.h,
@@ -84,7 +82,7 @@ class DebtModalData extends StatelessWidget {
                 ? BuyingList(
                     data: data,
                   )
-                : SizedBox(height: 200,),
+                : SizedBox( height: 20.0.h),
             // SizedBox(height: 200),
           ],
         ),
