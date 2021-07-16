@@ -9,7 +9,7 @@ class CustomAppBar extends PreferredSize {
   CustomAppBar({this.height = kToolbarHeight});
 
   @override
-  Size get preferredSize => Size.fromHeight(90.0);
+  Size get preferredSize => Size.fromHeight(9.0.h);
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,15 @@ class CustomAppBar extends PreferredSize {
               image: PageMedia.backgroundImage, fit: BoxFit.cover),
         )),
         Container(
-            width: 130,
-            height: 135,
+            width: 13.3.h,
+            height: 10.35.h,
             margin: EdgeInsets.only(top: 28, left: 0, right: 0),
             decoration: BoxDecoration(
               image: DecorationImage(image: PageMedia.itlogoBack),
             )),
         Container(
-            width: 100,
-            height: 110,
+            width: 10.0.h,
+            height: 10.1.h,
             margin: EdgeInsets.only(top: 37, left: 12, right: 0),
             decoration: BoxDecoration(
               image: DecorationImage(image: PageMedia.itLogo),
@@ -49,7 +49,7 @@ class CustomAppBar extends PreferredSize {
                 },
                 child: Image.asset(
                   "assets/images/Vector.png",
-                  width: 22,
+                  width: 2.2.h,
                 )))
       ]),
     ));

@@ -73,7 +73,7 @@ class BuyingProductListView extends StatelessWidget {
                         width: 7.0.w,
                         child: IconButton(
                           padding: EdgeInsets.only(bottom: 7),
-                          icon: const Icon(Icons.minimize, size: 13),
+                          icon:  Icon(Icons.minimize, size: 9.0.sp),
                           onPressed: () {
                             context.read<BasketBloc>().add(BasketEvent.minus(
                                 productId: buyingProduct[index].id));
@@ -98,7 +98,7 @@ class BuyingProductListView extends StatelessWidget {
                         margin: EdgeInsets.only(right: 2.11.w),
                         child: IconButton(
                           padding: EdgeInsets.only(bottom: 0),
-                          icon: const Icon(Icons.add, size: 13),
+                          icon:  Icon(Icons.add, size: 9.0.sp ),
                           onPressed: () {
                             context.read<BasketBloc>().add(BasketEvent.plus(
                                 productId: buyingProduct[index].id));
@@ -128,7 +128,7 @@ class BuyingProductListView extends StatelessWidget {
                       Text('с',
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 7.0.sp,
                                   fontWeight: FontWeight.bold,
                                   color: ColorPalette.textforgot,
                                   decoration: TextDecoration.underline))),
