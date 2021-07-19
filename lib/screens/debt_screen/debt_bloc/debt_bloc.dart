@@ -25,7 +25,7 @@ class DebtBloc extends Bloc<DebtEvent, DebtState> {
   Stream<DebtState> _mapInitialDebtEvent(_InitalDebtEvent event) async* {
     yield DebtState.loading();
     yield DebtState.initial();
-    yield DebtState.data(authUser: _authUser);
+    yield DebtState.data(authUser: _authUser,);
   }
 
   Stream<DebtState> _mapMakePaymentEvent(_MakePaymentDebtEvent event) async* {
@@ -46,7 +46,7 @@ class DebtBloc extends Bloc<DebtEvent, DebtState> {
       _userDebt != null ? _authUser = true : _authUser = false;
       yield DebtState.data(authUser: _authUser, userDebt: _userDebt);
     } catch (e) {
-      yield DebtState.error(message: e.toString());
+      yield DebtState.error(message: e.error.toString());
     }
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:it_megacom_hackthon/generated/l10n.dart';
 import 'package:it_megacom_hackthon/resource/svg_icons.dart';
 import 'package:it_megacom_hackthon/screens/debt_screen/debt_bloc/debt_bloc.dart';
+import 'package:it_megacom_hackthon/theme/color_theme.dart';
 import 'package:it_megacom_hackthon/theme/text_theme.dart';
 import 'package:sizer/sizer.dart';
 
@@ -61,7 +62,18 @@ class DebtModalData extends StatelessWidget {
             Container(
               width: 30.51.w,
               height:4.51.h,
-              child: TextField(
+              child:
+              data.authUser ?
+                  Container(
+                    padding: EdgeInsets.only(top: 9,left: 8) ,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: ColorPalette.titleTf),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child:
+                  Text(data.userDebt.pinDto.pin)
+                  )
+              : TextField(
                 onSubmitted: (value) {
                   context
                       .read<DebtBloc>()

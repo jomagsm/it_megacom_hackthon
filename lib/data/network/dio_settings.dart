@@ -21,6 +21,15 @@ class DioSettings {
           ),
         );
       }
+      else if (response.statusCode == 404){
+        throw DioError(
+          error: "Неправильные данные",
+          response: Response(
+            statusCode: 404,
+            request: response.request,
+          ),
+        );
+      }
     }, onError: (DioError error) async {
       if (error.type == DioErrorType.CONNECT_TIMEOUT) {
         throw DioError(

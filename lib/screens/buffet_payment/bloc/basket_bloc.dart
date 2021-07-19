@@ -77,7 +77,7 @@ class BasketBloc extends Bloc<BasketEvent, BasketState> {
       var response = await _repository.makePurchase(_buying.toJson());
       yield BasketState.successPayment(message: "Успешно!");
     } catch (e) {
-      yield BasketState.error(message: e.toString());
+      yield BasketState.error(message: e.message.toString());
     }
   }
 }
