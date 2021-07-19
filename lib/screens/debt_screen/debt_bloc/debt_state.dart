@@ -7,6 +7,7 @@ abstract class DebtState with _$DebtState {
   const factory DebtState.data({
     UserDebt userDebt,
     @required bool authUser,
+
   }) = _DataDebtState;
   const factory DebtState.succesPay({@required String message}) =
       _SuccesPayDebtState;
