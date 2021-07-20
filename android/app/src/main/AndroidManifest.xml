@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.it_megacom_hackthon">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="it_megacom_hackthon"
         android:icon="@mipmap/ic_launcher">

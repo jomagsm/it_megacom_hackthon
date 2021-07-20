@@ -5,12 +5,21 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 openPopupNullBasket(context) {
   Alert(
+    style: AlertStyle (
+      isCloseButton: false,
+      alertBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        side: BorderSide(
+          color: Colors.transparent ,
+        ),
+      ),
+    ),
       context: context,
       title: S.of(context).emptyBasket,
       content: Center(
         child: Text(S.of(context).selectProduct),
       ),
-      buttons: [
+      buttons:[
         DialogButton(
           color:ColorPalette.purple,
           onPressed: () => Navigator.pop(context),

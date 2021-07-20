@@ -43,7 +43,7 @@ class DioSettings {
         throw DioError(
           error: "Отсутствует интернет соединение",
           response: Response(
-            statusCode: 400,
+           statusCode: 400,
             request: error.request,
           ),
         );
