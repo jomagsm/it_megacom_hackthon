@@ -100,6 +100,9 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       var _productsListFeature = _repository.getProductsAll();
       List<Product> _productsListAll = await _productsListFeature;
       _productsList = getActiveProductsList(_productsListAll);
+      _selectedProductsList.clear();
+      _basketValue = 0;
+      _buyingProductList.clear();
       yield BuffetState.data(
           productsList: _productsList,
           basketValue: _basketValue,
