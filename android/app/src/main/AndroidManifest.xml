@@ -2,7 +2,7 @@
     package="com.example.it_megacom_hackthon">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="it_megacom_hackthon"
+        android:label="Буфет IT Megacom"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
