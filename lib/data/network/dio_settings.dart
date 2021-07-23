@@ -20,8 +20,7 @@ class DioSettings {
             request: response.request,
           ),
         );
-      }
-      else if (response.statusCode == 404){
+      } else if (response.statusCode == 404) {
         throw DioError(
           error: "Неправильные данные",
           response: Response(
@@ -31,6 +30,7 @@ class DioSettings {
         );
       }
     }, onError: (DioError error) async {
+      print(error);
       if (error.type == DioErrorType.CONNECT_TIMEOUT) {
         throw DioError(
           error: "Сервер не отвечает попробуйте еще раз",
@@ -43,7 +43,16 @@ class DioSettings {
         throw DioError(
           error: "Отсутствует интернет соединение",
           response: Response(
-           statusCode: 400,
+            statusCode: 400,
+            request: error.request,
+          ),
+        );
+      } else if (error.type == DioErrorType.RESPONSE &&
+          error.response.statusCode == 404) {
+        throw DioError(
+          error: "Неправильные данные",
+          response: Response(
+            statusCode: 404,
             request: error.request,
           ),
         );
