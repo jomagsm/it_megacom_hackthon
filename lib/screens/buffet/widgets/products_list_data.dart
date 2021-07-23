@@ -15,7 +15,11 @@ class ProductsListData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return RefreshIndicator(
+        onRefresh: () async {
+          context.read<BuffetBloc>()..add(BuffetEvent.refresh());
+        },
+    child: Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: BasketButton(data: data),
       appBar: CustomAppBar(
@@ -66,6 +70,6 @@ class ProductsListData extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }
