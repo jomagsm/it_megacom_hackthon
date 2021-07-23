@@ -6,4 +6,5 @@ abstract class BuffetEvent with _$BuffetEvent {
   const factory BuffetEvent.selectedProduct({@required int productId}) =
       _SelectedProductBuffetEvent;
   const factory BuffetEvent.selectBasket() = _SelectBasketBuffetEvent;
+  const factory BuffetEvent.refresh() = _RefreshBuffetEvent;
 }

@@ -24,6 +24,7 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
       initial: _mapInitialBuffetEvent,
       selectedProduct: _mapSelectedProductBuffetEvent,
       selectBasket: _mapSelectBasketBuffetEvent,
+      refresh: _mapRefreshBuffetEvent,
     );
   }
 
@@ -91,5 +92,22 @@ class BuffetBloc extends Bloc<BuffetEvent, BuffetState> {
         buyingProduct: _buyingProductList,
         selectedProductsList: _selectedProductsList,
         openModal: _openModal);
+  }
+
+  Stream<BuffetState> _mapRefreshBuffetEvent(_RefreshBuffetEvent event) async* {
+    yield BuffetState.loading();
+    try {
+      var _productsListFeature = _repository.getProductsAll();
+      List<Product> _productsListAll = await _productsListFeature;
+      _productsList = getActiveProductsList(_productsListAll);
+      yield BuffetState.data(
+          productsList: _productsList,
+          basketValue: _basketValue,
+          buyingProduct: _buyingProductList,
+          selectedProductsList: _selectedProductsList,
+          openModal: _openModal);
+    } catch (e) {
+      yield BuffetState.error(message: e.message.toString());
+    }
   }
 }

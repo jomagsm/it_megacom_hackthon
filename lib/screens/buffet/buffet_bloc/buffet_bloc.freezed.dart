@@ -894,6 +894,11 @@ class _$BuffetEventTearOff {
   _SelectBasketBuffetEvent selectBasket() {
     return const _SelectBasketBuffetEvent();
   }
+
+// ignore: unused_element
+  _RefreshBuffetEvent refresh() {
+    return const _RefreshBuffetEvent();
+  }
 }
 
 /// @nodoc
@@ -907,12 +912,14 @@ mixin _$BuffetEvent {
     @required TResult initial(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
+    @required TResult refresh(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
+    TResult refresh(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -920,12 +927,14 @@ mixin _$BuffetEvent {
     @required TResult initial(_InitialBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
+    @required TResult refresh(_RefreshBuffetEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(_InitialBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
+    TResult refresh(_RefreshBuffetEvent value),
     @required TResult orElse(),
   });
 }
@@ -988,10 +997,12 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     @required TResult initial(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
+    @required TResult refresh(),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return initial();
   }
 
@@ -1001,6 +1012,7 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     TResult initial(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
+    TResult refresh(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1016,10 +1028,12 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     @required TResult initial(_InitialBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
+    @required TResult refresh(_RefreshBuffetEvent value),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return initial(this);
   }
 
@@ -1029,6 +1043,7 @@ class _$_InitialBuffetEvent implements _InitialBuffetEvent {
     TResult initial(_InitialBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
+    TResult refresh(_RefreshBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1112,10 +1127,12 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     @required TResult initial(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
+    @required TResult refresh(),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return selectedProduct(productId);
   }
 
@@ -1125,6 +1142,7 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     TResult initial(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
+    TResult refresh(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1140,10 +1158,12 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     @required TResult initial(_InitialBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
+    @required TResult refresh(_RefreshBuffetEvent value),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return selectedProduct(this);
   }
 
@@ -1153,6 +1173,7 @@ class _$_SelectedProductBuffetEvent implements _SelectedProductBuffetEvent {
     TResult initial(_InitialBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
+    TResult refresh(_RefreshBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1216,10 +1237,12 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     @required TResult initial(),
     @required TResult selectedProduct(int productId),
     @required TResult selectBasket(),
+    @required TResult refresh(),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return selectBasket();
   }
 
@@ -1229,6 +1252,7 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     TResult initial(),
     TResult selectedProduct(int productId),
     TResult selectBasket(),
+    TResult refresh(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1244,10 +1268,12 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     @required TResult initial(_InitialBuffetEvent value),
     @required TResult selectedProduct(_SelectedProductBuffetEvent value),
     @required TResult selectBasket(_SelectBasketBuffetEvent value),
+    @required TResult refresh(_RefreshBuffetEvent value),
   }) {
     assert(initial != null);
     assert(selectedProduct != null);
     assert(selectBasket != null);
+    assert(refresh != null);
     return selectBasket(this);
   }
 
@@ -1257,6 +1283,7 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
     TResult initial(_InitialBuffetEvent value),
     TResult selectedProduct(_SelectedProductBuffetEvent value),
     TResult selectBasket(_SelectBasketBuffetEvent value),
+    TResult refresh(_RefreshBuffetEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1269,4 +1296,107 @@ class _$_SelectBasketBuffetEvent implements _SelectBasketBuffetEvent {
 
 abstract class _SelectBasketBuffetEvent implements BuffetEvent {
   const factory _SelectBasketBuffetEvent() = _$_SelectBasketBuffetEvent;
+}
+
+/// @nodoc
+abstract class _$RefreshBuffetEventCopyWith<$Res> {
+  factory _$RefreshBuffetEventCopyWith(
+          _RefreshBuffetEvent value, $Res Function(_RefreshBuffetEvent) then) =
+      __$RefreshBuffetEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RefreshBuffetEventCopyWithImpl<$Res>
+    extends _$BuffetEventCopyWithImpl<$Res>
+    implements _$RefreshBuffetEventCopyWith<$Res> {
+  __$RefreshBuffetEventCopyWithImpl(
+      _RefreshBuffetEvent _value, $Res Function(_RefreshBuffetEvent) _then)
+      : super(_value, (v) => _then(v as _RefreshBuffetEvent));
+
+  @override
+  _RefreshBuffetEvent get _value => super._value as _RefreshBuffetEvent;
+}
+
+/// @nodoc
+class _$_RefreshBuffetEvent implements _RefreshBuffetEvent {
+  const _$_RefreshBuffetEvent();
+
+  @override
+  String toString() {
+    return 'BuffetEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _RefreshBuffetEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult selectedProduct(int productId),
+    @required TResult selectBasket(),
+    @required TResult refresh(),
+  }) {
+    assert(initial != null);
+    assert(selectedProduct != null);
+    assert(selectBasket != null);
+    assert(refresh != null);
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult selectedProduct(int productId),
+    TResult selectBasket(),
+    TResult refresh(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(_InitialBuffetEvent value),
+    @required TResult selectedProduct(_SelectedProductBuffetEvent value),
+    @required TResult selectBasket(_SelectBasketBuffetEvent value),
+    @required TResult refresh(_RefreshBuffetEvent value),
+  }) {
+    assert(initial != null);
+    assert(selectedProduct != null);
+    assert(selectBasket != null);
+    assert(refresh != null);
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_InitialBuffetEvent value),
+    TResult selectedProduct(_SelectedProductBuffetEvent value),
+    TResult selectBasket(_SelectBasketBuffetEvent value),
+    TResult refresh(_RefreshBuffetEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RefreshBuffetEvent implements BuffetEvent {
+  const factory _RefreshBuffetEvent() = _$_RefreshBuffetEvent;
 }
