@@ -49,7 +49,7 @@ class CustomAppBar extends PreferredSize {
                 },
                 child: Image.asset(
                   "assets/images/Vector.png",
-                  width: 2.2.h,
+                  width: 3.0.h,
                 )))
       ]),
     ));
